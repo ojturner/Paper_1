@@ -1,0 +1,264 @@
+\documentclass[a4paper,fleqn,usenatbib]{mn2e}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}   % Including figure files
+\graphicspath{{Users/}{owenturner/}{Documents/}{PhD/}{KMOS/}{paper_1/}{Figures/}}
+\usepackage{amsmath}    % Advanced maths commands
+\usepackage{amssymb}    % Extra maths symbols
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$} % per cm-squared
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[Spatially resolved dynamics at $z \sim 3.5$]{The KMOS Deep Survey: Resolved gas dynamics at $z \sim 3.5$}
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[O.J. Turner et al.]{
+Owen J. Turner,$^{1}$\thanks{E-mail: turner@roe.ac.uk (OJT)}
+M. Cirasuolo,$^{1}$
+J. Dunlop$^{1}$
+R. J. McLure$^{1}$
+\\
+% List of institutions
+$^{1}$SUPA\thanks{Scottish Universities Physics Alliance}, Institute for Astronomy, University of Edinburgh, Royal Obervatory, Edinburgh EH9 3HJ\\
+$^{2}$Department, Institution, Street Address, City Postal Code, Country\\
+$^{3}$Another Department, Different Institution, Street Address, City Postal Code, Country
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2016}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% Abstract of the paper
+\begin{abstract}
+We present first results from the KMOS Deep Survey (KDS), which is an ESO guaranteed time survey of 80 star-forming galaxies in the redshift range $z = 3 - 3.8$.
+From this sample we detect spatially resolved [OIII5007] emission in the K-band from 57 galaxies, allowing us to explore the fraction which show ordered rotational motions, presumably in a star-forming disk.
+41 galaxies show a clear, smooth velocity gradient along the kinematic axis, meriting them for further investigation via dynamical modelling.
+The ratio of maximum rotational velocity to intrinsic velocity dispersion, $v / \sigma _{int}$, is commonly used to indicate the extent to which the gas in disk galaxies is dominated by ordered rotation or random motions.
+We find that 16 galaxies have $v / \sigma _{int} > 1$, in broad agreement with results found at similar and low redshift.
+The mean values of $v / \sigma _{int}$ are substantially lower in this redshift range than are observed locally; since the measured rotational velocity values have remained roughly constant over cosmic time this suggests that turbulent gas motions within the disk become steadily more important with increasing redshift.
+We investigate the causes for this, linking the increase in $\sigma _{int}$ to increasing gas fraction and decreasing galaxy size, following the virial theorem and a $(1 + z)^{-1}$ scaling.
+Finally we look into correlations between the maximum rotational velocity of galaxies and their global properties, finding that galaxies with higher stellar mass tend to rotate faster.
+
+
+
+
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+Integral Field Unit -- KMOS -- Dynamics -- Turbulence
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+
+\section{INTRODUCTION}
+
+Understanding the evolving dynamical state of disky star-forming galaxies (SFGs) throughout cosmic time is central to understanding the topics of galaxy formation and evolution.
+In the equilibrium model of galaxy evolution e.g. \cite{Genel2008,Lilly2013,Bouche2010,Dave2011,Dave2011a,Dave2011b,Krumholz2012}, the gas content of SFGs regulates their Star Formation Rates (SFRs) and varies smoothly inside individual galaxies throughout their lifetimes.
+The galactic gas budget is mediated by inflows of cold gas along cosmic web filaments CITE KERES, DEKEL, processing of the cold gas with steady, secular star formation and by outflows of gas from Active Galactic Nuclei (AGN) and stellar feedback.
+SFGs locked in this cycle of gas consumption form a galactic `Main Sequence', which is a fairly tight relationship between the SFR and stellar mass $M_{*}$  
+
+Over the last decade there have been considerable advancements 
+
+\citep{Wisnioski2015} \citep{ForsterSchreiber2009} \citep{ForsterSchreiber2006} \citep{Stott2016} \citep{Gnerucci2011} \citep{Epinat2012} \citep{Epinat2009} \citep{Epinat2010} \citep{Lilly2013} \citep{Saintonge2013} \citep{Wisnioski2011} \citep{Wright2007} \citep{Wright2009} \citep{Genzel2008} \citep{Genzel2006} \citep{Shapiro2008} \citep{Jones2010a} \citep{Newman2013} \citep{Genel2008} \citep{Nesvadba2008} \citep{Queyrel2012} \citep{Law2007} \citep{Law2009}
+\citep{Simons2016} \citep{Pelliccia2016} \citep{Genzel2011} \citep{Epinat2008} \citep{Epinat2008a} \citep{Puech2008} \citep{Puech2007} \cite{Holmberg1958} \citep{Kassin2012} \citep{Flores2006} \citep{Neichel2008} \citep{Miller2011} \citep{Nesvadba2006} \citep{Nesvadba2007} \citep{Livermore2015} \citep{Swinbank2006} \citep{Swinbank2007} \citep{Swinbank2009} \citep{Cortese2014}
+
+\section{SURVEY \& DATA REDUCTION}
+
+\subsection{The KMOS Deep Survey}
+The KMOS Deep Survey (KDS) is a guaranteed time programme focussing on the spatially resolved properties of $z \sim 3.5$ galaxies.
+
+\begin{itemize}
+    \item Description of the instrument 
+    \item plagued by poor weather, describe the time frame over which the observations are taken
+    \item OSO observation pattern
+    \item The different wavebands used and potential science that can come out of these observations
+    \item 300s exposures
+    \item describing all of the pointings 
+    \item Different physical conditions in the different pointings
+    \item Selection techniques 
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.47\textwidth]{paper_distributions.png}
+\caption{Distributions of the physical properties of KDS galaxies in both GOODS-S and SSA22}
+\label{fig:distributions}
+\end{figure}
+
+Concluding with the pointings that we had, and a table summarising the name of the pointing, the number of galaxies observed in each of those, the combined exposure time and the seeing. All of that information is available so could have been able to do this for a while now.
+
+\begin{table*}
+    \centering
+\begin{tabular}{ c c c c c c c }
+
+ \hline
+Field & Pointing & N$_{obs}$ & Coordinates & Band & Exp. Time (s) & Seeing (arcsec)  \\
+ \hline
+ GOODS-S & goodsp1 & 19 & 03:32:42 -27:48:58 & K, H & 32400 & 0.5 \\
+GOODS-S & goodsp2 & 18 & 03:32:42 -27:49:08 & K, H & 31800 & 0.52 \\
+SSA22 & ssap1 & 21 & 22:17:28 00:09:54 & HK & 38100 & 0.65 \\
+SSA22 & ssap2 & 18 & 22:17:11 00:15:47 & HK & 27800 & 0.70 \\
+ \hline
+\end{tabular}
+\caption{Summary of KDS statistics}
+\label{tab:KDS}
+\end{table*}
+
+\subsection{Data reduction techniques}
+The data reduction process relied heavily upon the Software Package for Astronomical Reduction with KMOS (SPARK), implemented using the ESO Recipe Execution Tool (ESOREX).
+To augment the SPARK recipes, custom python scripts were built and run at different stages of the pipeline in an attempt to increase the S/N of the final, stacked datacubes.
+These additional steps will be described throughout this section.
+
+The SPARK recipes are used to create dark frames, flatfield, illumination correct and wavelength calibrate the raw data.
+The four pixel wide gaps between the IFU lenslets in the raw data are then used to correct for readout channel bias across each detector, which if left uncorrected lead to flux bandings over the spatial extent of the reduced cubes.
+Standard star observations are processed to provide a flux calibration for each detector, which is necessary to account for varying sensitivity  
+Following this pre-processing, each of the object-sky pairs are reduced independently to give more control over the way in which the final stacks are created for each galaxy.
+Each 300s exposure is reconstructed into a datacube with interpolated $0.1\times0.1^{\prime\prime}$ spaxels, justified by the choice of dither pattern boosting the effective spatial resolution of the observations.
+Sky subtraction is performed using the SKYTWEAK option within SPARK \citep{Davies2007}, which counters the varying amplitude of OH lines between exposures by scaling `families' of OH lines independently to match the data.
+Wavelength miscalibration between exposures due to spectral flexure of the instrument is also accounted for by applying spectral shifts to the OH families during the procedure, and in general we find the quality of the sky subtraction in the K-band to be excellent. 
+Variations in sky subtraction quality are monitored over the course of the OBs which make up the final stacks, as we find that the subtraction performance becomes poorer as the telescope pointing approaches the zenith.
+This is due to the telescope having to track faster whilst at zenith positions, hence scanning more rapidly over regions of sky with spatially and temporally varying OH emission.
+In addition to this we monitor the evolution of the atmospheric PSF and the position of the control stars over the OBs, to allow us to reject raw frames with unacceptable seeing and to measure the spatial shifts required for the final stack more precisely.
+The telescope tends to drift from its acquired position over the course of an OB, and the difference between the dither pattern shifts and the measured position of the control stars provides the value by which each exposure must be shifted to create the stack.
+As part of this analysis, we tested whether the drift varies across the three KMOS detectors, finding typically that the difference is negligible, meaning that it is not necessary to sacrifice more than a single IFU for tracking purposes.
+
+After stacking all 300s exposures which pass the sky subtraction and seeing criteria, we are left with a final, flux and wavelength calibrated datacube for each galaxy in the KDS sample.
+
+\section{EXTRACTION OF PHYSICAL PROPERTIES}
+\subsection{Spaxel Fitting}
+Having produced stacked and calibrated datacubes for each of the galaxies in the sample, we aim to extract 2-dimensional maps of the flux, velocity and velocity dispersion.
+These properties are extracted via modelling of the ionised gas emission line profiles at each spaxel, with a set of acceptance criteria to determine whether the fit quality is high enough to allow the inferred properties into the final 2D maps.
+We concentrate solely on the [OIII5007] emission line which always has S/N higher than both [OIII4959] and H$\beta$, and therefore provides a tighter set of model constraints over a wider portion of the physical extent of each galaxy.
+As a result, any reference to OIII emission will refer specifically to the [OIII5007] line unless otherwise stated.
+
+We start by considering each 0.1$^{\prime\prime}$ spaxel across a datacube in turn 
+
+
+
+
+The process is automated and applied to each of the KDS galaxies.
+We find 56 galaxies with spatially resolved OIII emission, with this defined as being those where the spatial extent of the OIII is equivalent to or greater than the seeing disk.
+
+
+
+
+
+  
+
+
+
+
+\subsection{Sample Statistics}
+
+
+
+Fig.~\ref{fig:distributions}, Table~\ref{tab:KDS}.
+
+
+
+\section{ANALYSIS \& RESULTS}
+
+
+
+\section{DISCUSSION}
+
+\begin{itemize}
+    \item Surface brightness dimming
+    \item beam smearing
+    \item Different modelling techniques
+    \item 
+\end{itemize}
+
+\section{SUMMARY}
+
+
+
+\section*{Acknowledgements}
+
+The Acknowledgements section is not numbered. Here you can thank helpful
+colleagues, acknowledge funding agencies, telescopes and facilities used etc.
+Try to keep it short.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+
+% The best way to enter references is to use BibTeX:
+
+%\bibliographystyle{mnras}
+%\bibliography{example} % if your bibtex file is called example.bib
+
+
+% Alternatively you could enter them by hand, like this:
+% This method is tedious and prone to error if you have lots of references
+\clearpage 
+\bibliographystyle{apj.bst}
+%\bibliography{/usr/local/texlive/texmf-local/bibtex/bib/ojt.bib}
+\bibliography{/Users/owenturner/Documents/PhD/KMOS/Latex/Bibtex/library.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Some extra material}
+
+\begin{figure*}
+\centering
+\includegraphics[width=\textwidth]{combine_sci_reconstructed_bs006516_grid_fixed.png}
+\includegraphics[width=\textwidth]{combine_sci_reconstructed_bs006541_grid_fixed.png}
+\includegraphics[width=\textwidth]{combine_sci_reconstructed_bs008543_grid_fixed.png}
+\caption{Distributions of the physical properties of KDS galaxies in both GOODS-S and SSA22}
+\label{fig:grids}
+\end{figure*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Don't change these lines
+\bsp    % typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex
