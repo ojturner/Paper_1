@@ -1,5 +1,12 @@
 \documentclass[a4paper,fleqn,usenatbib]{mn2e}
 
+\usepackage[hyperfootnotes=false]{hyperref}
+\hypersetup{
+  colorlinks,
+  citecolor=blue,
+  linkcolor=red,
+  urlcolor=Violet}
+
 % MNRAS is set in Times font. If you don't have this installed (most LaTeX
 % installations will be fine) or prefer the old Computer Modern fonts, comment
 % out the following line
@@ -13,6 +20,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
 
+% fancy section symbol
+\usepackage{cleveref}
+\crefname{section}{$\S$}{$\S\S$}
+\Crefname{section}{$\S$}{$\S\S$}
 
 %%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
 
@@ -92,20 +103,90 @@ Integral Field Unit -- KMOS -- Dynamics -- Turbulence
 
 \section{INTRODUCTION}
 
-Understanding the evolving dynamical state of disky star-forming galaxies (SFGs) throughout cosmic time is central to understanding the topics of galaxy formation and evolution.
-In the equilibrium model of galaxy evolution e.g. \cite{Genel2008,Lilly2013,Bouche2010,Dave2011,Dave2011a,Dave2011b,Krumholz2012}, the gas content of SFGs regulates their Star Formation Rates (SFRs) and varies smoothly inside individual galaxies throughout their lifetimes.
-The galactic gas budget is mediated by inflows of cold gas along cosmic web filaments CITE KERES, DEKEL, processing of the cold gas with steady, secular star formation and by outflows of gas from Active Galactic Nuclei (AGN) and stellar feedback.
-SFGs locked in this cycle of gas consumption form a galactic `Main Sequence', which is a fairly tight relationship between the SFR and stellar mass $M_{*}$  
 
-Over the last decade there have been considerable advancements 
 
-\citep{Wisnioski2015} \citep{ForsterSchreiber2009} \citep{ForsterSchreiber2006} \citep{Stott2016} \citep{Gnerucci2011} \citep{Epinat2012} \citep{Epinat2009} \citep{Epinat2010} \citep{Lilly2013} \citep{Saintonge2013} \citep{Wisnioski2011} \citep{Wright2007} \citep{Wright2009} \citep{Genzel2008} \citep{Genzel2006} \citep{Shapiro2008} \citep{Jones2010a} \citep{Newman2013} \citep{Genel2008} \citep{Nesvadba2008} \citep{Queyrel2012} \citep{Law2007} \citep{Law2009}
-\citep{Simons2016} \citep{Pelliccia2016} \citep{Genzel2011} \citep{Epinat2008} \citep{Epinat2008a} \citep{Puech2008} \citep{Puech2007} \cite{Holmberg1958} \citep{Kassin2012} \citep{Flores2006} \citep{Neichel2008} \citep{Miller2011} \citep{Nesvadba2006} \citep{Nesvadba2007} \citep{Livermore2015} \citep{Swinbank2006} \citep{Swinbank2007} \citep{Swinbank2009} \citep{Cortese2014}
+NO UNIVERSALLY DEFINED MEASURE OF THE CIRCULAR VELOCITY, OR THE POINT AT WHICH TO EXTRACT THAT VALUE.
 
-\section{SURVEY \& DATA REDUCTION}
+% Check references here - exactly where does this scenario come from? 
+In the hierarchical collapse scenario \citep{Fall1980}, matter density perturbations, which originate from some set of cosmological initial conditions, grow over time before condensing out of the general expansion to form dark matter haloes (Lifshitz 1960) \cite{Silk1968,Peebles1970}.
+Mixed amongst this dark matter is baryonic gas, which is initially shock heated to the virial temperature of the halo during the gravitational collapse \citep{Birnboim2003,Keres2005,Dekel2006}.
+As the baryons collectively cool, they accumulate at the centre of the potential well of the host halo as dense and cold protogalactic gas.
+One crucial ingredient shaping the subsequent evolution of this system is the transfer of angular momentum from the collapsing gas, as a protogalaxy which is rich in angular momentum is likely to form a turbulent, rotating disk, whereas if the angular momentum is low the formation of a spherical system dominated by random motions will ensue.
 
-\subsection{The KMOS Deep Survey}
-The KMOS Deep Survey (KDS) is a guaranteed time programme focussing on the spatially resolved properties of $z \sim 3.5$ galaxies.
+It is an observationally determined fact that the galaxy population is bimodal in many physical properties at each epoch after galaxies begin to form, with a preference for the most massive galaxies to lie in the red sequence, characterised by red colours, low Star Formation Rates (SFRs) and spherical morphologies, and less massive galaxies in the blue sequence, characterised by blue colours, high star formation rates and disky morphologies. 
+\citep{Abramson2016,Abramson2016a}
+\citep{Pannella2009a}
+
+\citep{Baldry2006}
+simulations explaining the biodality in terms of AGN feedback and a cut at a characteristic mass scale.
+\citep{Birnboim2003,Dekel2006,Keres2005,Bower2006,Croton2006}
+Explaining the observed number densities of early and late type galaxies at different epochs in terms of their formation mechanisms and evolutionary histories is one of the key goals of modern astronomy.
+Two scenarii have emerged. The first highlights the importance of secular evolution, whereby cold gas accreted along cosmic web filaments `tops up' the existing baryon supply which fuels star formation, stellar mass within a galaxy is continually built up with in-situ star formation and the rate of star formation itself is regulated by both stellar and AGN feedback.
+In this picture there is a certain mass scale above which a galaxy becomes quenched - EXPAND UPON THAT
+The second suggests that environmental effects dominate the evolutionary demographic, with mass buildup predominantly occuring through minor mergers and major mergers triggering the cessation of star formation and building the red sequence at each epoch.  
+Throughout the last few years both the results from simulations REF and observations have pushed the community towards the former picture, which downplays the significance of mergers in driving galaxy evolution. 
+
+
+
+
+
+
+
+
+
+%,Understanding the evolving dynamical state of disky star-forming galaxies (SFGs) throughout cosmic time is central to understanding the topics of galaxy formation and evolution.
+%There are two different evolutionary scenarii.
+%The first suggests that the buildup of stellar mass, $M_{*}$, over time within galaxies is hierarchical, with minor mergers steadily contributing to $M_{*}$ and major mergers bringing about the cessation of star formation by shock heating of the cold molecular gas. 
+%The second is the equilibrium model of galaxy evolution e.g. \cite{Genel2008,Bouche2010,Dave2011,Dave2011a,Dave2011b,Krumholz2012,Lilly2013}, where the gas content of SFGs regulates their Star Formation Rates (SFRs) and varies smoothly inside individual galaxies throughout their lifetimes.
+%In this picture the galactic gas budget is mediated by inflows of cold gas along cosmic web filaments \citep{Keres2005,Dekel2006} processing of the cold gas with steady, secular star formation and by outflows of gas from Active Galactic Nuclei (AGN) and stellar feedback.
+%SFGs locked in this cycle of gas consumption form a galactic `Main Sequence', which is a fairly tight relationship between the SFR and stellar mass $M_{*}$  
+%Over the last decade there have been considerable advancements 
+
+References for other things
+MAIN SEQUENCE
+\citep{Daddi2007} \citep{Elbaz2011a} \citep{Elbaz2007} \citep{Noeske2007a}
+
+
+
+
+
+These are all the references for kinematics, not all the references for other things and other aspects of galaxy evolution. 
+\citep{Wisnioski2015} \citep{ForsterSchreiber2009} \citep{ForsterSchreiber2006} \citep{Stott2016} \citep{Gnerucci2011} \citep{Epinat2012} ,\citep{Epinat2009} \citep{Epinat2010} \citep{Lilly2013} \citep{Saintonge2013} \citep{Wisnioski2011} \citep{Wright2007} \citep{Wright2009} \citep{Genzel2008} \citep{Genzel2006} \citep{Shapiro2008} \citep{Jones2010a} \citep{Newman2013} \citep{Genel2008} \citep{Nesvadba2008} \citep{Queyrel2012} \citep{Law2007} \citep{Law2009}
+\citep{Simons2016} \citep{Pelliccia2016} \citep{Genzel2011} \citep{Epinat2008} \citep{Epinat2008a} \citep{Puech2008} \citep{Puech2007} \cite{Holmberg1958} \citep{Kassin2012} \citep{Flores2006} \citep{Neichel2008} \citep{Miller2011} \citep{Nesvadba2006} \citep{Nesvadba2007} \citep{Livermore2015} \citep{Swinbank2006} \citep{Swinbank2007} \citep{Swinbank2009} \citep{Cortese2014} \citep{VanderWel2012} - for the PSF used when Galfitting F160W.
+
+
+
+MOTIVATING THE FOLLOWING SECTION
+
+The KMOS Deep Survey (KDS) is a guaranteed time programme focussing on the spatially resolved properties of star forming galaxies during a time where the universe is building to peak activity.
+There are still many open questions which we can begin to answer by studying the emission, or lack thereof, from regions of ionised gas within individual galaxies at these redshifts.
+For example: \textbf{(1)} How do the physical conditions of the ISM such as electron density and ionisation parameter change as a function of spatial position within the galaxy, and what does this tell us about the application of strong line metallicity calibrators at high redshift?
+\textbf{(2)} What are the radial gradients in metal enrichment and would evidence for inverse gradients suggest infall of pristine gas to the central regions of these galaxies?
+\textbf{(3)} What are the connections between the chemical properties and the kinematics of the gas, particularly in terms of inflows and outflows of material?
+KMOS benefits from the ability to study many targets simultaneously, with 24 deployable IFUs patrolling a $7^{\prime}$ patch of sky.
+Attempting to spatially resolve the flux from emission lines at $z \sim 3.5$ necessarily requires on source integration times $>$ 6 hours, and so the multiplexing capability provides KMOS with an enormous advantage in terms of observing time over other instruments for this type of study.
+This has the knock-on effect of enabling a more general galaxy selection criteria, so that the KDS targets will be representative of the main sequence star forming population. 
+
+Many of these questions have already been addressed at lower redshift, as described above \citep{ForsterSchreiber2009,Wisnioski2015,Stott2016}, and also in a similar redshift range \cite{Gnerucci2011}.
+The KDS will complement the lower redshift results by providing an additional data point on any plots showing evolutionary sequences of derived physical properties, therefore providing a more complete description of galaxy evolution starting from before cosmic high noon and running up to the present day.
+The high redshift results of \cite{Gnerucci2011} will be expanded upon by the KDS, which extends to lower stellar masses and will increase the sample size for which physical properties can be resolved by roughly a factor of three.
+
+In this paper we focus on deriving and interpreting the spatially resolved kinematics of KDS galaxies using the [OIII5007] emission line, discussing what we can learn about the nature of galaxy formation at $z \sim 3.5$, and focussing on forming evolutionary links with lower redshift work.
+We combine our KMOS data with the high resolution and sensitivity of the Hubble Space Telescope (HST) WFC3 H-band imaging in a spectro-photometric analysis, so that the kinematics can also be understood in the context of galaxy morphology.
+In a future paper, (Turner \textit{et al.} in prep.), we will investigate the radial gradients in galaxy metallicity and hence the spatially resolved physical conditions within the ISM.
+
+The structure of the current paper is as follows. In \cref{sec:Survey_and_data} we present the survey description, sample selection, observation strategy and data reduction.
+In \cref{sec:extracting_properties} we explain how the two-dimensional maps of physical properties were extracted from our stacked datacubes and then describe the treatment of these maps and the modelling which leads to the final table of physical properties for the KDS galaxies. 
+\cref{sec:results} presents our physical findings which are then discussed in \cref{sec:discussion}.
+We then conclude in \cref{sec:conclusions}.
+Throughout this work we assume a standard $\Lambda$CDM cosmology with (h, $\Omega_{m}$, $\Omega_{\Lambda}$) = (0.7, 0.3, 0.7). 
+
+\section{SURVEY \& DATA REDUCTION}\label{sec:Survey_and_data}
+
+\subsection{The KMOS Deep Survey: sample selection and strategy}
+
+
+
 
 \begin{itemize}
     \item Description of the instrument 
@@ -144,9 +225,13 @@ SSA22 & ssap2 & 18 & 22:17:11 00:15:47 & HK & 27800 & 0.70 \\
 \label{tab:KDS}
 \end{table*}
 
+\subsection{Observations}
+
+\subsection{Ancillary data}
+
 \subsection{Data reduction techniques}
 The data reduction process relied heavily upon the Software Package for Astronomical Reduction with KMOS (SPARK), implemented using the ESO Recipe Execution Tool (ESOREX).
-To augment the SPARK recipes, custom python scripts were built and run at different stages of the pipeline in an attempt to increase the S/N of the final, stacked datacubes.
+In addition to the SPARK recipes, custom python scripts were run at different stages of the pipeline.
 These additional steps will be described throughout this section.
 
 The SPARK recipes are used to create dark frames, flatfield, illumination correct and wavelength calibrate the raw data.
@@ -162,22 +247,136 @@ In addition to this we monitor the evolution of the atmospheric PSF and the posi
 The telescope tends to drift from its acquired position over the course of an OB, and the difference between the dither pattern shifts and the measured position of the control stars provides the value by which each exposure must be shifted to create the stack.
 As part of this analysis, we tested whether the drift varies across the three KMOS detectors, finding typically that the difference is negligible, meaning that it is not necessary to sacrifice more than a single IFU for tracking purposes.
 
-After stacking all 300s exposures which pass the sky subtraction and seeing criteria, we are left with a final, flux and wavelength calibrated datacube for each galaxy in the KDS sample.
+We stack all 300s exposures for each galaxy which pass the sky subtraction and seeing criteria using sigma-clipping, leaving us with a flux and wavelength calibrated datacube for every object in the KDS sample.
 
-\section{EXTRACTION OF PHYSICAL PROPERTIES}
+\section{EXTRACTION OF PHYSICAL PROPERTIES}\label{sec:extracting_properties}
 \subsection{Spaxel Fitting}
 Having produced stacked and calibrated datacubes for each of the galaxies in the sample, we aim to extract 2-dimensional maps of the flux, velocity and velocity dispersion.
 These properties are extracted via modelling of the ionised gas emission line profiles at each spaxel, with a set of acceptance criteria to determine whether the fit quality is high enough to allow the inferred properties into the final 2D maps.
 We concentrate solely on the [OIII5007] emission line which always has S/N higher than both [OIII4959] and H$\beta$, and therefore provides a tighter set of model constraints over a wider portion of the physical extent of each galaxy.
-As a result, any reference to OIII emission will refer specifically to the [OIII5007] line unless otherwise stated.
+As a result, any reference to OIII emission points specifically to the [OIII5007] line unless otherwise stated.
 
-We start by considering each 0.1$^{\prime\prime}$ spaxel across a datacube in turn 
+We start by considering each 0.1$^{\prime\prime}$ spaxel across a datacube in turn, and locate the wavelength of the redshifted OIII centre, $\lambda_{obs_{5007}}$, using either the literature redshift value, or the redshift determined from fitting the OIII line in the integrated galaxy spectrum.
+We have found that the thermal background is often undersubtracted across the spatial extent of the cube following a first pass through the pipeline, leading to excess flux towards the long wavelength end of the K-band.
+To account for this a polynial function is fit, using the python package {\tt LMFIT} \citep{Newville2014} which makes use of the Levenberg-Marquardt algorithm for non-linear curve fitting, to the median stacked spectrum from spaxels in the datacube which contain no object flux, and then subtracted from each spaxel in turn.
+This assumes that there is no spatial variation in the required correction, which we have found to be valid for our current sample of galaxies.
+A benefit of this polymonial subtraction is that the object continuum is subtracted simultaneously, and so the subsequent fitting of emission lines is performed relative to zero flux. 
+During the fit, regions of the spectrum known to contain strong sky emission are masked.
+Following the subtraction of excess thermal noise and continuum emission, we search a narrow region around $\lambda_{obs_{5007}}$ for the peak flux, assumed to correspond to the ionised gas emission, and extract a 5$\AA$ region (corresponding to 20 spectral elements) centred on this peak.
+This truncated spectrum is then used in the fitting procedure for each spaxel.
+The width of the extraction region is large enough to encompass unphysically large velocity shifts, but not so large as to compromise the fitting by potentially encompassing regions of the spectrum plagued by poor subtraction of the sky emission lines.
+A single gaussian model is fit to the extraction region, again using {\tt LMFIT} \citep{Newville2014}, returning the values of the fitted parameters flux,$F_{g}$, central wavelength, $\lambda_{g}$ and standard deviation, $\sigma_{g}$.
+These parameters, along with the estimate of the noise in the datacube are used to assess whether the fitting of the OIII line is acceptable or not. 
+The noise in the cube is estimated in two different ways. 
+First, we take the root of the sum of the squares of the flux values in the noise cube over the same extraction region defined for the data cube.
+The noise cube is produced as part of the reduction process, taking into account instrumental effects and the noise reduction due to stacking many individual exposures.
+This is summarised by Equation~\ref{eq:cube_noise}, where $\sigma _{i}$ are the individual flux points in the noise cube and $N_{c}$ denotes noise estimated from the noise cube.
 
+\begin{equation}\label{eq:cube_noise}
+   N_{c} = \sum_{i}\sigma _{i}^{2}
+\end{equation}
 
+In the second method the datacube itself is used to estimate the noise.
+Again, all spaxels containing object flux are masked and the sum of the squares of the flux values in the extaction region is computed for all remaining spaxels inwards of 3 spaxels from the cube border.
+This last constraint is to mitigate edge effects, where the noise increases due to fewer individual exposures constituting the final stack in these regions.
+The final noise value is then taken as the standard deviation of the results from each unmasked spaxel, as shown in Equation~\ref{eq:mask_noise} where $F_{i}$ are the flux values across the extraction region and $N_{m}$ denotes noise estimated from masking the datacube.
+Both noise estimates are quantitatively similar and the conclusions of the following analysis are not dependent on the choice.
+As default we use the noise estimate from masking throughout the rest of the section.
 
+\begin{equation}\label{eq:mask_noise}
+    N_{m} = STD\big(\sum_{i}F_{i}^{2}\big)
+\end{equation}
+
+The signal in each spaxel is taken as the sum of the flux values across the extraction region, as shown in Equation~\ref{eq:signal} where S denotes the signal.
+
+\begin{equation}\label{eq:signal}
+    S = \sum_{i}F_{i}
+\end{equation}
+
+The criteria for accepting the fit within a given spaxel are as follows.
+1) The uncertainties on the parameters of the gaussian fit must not exceed 30\%
+2) The ratio of the flux recovered from the gaussian fit to the OIII line to the sum of the fluxes within the extraction region must exceed 1.3 or drop below 0.7.
+This helps to minimise the number of spaxels erroneously accepted due to fitting of non-gaussian profiles.
+We found this was an important criterion for `cleaning up' accepted spaxels in the 2D maps which are clearly independent of the main body of the galaxy.
+3) The measured S/N must exceed three.
+If all three criteria are satisfied, the spaxel is accepted and the gaussian fit is repeated 1000 times with each flux value in the extraction region perturbed by the datacube flux error.
+This error is computed as the median of the standard deviations in the extraction regions of the unmasked spaxels, as shown in Equation~\ref{eq:cube_error} with $F_{e}$ denoting the flux error.  
+
+\begin{equation}\label{eq:cube_error}
+   F_{e} = \big<STD(F _{i})\big>
+\end{equation}
+
+This Monte Carlo procedure gives the fit parameters and associated errors for the accepted spaxels.
+The velocity is computed from the gaussian centre, $\lambda_{g}$, using Equation~\ref{eq:velocity_comp} and the velocity dispersion is computed from the gaussian width, $\sigma_{g}$, using Equation~\ref{eq:dispersion_comp}, where $v_{obs}$ and $\sigma_{obs}$ are the observed rotational velocity and velocity dispersion respectively and c is the speed of light.
+
+\begin{equation}\label{eq:velocity_comp}
+   v_{obs} = \frac{\lambda_{c} - (1 + z)\lambda_{OIII}}{(1 + z)\lambda_{OIII}} \times c
+\end{equation}
+
+\begin{equation}\label{eq:dispersion_comp}
+   \sigma_{obs} = \frac{\sigma_{g}}{(1 + z)\lambda_{OIII}} \times c
+\end{equation}
+
+If a spaxel does not meet the criteria we bin with neighbouring spaxels to create a box of area $0.3\times0.3^{\prime\prime}$.
+This is done by median stacking the extraction region spectra in each of the neighbouring spaxels.
+The criteria are then re-examined and if satisfied the Monte-Carlo procedure is carried out. 
+If the binned spaxels fail the criteria, one final iteration is carried out to bin to a box of area $0.5\times0.5^{\prime\prime}$.
+If after the widest binning the criteria aren't satisfied, the value of the spaxel in the 2D maps is set to nan.
+Spaxels which pass the criteria after binning are represented as a single spaxel in the 2D maps, and so a smoothing of the fields are expected in the lowest S/N regions.
 
 The process is automated and applied to each of the KDS galaxies.
-We find 56 galaxies with spatially resolved OIII emission, with this defined as being those where the spatial extent of the OIII is equivalent to or greater than the seeing disk.
+As mentioned previously, we find 56 galaxies with spatially resolved OIII emission, with this defined as being those where the spatial extent of the OIII is equivalent to or greater than the seeing disk of roughly $0.5^{\prime\prime}$.
+
+\subsection{Imaging Data}
+It is essential to make use of photometric data which cover the same fields as targetted by the KDS pointings.
+From these data the inclination with respect to line of sight, position angles and sizes of our galaxies can be constrained from single band fitting, and multi-band SPS modelling gives estimates of the global physical properties such as $M_{*}$ and SFR. 
+The single band properties complement the observed kinematics from KMOS and provide the information required to estimate intrinsic velocity fields.
+As suggested in \cite{Holmberg1958}, by modelling the disk galaxies as an oblate spheroid the inclination angle can be recovered from the observed axial ratio as shown in Equation \ref{eq:holmberg_i}, where $\frac{b}{a}$ is the ratio of minor to major axis of an ellipse fit to the galaxy profile on the sky, $i$ is the inclination angle and $\alpha$ is the axial ratio of an edge-on system, and so is dependent upon an assumption about the `disk thickness'.
+
+\begin{equation}\label{eq:holmberg_i}
+   cos^{2}i = \frac{\left(\frac{b}{a}\right)^{2} - \alpha^{2}}{1 - \alpha^{2}}
+\end{equation}
+
+This inclination can then be used to correct the line of sight component of the observed velocity, to recover an intrinsic circular velocity, in the standard way.
+The discrepancy between morphologial and kinematic position angles is an important indicator of sub-structure in the morphology \citep{Queyrel2012,Wisnioski2015}.
+These values are expected to agree, particularly for low axial ratios, and deviations can indicate clumps or mergers, which may influence the underlying kinematics. 
+However for compact, unresolved morphologies there are cases where there is simply not enough information to predict the axis along which velocity gradient will be maximised. 
+First this provides a way to extract circular velocities at some fiducial distance from the centre of the galaxy.
+As discussed throughout the introduction, there is no universal definition of what the circular velocity is, and so to compare with previous work it is necessary to extract values consistently from the derived rotation curves.
+Connected to this is the issue of extrapolating model rotation curves or two-dimensional rotation maps beyond the last measured datapoints, which may not extend to the rotation curve plateau due to poor S/N in this regions.
+Knowledge of the effective radii gives a fixed point of extrapolation and a clear measure of how far beyond the data this extrapolation is made.
+Second, since beam smearing affects all of these measurements and tends to flatten velocity gradients, Durham have invested time into modelling the extent to which this can be corrected.
+The correction is a function of the ratio between $r_{e}$ and PSF size as shown in Figure DURHAM, and so accurately measuring the effective radius of a galaxy vindicates the use of this curve to recover intrinsic circular velocities. \\
+
+To support the KMOS GOODS-S pointings there is excellent ancillary data from both the ACS and WFC3 instruments aboard HST.
+In tandem with IRAC and spitzer, these provide photometric measurements across the optical and IR regions of the spectrum, from which reliable stellar masses and star formation rates can be derived.
+The high resolution single band images are not inhibited by atmospheric broadening of the PSF and so are rich in morphological information which is useful both to eyeball for interesting features and for constraining the parameters described above.
+The SSA22 pointings have less imaging data, all of which is ground-based, and so both the global physical properties and the single band properties are not constrained as well as in the GOODS-S case.
+Nonetheless, it is possible to determine morphological parameters by fitting the images using GALFIT, as described in section \ref{subsubsec:galfitting}. 
+
+\subsubsection{Applying GALFIT to the imaging data}\label{subsubsec:galfitting}
+For the GOODS-S pointings we focus on the deep WFC3 F160W image of GOODS-S, this being the longest wavelength (and therefore least attenuated) measure of the stellar continuum, which traces the rest-frame optical and near-UV light at the median redshift of the KDS galaxies.
+
+
+
+
+INCLUDE TABLE OF THE GALFIT outputs
+HST vs. TENIS imaging of the same galaxies to confirm whether it is okay to report the physical properties of a sample taken from the ground and then GALFIT.
+
+
+
+
+   
+To complement our KMOS data we make use of publicly available Hubble F160W imaging, which covers all galaxies in our two GOODS-S pointings.
+This imaging is useful not only as part of the ancillary data from which the galactic physical properties are derived, but also as a tool to constrain the size, centre, inclination angle and morphological axis of the galaxies. 
+We use GALFIT \citep{Peng2010_galfit} to model the F160W light profile of each GOODS-S galaxy, which attempts to fit a 
+
+\subsection{Dynamical Modelling}
+Constructing model 2D velocity fields and fitting these to the observed data is a powerful tool for determining the set of parameters which best describe the dynamical state of that galaxy.
+HERE IS WHERE TO MENTION SURVEYS WHICH HAVE DONE THIS IN THE PAST.
+
+
+\subsection{Beam Smearing Correction}
 
 
 
@@ -196,11 +395,11 @@ Fig.~\ref{fig:distributions}, Table~\ref{tab:KDS}.
 
 
 
-\section{ANALYSIS \& RESULTS}
+\section{ANALYSIS \& RESULTS}\label{sec:results}
 
 
 
-\section{DISCUSSION}
+\section{DISCUSSION}\label{sec:discussion}
 
 \begin{itemize}
     \item Surface brightness dimming
@@ -209,7 +408,7 @@ Fig.~\ref{fig:distributions}, Table~\ref{tab:KDS}.
     \item 
 \end{itemize}
 
-\section{SUMMARY}
+\section{CONCLUSIONS}\label{sec:conclusions}
 
 
 
