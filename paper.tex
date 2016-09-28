@@ -152,7 +152,7 @@ MAIN SEQUENCE
 
 These are all the references for kinematics, not all the references for other things and other aspects of galaxy evolution. 
 \citep{Wisnioski2015} \citep{ForsterSchreiber2009} \citep{ForsterSchreiber2006} \citep{Stott2016} \citep{Gnerucci2011} \citep{Epinat2012} ,\citep{Epinat2009} \citep{Epinat2010} \citep{Lilly2013} \citep{Saintonge2013} \citep{Wisnioski2011} \citep{Wright2007} \citep{Wright2009} \citep{Genzel2008} \citep{Genzel2006} \citep{Shapiro2008} \citep{Jones2010a} \citep{Newman2013} \citep{Genel2008} \citep{Nesvadba2008} \citep{Queyrel2012} \citep{Law2007} \citep{Law2009}
-\citep{Simons2016} \citep{Pelliccia2016} \citep{Genzel2011} \citep{Epinat2008} \citep{Epinat2008a} \citep{Puech2008} \citep{Puech2007} \cite{Holmberg1958} \citep{Kassin2012} \citep{Flores2006} \citep{Neichel2008} \citep{Miller2011} \citep{Nesvadba2006} \citep{Nesvadba2007} \citep{Livermore2015} \citep{Swinbank2006} \citep{Swinbank2007} \citep{Swinbank2009} \citep{Cortese2014} \citep{VanderWel2012} - for the PSF used when Galfitting F160W.
+\citep{Simons2016} \citep{Pelliccia2016} \citep{Genzel2011} \citep{Epinat2008} \citep{Epinat2008a} \citep{Puech2008} \citep{Puech2007} \cite{Holmberg1958} \citep{Kassin2012} \citep{Flores2006} \citep{Neichel2008} \citep{Miller2011} \citep{Nesvadba2006} \citep{Nesvadba2007} \citep{Livermore2015} \citep{Swinbank2006} \citep{Swinbank2007} \citep{Swinbank2009} \citep{Cortese2014} \citep{VanderWel2012} \citep{Genzel2014a} \citep{Genzel2014} - for the PSF used when Galfitting F160W.
 
 
 
@@ -163,6 +163,7 @@ There are still many open questions which we can begin to answer by studying the
 For example: \textbf{(1)} How do the physical conditions of the ISM such as electron density and ionisation parameter change as a function of spatial position within the galaxy, and what does this tell us about the application of strong line metallicity calibrators at high redshift?
 \textbf{(2)} What are the radial gradients in metal enrichment and would evidence for inverse gradients suggest infall of pristine gas to the central regions of these galaxies?
 \textbf{(3)} What are the connections between the chemical properties and the kinematics of the gas, particularly in terms of inflows and outflows of material?
+\textbf{(4)} What role does formation environment play in shaping the dynamical and chemical evolution of galaxies? 
 KMOS benefits from the ability to study many targets simultaneously, with 24 deployable IFUs patrolling a $7^{\prime}$ patch of sky.
 Attempting to spatially resolve the flux from emission lines at $z \sim 3.5$ necessarily requires on source integration times $>$ 6 hours, and so the multiplexing capability provides KMOS with an enormous advantage in terms of observing time over other instruments for this type of study.
 This has the knock-on effect of enabling a more general galaxy selection criteria, so that the KDS targets will be representative of the main sequence star forming population. 
@@ -183,8 +184,67 @@ Throughout this work we assume a standard $\Lambda$CDM cosmology with (h, $\Omeg
 
 \section{SURVEY \& DATA REDUCTION}\label{sec:Survey_and_data}
 
-\subsection{The KMOS Deep Survey: sample selection and strategy}
+% note going to assume here that the KMOS targets were selected from 
+% from VVDS, COSMOS
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notes for the sample selection plots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. mstar vs sfr - must have full sample in the backgroud 
+% and also lines showing where the main sequence of star formation
+% should lie on this plot
+% 2. colour vs mass plots - showing again the general population in 
+% the background - will need to convert fluxes to magnitudes?
+% Maybe a redshift vs. magnitude plot or something similar, showing
+% how faint these targets are.
+
+\subsection{The KMOS Deep Survey: sample selection and observations}
+Our target selection for the KDS sample is designed to pick out star-forming galaxies at $z = 3-4$, supported by deep multi-wavelength ancillary data and probing both cluster and field environments.
+Within this redshift range the [OIII4959,5007] doublet and the $H_{beta}$ emission lines are visible in the K-band and the [OII3727,3729] doublet is visible in the H-band, both of which are observable with KMOS. 
+We also want to draw galaxies covering a wide range in the SFR-$M_{*}$ relation, so that we are ultimately tracking the physical properties of a representative sample of the star-forming population at these redshifts.
+For these reasons, and to ensure a high detection rate of the ionised gas emission lines in the KDS galaxies, we select galaxies in well studied fields that have a previous spectroscopic detection.
+To avoid biasing the sample towards blue and highly star-forming galaxies we make no secondary cuts on the basis of mass and flux. %FIGURE REFERENCE%
+Predominantly, the galaxies have been selected for spectroscopic follow up using the Lyman-Break technique \citep{Steidel1996}, which is especially effective at picking out normal starforming galaxies at $z = 3-4$.
+However a subset of the selected cluster galaxies in SSA22 were blindly detected in Ly$\alpha$ emission, during a narrowband imaging study of a known overdensity of Lyman Break Galaxies (LBGs) at $z \sim 3.09$ \citep{Steidel2000}.
+These `Lyman-Alpha Blobs' (LABs), which are extended and diffuse emission regions associated with but not centred on LBGs \citep{Steidel2000}, and especially LAB01, have been the subject of much previous study, e.g. \citep{Bower2004a}, \citep{Matsuda2004,Matsuda2007}, \citep{Geach2006,Geach2014}, \citep{Weijmans2010}, \citep{Hayes2011a} and LAB01 was the study of a recent campaign \citep{Geach2016} using data from MUSE, \citep{Bacon2010}, ALMA, \citep{Wootten2009}, and MOSFIRE, \citep{McLean2012}.
+These studies generally conclude that LABs are observed at the peaks of the cosmic density field and are therefore the progenitors of the most massive galaxy clusters, but the precise origin of the nebulous Ly$\alpha$ line emission is still unknown.
+
+The non-cluster environment galaxies are selected from the GOODS-S field, accessible from the VLT and with excellent multi-wavelength coverage, including deep HST WFC3 imaging with $\sim 0.1^{\prime\prime}$ angular resolution, which is well suited for constraining galaxy morphology \citep{Grogin2011,Koekemoer2011}.
+We select targets from the various spectroscopic campaigns which have targetted GOODS-S, including measurements from VIMOS \citep{Balestra2010,Cassata2014}, FORS2 \citep{Vanzella2005,Vanzella2006,Vanzella2008} and both LRIS and FORS2 as outlined in \cite{Wuyts2009}.
+These targets must be within the redshift range $3 < z < 3.8$, have high spectral quality (as quantified by the VIMOS redshift flag equal `3' or `4', and the FORS2 quality flag equal `A') and we carefully exclude those targets for which the [OIII5007] or H$_{\beta}$ emission lines, observable in the K-band at these redshifts, would be shifted into a spectral region plagued by strong OH emission.
+The galaxies which remain after imposing these criteria are distributed across the GOODS-S field, and we select two regions of spatial overdensity in the south-east (goodsp1) and north-west (goodsp2) to fill the KMOS IFUs (noting that the IFUs can patrol a $7.2^{\prime}$ diameter patch of sky during a single pointing).
+
+% Add the programme ID for HST WFC3 imaging
+The cluster galaxies are all from the SSA22 field, \citep{Steidel1998,Steidel2000,Steidel2003}, \citep{Shapley2003}, which, as mentioned above, is an extreme overdensity of LBG candidates at $z \sim 3.09$.
+Thousands of spectroscopic redshifts have been confirmed for these LBGs with follow up observations using LRIS, \citep{Shapley2003}, \citep{Nestor2013}, and when combined with deep B,V,R band imaging with the Subaru Suprime-Cam \citep{Matsuda2004}, deep narrow band imaging at 3640$\AA$ \citep{Matsuda2004} and at 4977$\AA$ \citep{Nestor2011} and archival HST ACS and WFC3 imaging covering large swathes of the field, the ancillary data is in excellent support of integral field spectroscopy.
+Spectroscopic data quality assessment and OH feature avoidance criteria are applied in the same way as discussed above, and we fill the KMOS IFUs with galaxies in two pointings spanning the SSA22$\_$a (ssap1) and SSA22$\_$b (ssap2) fields.
+
+
+% Mentioning the COSMOS field that we did not observe
+Additional pointings in the two fields listed above as well as in both the COSMOS and UDS fields were originally planned, but 50$\%$ of the GTO observing time was lost to bad weather.
+
+% Physical properties - Waiting on information from ROSS for writing this
+The wealth of ancillary data in both fields allows for a consistent treatment of the SED modelling, providing physical properties which are directly comparable between the cluster and field environments.
+We assume solar metallicity stars, the \cite{Calzetti2000} reddening law, and either constant or exponentially declining SFRs.
+The stellar masses and SFRs are extracted....
+
+% comparisons with the Holden paper - MUST EXPLAIN DIFFERENCES IN PHYSICAL PR
+Ten of the targets in goodsp1 have also been observed with the MOSFIRE spectrograph \citep{McLean2012}, and were the subject of a recent paper by \cite{Holden2016} concerning the ubiquitous nature of elevated [OIII]/H$\beta$ ratios in LBGs, and the consequences this observation has for the physical conditions of the ISM (in terms of electron density, ionisation parameter and hardness of radiation field).
+The results from the KDS will complement this study, in the sense that spatially resolved dynamical and chemical information provide key insights into the physical processes driving high redshift LBGs into regions of parameter space which only the most extreme galaxies broach in the local universe.
+
+\subsubsection{Survey Stategy}
+The two key science goals of the KDS are to investigate the resolved kinematic properties of high redshift galaxies, particularly the fraction of rotating disks and the degree of disk turbulence, and also to investigate the spatial distribution of metals within these galaxies.
+To achieve this we require very deep exposure times in excess of 8 hours on source for all galaxies, to reach the S/N required to detect line emission in the outskirts of the galaxies, where the rotation curves begin to flatten.
+We prioritise the kinematics goal, which requires spatially resolving the [OIII5007] emission line, and so plan to first reach the required K-band depth before observing in the H-band to complement the measurements with [OII3727,3729].
+After large amounts of time was lost to poor weather conditions we decided to observe the SSA22 galaxies with the HK filter, which has the disadvantage of effectively halving the spectral resolution, but allows for coverage of the H-band and K-band regions simultaneously.
+This paper is concerned with the KDS kinematics and so for the remainder we focus only on the K-band observations, which took place over the first two years of the programme. 
+
+\subsubsection{Observations}\label{subsub:Obs}
+KMOS is a second generation IFS mounted at Nasmyth focal plane on UT1 at the VLT.
+It has 24 moveable IFUs whichpatrol a region 7.2$^{\prime}$ in diameter, providing considerable flexibility when selecting sources for a single pointing.
+Each set of 8  
+
+The central coordinates of these pointings, the number of target galaxies observed, the on source exposure time and the averaged seeing conditions are listed in Table \ref{tab:pointings}.
 
 
 
@@ -196,7 +256,8 @@ Throughout this work we assume a standard $\Lambda$CDM cosmology with (h, $\Omeg
     \item 300s exposures
     \item describing all of the pointings 
     \item Different physical conditions in the different pointings
-    \item Selection techniques 
+    \item Selection techniques
+    \item how physical properties such as stellar mass and SFR are measured
 \end{itemize}
 
 \begin{figure}
@@ -208,21 +269,20 @@ Throughout this work we assume a standard $\Lambda$CDM cosmology with (h, $\Omeg
 
 Concluding with the pointings that we had, and a table summarising the name of the pointing, the number of galaxies observed in each of those, the combined exposure time and the seeing. All of that information is available so could have been able to do this for a while now.
 
-\begin{table*}
+\begin{table*}\label{tab:pointings}
     \centering
-\begin{tabular}{ c c c c c c c }
+\begin{tabular}{ c c c c c c c c }
 
  \hline
-Field & Pointing & N$_{obs}$ & Coordinates & Band & Exp. Time (s) & Seeing (arcsec)  \\
+Field & Pointing & N$_{obs}$ & N$\_[OIII]_{res}$ & Coordinates & Band & Exp. Time (s) & Seeing (arcsec)  \\
  \hline
- GOODS-S & goodsp1 & 19 & 03:32:42 -27:48:58 & K, H & 32400 & 0.5 \\
-GOODS-S & goodsp2 & 18 & 03:32:42 -27:49:08 & K, H & 31800 & 0.52 \\
-SSA22 & ssap1 & 21 & 22:17:28 00:09:54 & HK & 38100 & 0.65 \\
-SSA22 & ssap2 & 18 & 22:17:11 00:15:47 & HK & 27800 & 0.70 \\
+ GOODS-S & goodsp1 & 21 & 16 & 03:32:22 -27:52:51 & K, H & 32400 & 0.5 \\
+GOODS-S & goodsp2 & 19 & 14 & 03:32:35 -27:43:15 & K, H & 31800 & 0.52 \\
+SSA22 & ssap1 & 21 & 13 & 22:17:28 00:09:54 & HK & 38100 & 0.65 \\
+SSA22 & ssap2 & 18 & 11 & 22:17:11 00:15:47 & HK & 27800 & 0.70 \\
  \hline
 \end{tabular}
 \caption{Summary of KDS statistics}
-\label{tab:KDS}
 \end{table*}
 
 \subsection{Observations}
