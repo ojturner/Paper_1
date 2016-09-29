@@ -255,11 +255,26 @@ Note that these numbers are less than the available 24 arms for each pointing du
 The central coordinates of these pointings, the number of target galaxies observed, N$_{obs}$, the number of galaxies with spatially resolved [OIII5007] emission, N$\_$[OIII]$_{res}$; see \cref{sec:extracting_properties}, the on source exposure time and the averaged seeing conditions are listed in Table \ref{tab:pointings}.
 In Figure \ref{fig:distributions} we provide an overview of the sample space spanned by the observed galaxies, in relation to the larger population of LBGs within this redshift range. 
 
+% Figure how to convert both 3dHST flux and ROSS flux to magnitudes, and then can make the sample and parent scatter plots in the same was as the mass sfr ones for this distribution of targets.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.47\textwidth]{paper_distributions.png}
 \caption{Distributions of the physical properties of KDS galaxies in both GOODS-S and SSA22}
+\label{fig:distributions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.47\textwidth]{main_sequence.png}
+\caption{star forming main sequence}
+\label{fig:distributions}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.47\textwidth]{KDS-k_mag_mass.png}
+\caption{Kmag and mass}
 \label{fig:distributions}
 \end{figure}
 
@@ -375,37 +390,39 @@ If after the widest binning the criteria aren't satisfied, the value of the spax
 Spaxels which pass the criteria after binning are represented as a single spaxel in the 2D maps, and so a smoothing of the fields are expected in the lowest S/N regions.
 
 The process is automated and applied to each of the KDS galaxies.
-As mentioned previously, we find 56 galaxies with spatially resolved OIII emission, with this defined as being those where the spatial extent of the OIII is equivalent to or greater than the seeing disk of roughly $0.5^{\prime\prime}$.
+We find 54 galaxies with spatially resolved OIII emission, with this defined as being those where the spatial extent of the OIII is equivalent to or greater than the seeing disk, and the distribution of these galaxies across the pointings is shown in Table \ref{tab:pointings}.
 
-\subsection{Imaging Data}
-It is essential to make use of photometric data which cover the same fields as targetted by the KDS pointings.
-From these data the inclination with respect to line of sight, position angles and sizes of our galaxies can be constrained from single band fitting, and multi-band SPS modelling gives estimates of the global physical properties such as $M_{*}$ and SFR. 
-The single band properties complement the observed kinematics from KMOS and provide the information required to estimate intrinsic velocity fields.
-As suggested in \cite{Holmberg1958}, by modelling the disk galaxies as an oblate spheroid the inclination angle can be recovered from the observed axial ratio as shown in Equation \ref{eq:holmberg_i}, where $\frac{b}{a}$ is the ratio of minor to major axis of an ellipse fit to the galaxy profile on the sky, $i$ is the inclination angle and $\alpha$ is the axial ratio of an edge-on system, and so is dependent upon an assumption about the `disk thickness'.
+\subsection{Deriving Morphological Properties}
+For a robust interpretation of the observed velocity fields, it is necessary to separately determine the morphological properties of the galaxies from the available high resolution photometry.
+The first of these properties is the galactic axis ratio, $A_{r}$.
+As suggested in \cite{Holmberg1958}, by modelling the disk galaxies as an oblate spheroid the inclination angle can be recovered from the observed axial ratio as shown in Equation \ref{eq:holmberg_i}, where $\frac{b}{a} \equiv A_{r}$ is the ratio of minor to major axis of an ellipse fit to the galaxy profile on the sky, $i$ is the inclination angle and $\alpha$ is the axial ratio of an edge-on system, and so is dependent upon an assumption about the `disk thickness'.
 
 \begin{equation}\label{eq:holmberg_i}
    cos^{2}i = \frac{\left(\frac{b}{a}\right)^{2} - \alpha^{2}}{1 - \alpha^{2}}
 \end{equation}
 
-This inclination can then be used to correct the line of sight component of the observed velocity, to recover an intrinsic circular velocity, in the standard way.
+A value for this parameter can be constrained by looking at the distribution of derived axis ratios, which for a draw from disk galaxies randomly orientated on the sky should be flat \citep{Sandage1970}.
+The value of $A_{r}$, then, at which this cuts off can be thought of a population disk thickness and used universally (ignoring variation in disk thickness throughout the sample).
+The inclination angle calculated for each galaxy can be used to correct the observed velocity field to the intrinsic, with this correction factor becoming larger as the galaxy becomes more `face-on'.
+The second important morphological parameter is the Position Angle (PA), which is the direction of the photometric major axis of the galaxy on the sky.
+This would be expected to coincide with the kinematic axis in the case of a rotating disk galaxy.
 The discrepancy between morphologial and kinematic position angles is an important indicator of sub-structure in the morphology \citep{Queyrel2012,Wisnioski2015}.
 These values are expected to agree, particularly for low axial ratios, and deviations can indicate clumps or mergers, which may influence the underlying kinematics. 
-However for compact, unresolved morphologies there are cases where there is simply not enough information to predict the axis along which velocity gradient will be maximised. 
-First this provides a way to extract circular velocities at some fiducial distance from the centre of the galaxy.
+However for compact, unresolved morphologies there are cases where there is simply not enough information to predict the axis along which velocity gradient will be maximised.
+
+The third essential morphological parameter we will use is the half-light radius, $r_{H}$, as this provides a way to extract circular velocities at some fiducial distance from the centre of the galaxy.
 As discussed throughout the introduction, there is no universal definition of what the circular velocity is, and so to compare with previous work it is necessary to extract values consistently from the derived rotation curves.
 Connected to this is the issue of extrapolating model rotation curves or two-dimensional rotation maps beyond the last measured datapoints, which may not extend to the rotation curve plateau due to poor S/N in this regions.
-Knowledge of the effective radii gives a fixed point of extrapolation and a clear measure of how far beyond the data this extrapolation is made.
-Second, since beam smearing affects all of these measurements and tends to flatten velocity gradients, Durham have invested time into modelling the extent to which this can be corrected.
-The correction is a function of the ratio between $r_{e}$ and PSF size as shown in Figure DURHAM, and so accurately measuring the effective radius of a galaxy vindicates the use of this curve to recover intrinsic circular velocities. \\
+Knowledge of the $r_{H}$ gives a fixed point of extrapolation and a clear measure of how far beyond the data this extrapolation is made.
+Second, since beam smearing affects all of these measurements and tends to flatten velocity gradients, `Durham' (REFERENCE PROPERLY) have invested time into modelling the extent to which this can be corrected.
+The correction is a function of the ratio between $r_{H}$ and PSF size as shown in Figure DURHAM, and so accurately measuring the effective radius of a galaxy vindicates the use of this curve to recover intrinsic circular velocities. 
 
-To support the KMOS GOODS-S pointings there is excellent ancillary data from both the ACS and WFC3 instruments aboard HST.
-In tandem with IRAC and spitzer, these provide photometric measurements across the optical and IR regions of the spectrum, from which reliable stellar masses and star formation rates can be derived.
-The high resolution single band images are not inhibited by atmospheric broadening of the PSF and so are rich in morphological information which is useful both to eyeball for interesting features and for constraining the parameters described above.
-The SSA22 pointings have less imaging data, all of which is ground-based, and so both the global physical properties and the single band properties are not constrained as well as in the GOODS-S case.
-Nonetheless, it is possible to determine morphological parameters by fitting the images using GALFIT, as described in section \ref{subsubsec:galfitting}. 
+We use the longest wavelength, highest resolution imaging for the fitting of morphological parameters, which in this case is HST F160W band, and opt to use GALFIT \citep{Peng2010_galfit} to recover the parameters as described in section \ref{subsubsec:galfitting}.
 
 \subsubsection{Applying GALFIT to the imaging data}\label{subsubsec:galfitting}
-For the GOODS-S pointings we focus on the deep WFC3 F160W image of GOODS-S, this being the longest wavelength (and therefore least attenuated) measure of the stellar continuum, which traces the rest-frame optical and near-UV light at the median redshift of the KDS galaxies.
+We use GALFIT to fit 2-D analytic functions, convolved with the system PSF, to the observed HST F160W images in both GOODS-S and SSA22 in a consistent way.
+The adopted PSF is a hybrid between the Tiny Tim H-band model \citep{Krist2011} in the PSF centre and an empirical stack of stars observed in the H-band for the wings \citep{VanderWel2012}.
+The full procedure involves fitting \citep{Bertin1996}
 
 
 
@@ -415,11 +432,6 @@ HST vs. TENIS imaging of the same galaxies to confirm whether it is okay to repo
 
 
 
-
-   
-To complement our KMOS data we make use of publicly available Hubble F160W imaging, which covers all galaxies in our two GOODS-S pointings.
-This imaging is useful not only as part of the ancillary data from which the galactic physical properties are derived, but also as a tool to constrain the size, centre, inclination angle and morphological axis of the galaxies. 
-We use GALFIT \citep{Peng2010_galfit} to model the F160W light profile of each GOODS-S galaxy, which attempts to fit a 
 
 \subsection{Dynamical Modelling}
 Constructing model 2D velocity fields and fitting these to the observed data is a powerful tool for determining the set of parameters which best describe the dynamical state of that galaxy.
@@ -447,6 +459,12 @@ Fig.~\ref{fig:distributions}, Table~\ref{tab:KDS}.
 
 \section{ANALYSIS \& RESULTS}\label{sec:results}
 
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{tf_binned.png}
+\caption{star forming main sequence}
+\label{fig:distributions}
+\end{figure}
 
 
 \section{DISCUSSION}\label{sec:discussion}
