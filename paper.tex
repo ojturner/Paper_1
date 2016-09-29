@@ -241,24 +241,20 @@ This paper is concerned with the KDS kinematics and so for the remainder we focu
 
 \subsubsection{Observations}\label{subsub:Obs}
 KMOS is a second generation IFS mounted at Nasmyth focal plane on UT1 at the VLT.
-It has 24 moveable IFUs whichpatrol a region 7.2$^{\prime}$ in diameter, providing considerable flexibility when selecting sources for a single pointing.
-Each set of 8  
+The instrument has 24 moveable pickoff arms, each with an integrated IFU, which patrol a region 7.2$^{\prime}$ in diameter on the sky, providing considerable flexibility when selecting sources for a single pointing.
+The light from each set of 8 IFUs is dispersed by a single spectrograph and recorded on a 2k$\times$2k Hawaii-2RGHgCdTe near-IR detector, so that the instrument is comprised of three effectively independent modules.
+Each IFU has 14$\times$14 spatial pixels which are 0.2$^{\prime\prime}$ in size, and the central wavelength of the K-band filter has spectral resolution of $R \sim 4200$.
 
-The central coordinates of these pointings, the number of target galaxies observed, the on source exposure time and the averaged seeing conditions are listed in Table \ref{tab:pointings}.
+We prepare each pointing using the KARMA tool \citep{Wegner2008}, taking care to allocate at least one IFU to observations of a `control' star closeby on the sky to allow for precise monitoring of the evolution of seeing conditions and the shift of the telescope away from the prescribed dither pattern (see \cref{subsec:datareduction}).
+For both all four of the pointings described above we adopt the standard object-sky-object (OSO) nod-to-sky observation pattern, with 300s exposures and alternating full pixel/half pixel dither pattern for increased spatial sampling around each of the target galaxies.
+This will later allow for datacube reconstruction with 0.1$^{\prime\prime}$ size spatial-pixels (spaxels) as described in \cref{subsec:datareduction}.
 
+The observations were carried out during August and September of observing semester P92, during August and September of P93 and November of P94.
+The seeing conditions were excellent for goodsp1 and goodsp2, $\sim 0.5^{\prime\prime}$ where we observe 21 and 19 targets respectively, and ranged between $\sim 0.65-0.7^{\prime\prime}$ for ssap1 and ssap2 where 21 and 18 galaxies were observed.
+Note that these numbers are less than the available 24 arms for each pointing due to the combination of three broken pickoff arms during the P92 observing semester and our requirement to observe at least one control star throughout an Observing Block (OB).
+The central coordinates of these pointings, the number of target galaxies observed, N$_{obs}$, the number of galaxies with spatially resolved [OIII5007] emission, N$\_$[OIII]$_{res}$; see \cref{sec:extracting_properties}, the on source exposure time and the averaged seeing conditions are listed in Table \ref{tab:pointings}.
+In Figure \ref{fig:distributions} we provide an overview of the sample space spanned by the observed galaxies, in relation to the larger population of LBGs within this redshift range. 
 
-
-\begin{itemize}
-    \item Description of the instrument 
-    \item plagued by poor weather, describe the time frame over which the observations are taken
-    \item OSO observation pattern
-    \item The different wavebands used and potential science that can come out of these observations
-    \item 300s exposures
-    \item describing all of the pointings 
-    \item Different physical conditions in the different pointings
-    \item Selection techniques
-    \item how physical properties such as stellar mass and SFR are measured
-\end{itemize}
 
 \begin{figure}
 \centering
@@ -266,8 +262,6 @@ The central coordinates of these pointings, the number of target galaxies observ
 \caption{Distributions of the physical properties of KDS galaxies in both GOODS-S and SSA22}
 \label{fig:distributions}
 \end{figure}
-
-Concluding with the pointings that we had, and a table summarising the name of the pointing, the number of galaxies observed in each of those, the combined exposure time and the seeing. All of that information is available so could have been able to do this for a while now.
 
 \begin{table*}\label{tab:pointings}
     \centering
@@ -285,31 +279,27 @@ SSA22 & ssap2 & 18 & 11 & 22:17:11 00:15:47 & HK & 27800 & 0.70 \\
 \caption{Summary of KDS statistics}
 \end{table*}
 
-\subsection{Observations}
 
-\subsection{Ancillary data}
-
-\subsection{Data reduction techniques}
-The data reduction process relied heavily upon the Software Package for Astronomical Reduction with KMOS (SPARK), implemented using the ESO Recipe Execution Tool (ESOREX).
-In addition to the SPARK recipes, custom python scripts were run at different stages of the pipeline.
-These additional steps will be described throughout this section.
+\subsection{Data reduction techniques}\label{subsec:datareduction}
+The data reduction process relied heavily upon the Software Package for Astronomical Reduction with KMOS, (SPARK; \cite{Davies2013}), implemented using the ESO Recipe Execution Tool (ESOREX) \citep{Freudling2013}.
+In addition to the SPARK recipes, custom python scripts were run at different stages of the pipeline and will be described throughout this section.
 
 The SPARK recipes are used to create dark frames, flatfield, illumination correct and wavelength calibrate the raw data.
 The four pixel wide gaps between the IFU lenslets in the raw data are then used to correct for readout channel bias across each detector, which if left uncorrected lead to flux bandings over the spatial extent of the reduced cubes.
-Standard star observations are processed to provide a flux calibration for each detector, which is necessary to account for varying sensitivity  
-Following this pre-processing, each of the object-sky pairs are reduced independently to give more control over the way in which the final stacks are created for each galaxy.
-Each 300s exposure is reconstructed into a datacube with interpolated $0.1\times0.1^{\prime\prime}$ spaxels, justified by the choice of dither pattern boosting the effective spatial resolution of the observations.
-Sky subtraction is performed using the SKYTWEAK option within SPARK \citep{Davies2007}, which counters the varying amplitude of OH lines between exposures by scaling `families' of OH lines independently to match the data.
-Wavelength miscalibration between exposures due to spectral flexure of the instrument is also accounted for by applying spectral shifts to the OH families during the procedure, and in general we find the quality of the sky subtraction in the K-band to be excellent. 
+Standard star observations are processed to provide a flux calibration for each detector, which is necessary to account for varying sensitivity across the three independent KMOS modules. 
+Following this pre-processing, each of the object exposures is reconstructed independently, using the closest sky exposure for subtraction, to give more control over the construction of the final stacks for each target galaxy.
+Each 300s exposure is reconstructed into a datacube with interpolated $0.1\times0.1^{\prime\prime}$ spaxel size, facilitated by the subpixel dither pattern discussed in \cref{subsub:Obs} which boosts the effective spatial resolution of the observations.
+Sky subtraction is enhanced using the SKYTWEAK option within SPARK \citep{Davies2007}, which counters the varying amplitude of OH lines between exposures by scaling `families' of OH lines independently to match the data.
+Wavelength miscalibration between exposures due to spectral flexure of the instrument is also accounted for by applying spectral shifts to the OH families during the procedure, and in general we find the quality of the sky subtraction in the K-band to be excellent. % could insert figure to demonstrate
 Variations in sky subtraction quality are monitored over the course of the OBs which make up the final stacks, as we find that the subtraction performance becomes poorer as the telescope pointing approaches the zenith.
 This is due to the telescope having to track faster whilst at zenith positions, hence scanning more rapidly over regions of sky with spatially and temporally varying OH emission.
 In addition to this we monitor the evolution of the atmospheric PSF and the position of the control stars over the OBs, to allow us to reject raw frames with unacceptable seeing and to measure the spatial shifts required for the final stack more precisely.
-The telescope tends to drift from its acquired position over the course of an OB, and the difference between the dither pattern shifts and the measured position of the control stars provides the value by which each exposure must be shifted to create the stack.
-As part of this analysis, we tested whether the drift varies across the three KMOS detectors, finding typically that the difference is negligible, meaning that it is not necessary to sacrifice more than a single IFU for tracking purposes.
+The telescope tends to drift from its acquired position over the course of an OB, and the difference between the dither pattern shifts and the measured position of the control stars provides the value by which each exposure must be shifted to create the stack. % insert figure here monitoring drift as function of time? Ask Michele here about level of detail
+As part of this analysis, we tested whether the drift varies across the three KMOS detectors, finding typically that the difference is negligible, suggesting that it is not necessary to sacrifice more than a single IFU for tracking purposes.
 
-We stack all 300s exposures for each galaxy which pass the sky subtraction and seeing criteria using sigma-clipping, leaving us with a flux and wavelength calibrated datacube for every object in the KDS sample.
+We stack all 300s exposures for each galaxy which pass the sky subtraction and seeing criteria using 3 sigma-clipping, leaving us with a flux and wavelength calibrated datacube for every object in the KDS sample.
 
-\section{EXTRACTION OF PHYSICAL PROPERTIES}\label{sec:extracting_properties}
+\section{MAPPING PHYSICAL PROPERTIES}\label{sec:extracting_properties}
 \subsection{Spaxel Fitting}
 Having produced stacked and calibrated datacubes for each of the galaxies in the sample, we aim to extract 2-dimensional maps of the flux, velocity and velocity dispersion.
 These properties are extracted via modelling of the ionised gas emission line profiles at each spaxel, with a set of acceptance criteria to determine whether the fit quality is high enough to allow the inferred properties into the final 2D maps.
