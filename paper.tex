@@ -5,12 +5,15 @@
   colorlinks,
   citecolor=blue,
   linkcolor=red,
-  urlcolor=Violet}
+  urlcolor=cyan}
 
 % MNRAS is set in Times font. If you don't have this installed (most LaTeX
 % installations will be fine) or prefer the old Computer Modern fonts, comment
 % out the following line
+\usepackage{pgfplotstable}
 \usepackage{newtxtext,newtxmath}
+\usepackage{caption}
+\usepackage{subcaption}
 % Depending on your LaTeX fonts installation, you might get better results with one of these:
 %\usepackage{mathptmx}
 %\usepackage{txfonts}
@@ -36,6 +39,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+\newcommand{\Sers}{S\'{e}rsic }
+\newcommand{\Lagr}{\mathcal{L}}
 
 % Please keep new commands to a minimum, and use \newcommand not \def to avoid
 % overwriting existing commands. Example:
@@ -103,6 +109,13 @@ Integral Field Unit -- KMOS -- Dynamics -- Turbulence
 
 \section{INTRODUCTION}
 
+% TABLES TO INCLUDE
+% 1) MORPHOLOGICAL PROPERTIES
+% 2) SPECTRAL PROPERTIES
+% 3) PROPERTIES INFERRED FROM PHOTOMETRY
+% 4) TABLE OF FINALISED KINEMATIC MEASUREMENTS
+% SO THAT INCLUDES THE VELOCITY DISPERSION AND THE VELOCITY EXTRACTED
+% IN DIFFERENT WAYS FOR THE DIFFERENT POSITION ANGLES AND MODELLING APPROACHES
 
 
 NO UNIVERSALLY DEFINED MEASURE OF THE CIRCULAR VELOCITY, OR THE POINT AT WHICH TO EXTRACT THAT VALUE.
@@ -152,7 +165,7 @@ MAIN SEQUENCE
 
 These are all the references for kinematics, not all the references for other things and other aspects of galaxy evolution. 
 \citep{Wisnioski2015} \citep{ForsterSchreiber2009} \citep{ForsterSchreiber2006} \citep{Stott2016} \citep{Gnerucci2011} \citep{Epinat2012} ,\citep{Epinat2009} \citep{Epinat2010} \citep{Lilly2013} \citep{Saintonge2013} \citep{Wisnioski2011} \citep{Wright2007} \citep{Wright2009} \citep{Genzel2008} \citep{Genzel2006} \citep{Shapiro2008} \citep{Jones2010a} \citep{Newman2013} \citep{Genel2008} \citep{Nesvadba2008} \citep{Queyrel2012} \citep{Law2007} \citep{Law2009}
-\citep{Simons2016} \citep{Pelliccia2016} \citep{Genzel2011} \citep{Epinat2008} \citep{Epinat2008a} \citep{Puech2008} \citep{Puech2007} \cite{Holmberg1958} \citep{Kassin2012} \citep{Flores2006} \citep{Neichel2008} \citep{Miller2011} \citep{Nesvadba2006} \citep{Nesvadba2007} \citep{Livermore2015} \citep{Swinbank2006} \citep{Swinbank2007} \citep{Swinbank2009} \citep{Cortese2014} \citep{VanderWel2012} \citep{Genzel2014a} \citep{Genzel2014} - for the PSF used when Galfitting F160W.
+\citep{Simons2016} \citep{Pelliccia2016} \citep{Genzel2011} \citep{Epinat2008} \citep{Epinat2008a} \citep{Puech2008} \citep{Puech2007} \cite{Holmberg1958} \citep{Kassin2012} \citep{Flores2006} \citep{Neichel2008} \citep{Miller2011} \citep{Nesvadba2006} \citep{Nesvadba2007} \citep{Livermore2015} \citep{Swinbank2006} \citep{Swinbank2007} \citep{Swinbank2009} \citep{Cortese2014} \citep{VanderWel2012} \citep{Genzel2014a} \citep{Genzel2014} - for the PSF used when Galfitting F160W. \citep{Rodriguez-Gomez2016} \citep{Qu2016}
 
 
 
@@ -209,7 +222,7 @@ However a subset of the selected cluster galaxies in SSA22 were blindly detected
 These `Lyman-Alpha Blobs' (LABs), which are extended and diffuse emission regions associated with but not centred on LBGs \citep{Steidel2000}, and especially LAB01, have been the subject of much previous study, e.g. \citep{Bower2004a}, \citep{Matsuda2004,Matsuda2007}, \citep{Geach2006,Geach2014}, \citep{Weijmans2010}, \citep{Hayes2011a} and LAB01 was the study of a recent campaign \citep{Geach2016} using data from MUSE, \citep{Bacon2010}, ALMA, \citep{Wootten2009}, and MOSFIRE, \citep{McLean2012}.
 These studies generally conclude that LABs are observed at the peaks of the cosmic density field and are therefore the progenitors of the most massive galaxy clusters, but the precise origin of the nebulous Ly$\alpha$ line emission is still unknown.
 
-The non-cluster environment galaxies are selected from the GOODS-S field, accessible from the VLT and with excellent multi-wavelength coverage, including deep HST WFC3 imaging with $\sim 0.1^{\prime\prime}$ angular resolution, which is well suited for constraining galaxy morphology \citep{Grogin2011,Koekemoer2011}.
+The non-cluster environment galaxies are selected from the GOODS-S field, accessible from the VLT and with excellent multi-wavelength coverage, including deep HST WFC3 F160W imaging with $ 0.13^{\prime\prime}$ pixel scale and $ 0.17^{\prime\prime}$ PSF, which is well suited for constraining galaxy morphology \citep{Grogin2011,Koekemoer2011}.
 We select targets from the various spectroscopic campaigns which have targetted GOODS-S, including measurements from VIMOS \citep{Balestra2010,Cassata2014}, FORS2 \citep{Vanzella2005,Vanzella2006,Vanzella2008} and both LRIS and FORS2 as outlined in \cite{Wuyts2009}.
 These targets must be within the redshift range $3 < z < 3.8$, have high spectral quality (as quantified by the VIMOS redshift flag equal `3' or `4', and the FORS2 quality flag equal `A') and we carefully exclude those targets for which the [OIII5007] or H$_{\beta}$ emission lines, observable in the K-band at these redshifts, would be shifted into a spectral region plagued by strong OH emission.
 The galaxies which remain after imposing these criteria are distributed across the GOODS-S field, and we select two regions of spatial overdensity in the south-east (goodsp1) and north-west (goodsp2) to fill the KMOS IFUs (noting that the IFUs can patrol a $7.2^{\prime}$ diameter patch of sky during a single pointing).
@@ -287,8 +300,8 @@ Field & Pointing & N$_{obs}$ & N$\_[OIII]_{res}$ & Coordinates & Band & Exp. Tim
  \hline
  GOODS-S & goodsp1 & 21 & 16 & 03:32:22 -27:52:51 & K, H & 32400 & 0.5 \\
 GOODS-S & goodsp2 & 19 & 14 & 03:32:35 -27:43:15 & K, H & 31800 & 0.52 \\
-SSA22 & ssap1 & 21 & 13 & 22:17:28 00:09:54 & HK & 38100 & 0.65 \\
-SSA22 & ssap2 & 18 & 11 & 22:17:11 00:15:47 & HK & 27800 & 0.70 \\
+SSA22 & ssap1 & 21 & 13 & 22:17:28 00:09:54 & HK & 38100 & 0.62 \\
+SSA22 & ssap2 & 18 & 11 & 22:17:11 00:15:47 & HK & 27800 & 0.57 \\
  \hline
 \end{tabular}
 \caption{Summary of KDS statistics}
@@ -404,7 +417,7 @@ As suggested in \cite{Holmberg1958}, by modelling the disk galaxies as an oblate
 A value for this parameter can be constrained by looking at the distribution of derived axis ratios, which for a draw from disk galaxies randomly orientated on the sky should be flat \citep{Sandage1970}.
 The value of $A_{r}$, then, at which this cuts off can be thought of a population disk thickness and used universally (ignoring variation in disk thickness throughout the sample).
 The inclination angle calculated for each galaxy can be used to correct the observed velocity field to the intrinsic, with this correction factor becoming larger as the galaxy becomes more `face-on'.
-The second important morphological parameter is the Position Angle (PA), which is the direction of the photometric major axis of the galaxy on the sky.
+The second important parameter is the morphological Position Angle (PA), which is the direction of the photometric major axis of the galaxy on the sky.
 This would be expected to coincide with the kinematic axis in the case of a rotating disk galaxy.
 The discrepancy between morphologial and kinematic position angles is an important indicator of sub-structure in the morphology \citep{Queyrel2012,Wisnioski2015}.
 These values are expected to agree, particularly for low axial ratios, and deviations can indicate clumps or mergers, which may influence the underlying kinematics. 
@@ -421,25 +434,156 @@ We use the longest wavelength, highest resolution imaging for the fitting of mor
 
 \subsubsection{Applying GALFIT to the imaging data}\label{subsubsec:galfitting}
 We use GALFIT to fit 2-D analytic functions, convolved with the system PSF, to the observed HST F160W images in both GOODS-S and SSA22 in a consistent way.
-The adopted PSF is a hybrid between the Tiny Tim H-band model \citep{Krist2011} in the PSF centre and an empirical stack of stars observed in the H-band for the wings \citep{VanderWel2012}.
-The full procedure involves fitting \citep{Bertin1996}
+The GOODS-S imaging data used is the latest release of the total field, available via the CANDELS \citep{Grogin2011,Koekemoer2011} data access portal\footnote{\tiny{\url{http://candels.ucolick.org/data_access/Latest_Release.html}}}.
+For SSA22 we make use of archival HST imaging\footnote{\tiny{\url{https://archive.stsci.edu/hst/search.php}}} (Proposal ID 13844, P.I. Lehmer and Proposal ID 11735, P.I. Mannucci) covering the SSA22-a field.
+In both cases we first run SExtractor \citep{Bertin1996} across the full fields to recover initial input parameters and segmentation maps for running GALFIT, and then extract postage stamp regions around the galaxies in the KDS sample.
+We fit both single \Sers profiles with a floating \Sers index (n) and also attempt a bulge/disk decomposition by fitting two components; one with n = 1 and one with n = 4.
+The $\chi ^{2}$ of each fit is evaluated and the model with the lowest value is selected as the most suitable representation of the flux profile of the galaxy.
+In both cases the adopted PSF is a hybrid between the Tiny Tim H-band model \citep{Krist2011} in the PSF centre and an empirical stack of stars observed in the H-band for the wings \citep{VanderWel2012}, which has been shown to produce more reliable results than either the Tiny Tim model or an empirical stack alone.
+Crucially, what we gain from this analysis are our best guesses at the three morphological parameters we require to support the kinematic analysis of \cref{subsec:Kinematic Properties}, namely $r_{H}$, $A_{r}$ and the morphological PA.
+Another benefit of studying the high resolution imaging is to be able to interpret peculiarities in the velocity and velocity dispersion fields.
+These peculiarities are usually unexpected discontinuities in the rotation fields, or extreme broadening of the dispersion field above that expected from beam smearing (see \cref{subsubsec:beam smearing corr}) or in regions apart from the centre of the galaxy.
+Figure \ref{fig:morpho_kinematics} provides two such examples, where the Hubble imaging reveals counterparts to the central galaxy, providing two explanations for the patterns in the observed fields. 
+Either the counterpart object is spatially close to the main galaxy, but significantly offset in distance or the objects are close enough to be interacting gravitationally, thus disturbing the gas from circular motion and boosting the dispersion values. 
+% is this a valid thing to say? 
+% is there any way to distinguish between these two different situations?  
+Regardless of which of these situations is really happening, the Hubble imaging enhances our ability to classify each of our targets as multiple component, isolated rotating or isolated disturbed.
+Classification into different categories is necessary to recognise the galaxies which have already formed a gravitationally supported and rotating disk of stars and gas.
+It is only for these galaxies that a maximum circular velocity has any meaning, the derivation of which is the primary concern of this paper.
+The other galaxies have either not yet formed a rotating disk and will do so at a later time, or gravitational interractions with another object have disrupted a disk that was already in place (and we may be witnessing a snapshot of a particular part of that process), or they were destined to never form a disk, probably due to a paucity of initial angular momentum, but yet we still detect OIII emission from ionised regions across the spatial extent of the galaxy.   
+We present the morphologcial parameters in Table params, and also provide a classification flag for each object (or group of objects) based upon visual inspection of the Hubble imaging and the velocity fields.
+More details of the method used to classify our target galaxies are provided in Appendix \ref{app:morpho-kinematic}.
+For those galaxies which are classified as isolated rotators, we carry on to derive the kinematic properties as described in \cref{subsec:Kinematic Properties}.
+% Need to answer the question which has been raging for a long time - 
+% how do you classify a galaxy for the following section.   
 
 
+\begin{figure*}
+\centering
+\includegraphics[width=0.8\textwidth]{morpho_kinematics.png}
+\caption{High resolution imaging is important not only for reliably recovering the morphological parameters, but also to explain peculiar features in the observed velocity and velocity dispersion fields.
+In the two examples above, multiple components in the HST imaging clearly correspond to marginally different OIII emission wavelengths, which manifest as velocity shifts in individual spaxels and broadens the observed dispersion pattern where the emission lines at different wavelengths merge.}
+\label{fig:morpho_kinematics}
+\end{figure*}
 
 
-INCLUDE TABLE OF THE GALFIT outputs
-HST vs. TENIS imaging of the same galaxies to confirm whether it is okay to report the physical properties of a sample taken from the ground and then GALFIT.
+\begin{figure*}
+    \centering
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[height=1.5in]{axis_ratio_distributions.png}
+        \caption{axis ratio distributions}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[height=1.5in]{size_distributions.png}
+        \caption{size distributions}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[height=1.5in]{sersic_distributions.png}
+        \caption{sersic distributions}
+    \end{subfigure}
+    \caption{Comparison of physical properties with}
+\end{figure*}
 
 
+\subsection{Kinematic Properties}\label{subsec:Kinematic Properties}
+% WHEN WILL THE SAMPLE REFINEMENT HAPPEN? % 
+% i.e. should this be written in a way that suggests %
+% we attempt to extract the kinematic parameters for all % 
+% the galaxies in the sample? Or just the clear rotators? % 
+% need to have a clear statement about how that selection is done %
+% which is a combination of the morphology and the observed dynamics % 
+% we can afford to be eyeballing things here because of the small sample size %
+% some people would kill for this data - do the analysis justice and do % 
+% something sensible with the galaxies that don't make it into the kinematic % 
+% analysis part %
 
 
-\subsection{Dynamical Modelling}
-Constructing model 2D velocity fields and fitting these to the observed data is a powerful tool for determining the set of parameters which best describe the dynamical state of that galaxy.
-HERE IS WHERE TO MENTION SURVEYS WHICH HAVE DONE THIS IN THE PAST.
+As mentioned in the introduction, there is no universal standard for defining the maximum circular velocity, particularly when that value has been extrapolated from the data using a fitted model, of which there are two types.
+The first is something physically motivated, taking into account the potential-well of the galaxy through knowledge of the mass distribution (e.g. \citep{Gnerucci2011,Wisnioski2015,ForsterSchreiber2009}).
+The second is a phenomenological model, which assumes a fixed function known to well describe observed galactic rotation curves which flatten at large radii (e.g. \citep{Stott2016}).
+Our main concern when presenting the work carried out for this section is to clearly distinguish between observed velocities and those inferred from modelling.
+This is particularly important when dealing with galaxies at $z > 3$, since we often do not have enough S/N away from the centre of the galaxy to observe the flattening of the rotation curve and hence infer a maximum velocity.  
+There are thus two clear reasons for constructing model velocity fields and fitting these to the observed data for the KDS rotating sample; the first is to extrapolate the observations smoothly to some fiducial radius from which a maximum velocity can be extracted; the second is to estimate the effect of beam smearing on both the velocity and velocity dispersion fields so that we recover the set of intrinsic galaxy parameters which best describe the observations.
+We construct these models in two independent ways to understand the differences that arise from changes to the modelling procedure, these being the 1D and 3D fitting methods described in the following subsections. 
+
+%What's the point in writing about the 2D and 1D modelling? 
+%Want to mention the extrapolation of the data where the S/N ratio is
+%too low to measure a value.
+%download barolo and download galpak - compare the two.
+%also compare with the Durham results and compare with my
+%own results from extracting the data using a gaussian fit.
+
+\subsubsection{3D Modelling}\label{subsubsec:3d modelling}
+By simulating a full datacube and fitting the measured quantities to the data, we can constrain both the shape of the velocity field in the spatial direction (in particular the maximum circular velocity) and also derive an estimate for the effect that beam smearing has on the velocity and velocity dispersion fields.
+For each galaxy in the isolated rotating sample we construct a model cube with the same spatial dimensions as the data and populate each spaxel with an OIII emission line that has central wavelength determined by the systemic velocity of the galaxy.
+This central wavelength is then shifted using the velocity derived at that spaxel from the velocity field model.  
+Following the procedure now of numerous authors \citep[e.g.]{Swinbank2012,Stott2016,Mason2016} the velocity field of the gas is modelled as a thin disk with the discrete velocity points along the KA determined by equation \ref{eq:arctangent}, which has been found to well match the rotation curves of galaxies in the local universe:
+
+\begin{equation}\label{eq:arctangent}
+   v_{r} = \frac{2}{\pi}v_{asym}arctan\left(\frac{r}{r_{t}}\right)
+\end{equation}
+
+\noindent
+with r measured as the distance from the centre of rotation, (xcen, ycen).
+This model is then projected onto the cube using the inclination angle determined in \cref{subsubsec:galfitting} and sampled with 4 times higher spatial resolution than the KMOS raw data before binning back to the previous resolution.
+The increase in model spatial resolution is necessary to capture the steep velocity gradient across the central region of the rotating galaxy, implied by the use of the arctangent function.
+If the model is constructed with equivalent spatial resolution to the data, the rotation curve has a flatter central profile which mimics the effect of beam smearing, which is exactly what we want to correct for. 
+The velocity decreases with a factor of cos($\phi$) from the KA, where $\phi$ is the angle measured clockwise from the KA, so that the KA points to the positive side of the velocity field.
+In principle then the model has 5 free parameters; $\{(xcen, ycen), KA, rt, v_{asym}$, rather than the 6 free parameters in previous works \citep[e.g.]{Stott2016} since the inclination to the morphological value.
+The intrinsic flux profile of these simulated OIII lines in the spatial direction is determined using the galfit model derived in section \cref{subsubsec:galfitting}, also constructed at 4 times higher spatial resolution than the KMOS cube and rebinned for the same reasons, and the intrinsic velocity dispersion of the line is set to follow a flat distribution with a default width of 50kms$^{-1}$.
+This simulated intrinsic OIII cube is then convolved slice by slice with the atmospheric seeing profile determined from fitting the collapsed, stacked standard star cube in each pointing with an elliptical gaussian (the recovered seeing values are reported in table \ref{tab:pointings}).
+The velocity and velocity dispersion values are then re-measured in each spaxel and compared with the intrinsic model values to assess the beam smearing impact.
+Convolution with the seeing profile produces a peak in the modelled velocity dispersion field at the centre of rotation and flattens the observed velocity field perpendicular to the KA.
+This provides a beam smearing correction for the velocity dispersion in every spaxel which is equal to the difference between the assumed intrinsic velocity dispersion and the re-measured velocity dispersion after convolution, i.e. $\sigma_{bs} = \sigma_{model} - \sigma_{assumed}$.
+This is computed for each spaxel to provide the 2D $\sigma_{bs}$ correction map.
+The impact of the value of $\sigma_{assumed}$ on the magnitude of $\sigma_{bs}$ correction is discussed further in section \cref{subsubsec:sigma_errors}.
+We fit the beam smeared velocity field to the observed velocity field, using MCMC sampling with the python `emcee' algorithm \citep{Foreman-Mackey2013} to vary the intrinsic model parameters, and seek the combination of parameters which maximises the log-Likelihood function given by equation \ref{eq:likelihood}, which fully accounts for the errors on the observed velocity field.
+
+\begin{equation}\label{eq:likelihood}
+   ln\Lagr = \frac{-0.5\sum_{i=1}^{N}(d_{i} - M_{i})^{2}}{\sigma_{v}^{2}} - ln\left(\frac{1}{\sigma_{v}^{2}}\right)
+\end{equation}
+
+In practice we fix the (xcen,ycen) parameters of the galaxy to the location of the stellar continuum, a proxy for the centre of the gravitational potential well, recovered from the collapsed KMOS cube, leaving only 3 free parameters to vary in the MCMC sampling.
+This assumes that the gas and the stars in the galaxy share a common centre of mass, an assumption which is at least verified for the vast majority of SFGs in the local and intermediate redshift universe.
+Due to the faintness of the continuum, there are several galaxies for which we cannot reliably estimate the rotation centre using this method, and instead opt to set (xcen,ycen) to coincide with the peak OIII flux location.
+This differs from the method of fixing the rotation centre at the midpoint between the velocity extrema, described in \cite{Wisnioski2015} and \cite{Rodrigues2016}.
+In general the S/N of our sample is low at the galaxy outskirts and for many of the isolated rotating sample we don't observe the flattening of the velocity field.
+This suggests that the velocity midpoint may be biased towards the side of the galaxy which shows the higher velocity value and so we instead use the physically motivated continuum centre where possible.
+
+The MCMC sampling provides a distribution of parameter values around those which provide the maximum likelihood, an example of which is shown in Figure \ref{fig:8543_mcmc}.
+The 16th and 84th percentiles of these distributions will be used to assess the model uncertainties as described in \cref{subsubsec:model_errors}.
 
 
-\subsection{Beam Smearing Correction}
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{8543_mcmc.png}
+\caption{Example parameter grid for 8543}
+\label{fig:8543_mcmc}
+\end{figure}
 
+The best fitting smeared and intrinsic models for the isolated rotating sample extracted along the KA, along with shaded uncertainty ranges, are plotted in Appendix A1 for the GOODS-S sample and Appendix A2 for the SSA sample.
+Overplotted onto the models are the data values and uncertainties extracted along the KA.
+This figure is accompanied by the HST imaging for each galaxy (HST F160W in GOODS-S and ACS F814W in SSA22\footnote{There are 2 galaxies in the SSA sample which did not have ACS F814W imaging, but had F160W imaging with lower integration time, and 3 galaxies not covered by either F160W or ACS 814W imaging, in which case we must resort to ground based SUBARU i-band imaging}), the best fit galfit model and residuals, the narrowband OIII image, 2D maps of the OIII Flux, observed velocity, observed dispersion, best fitting smeared model velocity, data - model residuals, intrinsic velocity dispersion (observed dispersion corrected for beam smearing and instrumental resolution as described in \cref{subsubsec:param_extraction}) as well as a plot of 1D extractions along the observed, intrinsic and beam smeared dispersion maps.
+After the modelling, the kinematic parameters must be extracted from the 2D intrinsic fields, as described in \cref{subsubsec:param_extraction}.   
+
+\subsubsection{Kinematic Parameters Extraction}\label{subsubsec:param_extraction}
+The crucial information to extract for the model grids described above for each galaxy, both for this study and for comparison to previous studies, is a measure of the maximum intrinsic circular velocity, $V_{max}$, and a single measurement of the intrinsic velocity dispersion, $\sigma_{int}$.
+Previous studies have measured these quantities in several different ways:
+MENTION GNERUCCI, FS, WISNIOSKI, STOTT, LAW etc. 
+In some of the isolated rotating sample, the extracted $V_{max}$ value involves significant extrapolation ($> 40kms^{-1}$) above the last observed data point.
+This is a combination of the beam smearing effect leading to a flatter observed velocity field at small radii and the low S/N of this very high redshift sample limiting the radius at which the final observed data point can be extracted.
+We hope to be transparent about when large extrapolations are happening, usually as a consequence of a smaller ratio $\frac{R_{KMOS}}{R_{e}}$, where $R_{KMOS}$ is the radius of the last extracted KMOS datapoint and $R_{e}$ is the effective radius measured with GALFIT, by presenting the observed $V_{max}$ values, the beam smeared model $V_{max}$ and the intrinsic model $V_{max}$ in the table of kinematic properties.
+
+\subsubsection{3D modelling error estimates}\label{subsubsec:model_errors}
+
+
+\subsubsection{1D Modelling}\label{subsubsec:1d modelling}
+\subsubsection{Beam Smearing Correction}\label{subsubsec:beam smearing corr}
 
 
 
@@ -482,9 +626,7 @@ Fig.~\ref{fig:distributions}, Table~\ref{tab:KDS}.
 
 \section*{Acknowledgements}
 
-The Acknowledgements section is not numbered. Here you can thank helpful
-colleagues, acknowledge funding agencies, telescopes and facilities used etc.
-Try to keep it short.
+This work is based on observations taken by the CANDELS Multi-Cycle Treasury Program with the NASA/ESA HST, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -509,7 +651,7 @@ Try to keep it short.
 
 \appendix
 
-\section{Some extra material}
+\section{Rotating Galaxies plots}
 
 \begin{figure*}
 \centering
@@ -519,6 +661,8 @@ Try to keep it short.
 \caption{Distributions of the physical properties of KDS galaxies in both GOODS-S and SSA22}
 \label{fig:grids}
 \end{figure*}
+
+\section{Morpho-Kinematic Classification}\label{app:morpho-kinematic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
