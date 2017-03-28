@@ -60,31 +60,32 @@
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
-%\author[O.J. Turner et al.]{
-%O. J. Turner,$^{1,2,\thanks{E-mail: turner@roe.ac.uk (OJT)}}$
-%M. Cirasuolo,$^{1,2}$
-%C. M. Harrison,$^{2,3}$
-%J. Dunlop,$^{1}$
-%R. J. McLure,$^{1}$\newauthor
-%A. M. Swinbank,$^{3,4}$
-%H. L. Johnson,$^{3,4}$
-%D. Sobral,$^{5}$
-%J. Matthee,$^{6}$
-%R. M. Sharples$^{3,4}$
-%\\
-%$^{1}$SUPA\thanks{Scottish Universities Physics Alliance}, Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh EH9 3HJ\\
-%$^{2}$European Southern Observatory, Karl-Schwarzschild-Str. 2, 85748 Garching b. M{\"u}nchen, Germany\\
-%$^{3}$Centre for Extragalactic Astronomy, Durham University, South Road, Durham, DH1 3LE, U.K.\\
-%$^{4}$Institute for Computational Cosmology, Durham University, South Road, Durham, DH1 3LE, U.K.\\
-%$^{5}$Department of Physics, Lancaster University, Lancaster, LA1 4BY, U.K.\\
-%$^{6}$Leiden Observatory, Leiden University, PO Box 9513, NL-2300 RA Leiden, the Netherlands}
 
 \author[O.J. Turner et al.]{
-O. J. Turner,$^{1,2,\thanks{E-mail: turner@roe.ac.uk}}$
+O. J. Turner,$^{1,2,\thanks{E-mail: turner@roe.ac.uk (OJT)}}$
+M. Cirasuolo,$^{1,2}$
+C. M. Harrison,$^{2,3}$
+J. Dunlop,$^{1}$
+R. J. McLure,$^{1}$\newauthor
+A. M. Swinbank,$^{3,4}$
+H. L. Johnson,$^{3,4}$
+D. Sobral,$^{5}$
+J. Matthee,$^{6}$
+R. M. Sharples$^{3,4}$
 \\
 $^{1}$SUPA\thanks{Scottish Universities Physics Alliance}, Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh EH9 3HJ\\
-$^{2}$European Southern Observatory, Karl-Schwarzschild-Str. 2, 85748 Garching b. M{\"u}nchen, Germany
-}
+$^{2}$European Southern Observatory, Karl-Schwarzschild-Str. 2, 85748 Garching b. M{\"u}nchen, Germany\\
+$^{3}$Centre for Extragalactic Astronomy, Durham University, South Road, Durham, DH1 3LE, U.K.\\
+$^{4}$Institute for Computational Cosmology, Durham University, South Road, Durham, DH1 3LE, U.K.\\
+$^{5}$Department of Physics, Lancaster University, Lancaster, LA1 4BY, U.K.\\
+$^{6}$Leiden Observatory, Leiden University, PO Box 9513, NL-2300 RA Leiden, the Netherlands}
+
+%\author[O.J. Turner et al.]{
+%O. J. Turner,$^{1,2,\thanks{E-mail: turner@roe.ac.uk}}$
+%\\
+%$^{1}$SUPA\thanks{Scottish Universities Physics Alliance}, Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh EH9 3HJ\\
+%$^{2}$European Southern Observatory, Karl-Schwarzschild-Str. 2, 85748 Garching b. M{\"u}nchen, Germany
+%}
 
 % These dates will be filled out by the publisher
 \date{Accepted XXX. Received YYY; in original form ZZZ}
@@ -187,17 +188,17 @@ We make no further cuts to the sample on the basis of mass and SFR, in order to 
 \centering
 \begin{threeparttable}
 \caption{This table summarises the KDS pointing statistics for the full observed sample of 77 galaxies.
-The columns list the pointing name, the galaxy environment probed, the central pointing coordinates, the number of observed, detected, resolved and merging objects as described in \protect\cref{subsubsec:datareduction}, the waveband observed with KMOS, the exposure time and the PSF measured in the {\it K}-band.}
+The columns list the pointing name and galaxy environment probed, the central pointing coordinates, the number of observed, detected, resolved and merging objects as described in \protect\cref{subsubsec:datareduction}, the waveband observed with KMOS, the exposure time and the PSF measured in the {\it K}-band.}
 \label{tab:pointings}
-\begin{tabular}{c c c c c c c c c c c c c c}
+\begin{tabular}{l l l l l l l l l l l l l}
 
  \hline
-Pointing & Environment & RA & DEC & N$_{obs}$ & N$_{Det}$ & $\%$ Det. & N$_{Res}$ & $\%$ Res & N$_{Merg}$ & $\%$ Merg$^{*}$ & Band$^{a}$ & Exp (ks) & PSF ($^{\prime\prime}$)$^{b}$  \\
+Pointing & RA & DEC & N$_{obs}$ & N$_{Det}$ & $\%$ Det. & N$_{Res}$ & $\%$ Res & N$_{Merg}$ & $\%$ Merg$^{*}$ & Band$^{a}$ & Exp (ks) & PSF ($^{\prime\prime}$)$^{b}$  \\
  \hline
- GOODS-S-P1 & FIELD & 03:32:22 & $-$27:52:51 & 20 & 16 & 80 & 13 & 65 & 2 & 17 & K & 32.4 & 0.50 \\
-GOODS-S-P2 & FIELD & 03:32:35 & $-$27:43:15 & 17 & 14 & 82 & 13 & 76 & 2 & 18 & K & 31.8 & 0.52 \\
-SSA22-P1 & CLUSTER & 22:17:28 & 00:09:54 & 21 & 15 & 71 & 9 & 46 & 8 & 89 & HK & 38.1 & 0.62 \\
-SSA22-P2 & FIELD & 22:17:11 & 00:15:47 & 19 & 17 & 89 & 12 & 63 & 2 & 18 & HK & 27.8 & 0.57 \\
+ \scriptsize{\bf GOODS-S-P1(FIELD)} & 03:32:25.910 & $-$27:51:58.710 & 20 & 16 & 80 & 13 & 65 & 2 & 17 & K & 32.4 & 0.50 \\
+\scriptsize{\bf GOODS-S-P2(FIELD)} & 03:32:32.217 & $-$27:43:08.000 & 17 & 14 & 82 & 13 & 76 & 2 & 18 & K & 31.8 & 0.52 \\
+\scriptsize{\bf SSA22-P1(CLUSTER)} & 22:17:11.867 & $+$00:15:44.700 & 21 & 15 & 71 & 9 & 46 & 8 & 89 & HK & 38.1 & 0.62 \\
+\scriptsize{\bf SSA22-P2(FIELD)} & 22:17:35.120 & $+$00:09:30.500 & 19 & 17 & 89 & 12 & 63 & 2 & 18 & HK & 27.8 & 0.57 \\
 
  \hline
 \end{tabular}
@@ -245,10 +246,10 @@ Each IFU has 14$\times$14 spatial pixels which are 0.2$^{\prime\prime}$ in size,
         \includegraphics[height=3.5in]{main_sequence.png}
     \end{subfigure}
     \caption{{\it Left:} The distribution of 49 KDS galaxies (see \cref{subsubsec:sed_fitting}) in rest-frame UVJ colour space is plotted, with filled symbols showing galaxies detected in [O~{\sc III}]$\lambda$5007 and open symbols showing those which were not detected.
-    Also plotted in this plane are $\sim4000$ galaxies in GOODS-S with $3.0 < z < 3.8$ (mirroring the KDS redshift range) from the 3D-{\em HST} survey, with the filled squares denoting the density in of galaxies in that region.
+    Also plotted in this plane are $\sim4000$ galaxies in GOODS-S with $3.0 < z < 3.8$ (mirroring the KDS redshift range) from the 3D-{\em HST} survey  \protect\citep{Brammer2012,Momcheva2016}, with the filled squares denoting the density in of galaxies in that region.
     We use the galaxy selection criteria defined in \protect\cite{Whitaker2012a} to highlight star-forming and quiescent regions (motivated by the age sequence of quiescent galaxies), finding that the KDS galaxies are all clearly in the star-forming region and overlap with the highest density of 3D-{\em HST} targets.
-    {\it Right:} We plot the location of the same 49 KDS galaxies in the SFR versus M$_{\star}$ plane, using the same symbol convention. 
-    The same GOODS-S galaxies from the 3D-{\em HST} survey \protect\citep{Brammer2012,Momcheva2016} at $3.0 < z < 3.8$ are plotted with the filled squares as a reference for the typical relationship between SFR and $M_{\star}$.
+    {\it Right:} We plot the location of the 49 KDS galaxies in the SFR versus M$_{\star}$ plane, using the same symbol convention. 
+    The same GOODS-S galaxies from the 3D-{\em HST} survey as in the left panel are plotted with the filled squares as a reference for the typical relationship between SFR and $M_{\star}$.
     The black solid line and the dashed line show the $z\sim2.5$ broken power-law and quadratic fit to the main sequence respectively, described in \protect\cite{Whitaker2014}.
     We include the MS relation evaluated at $z=3.5$ (the median redshift of the KDS sample) described in \protect\cite{Speagle2014} and given in equation \protect\ref{eq:speagle_ms} throughout the text as the green line, with the discrepancy between the two relations representating the expected main sequence evolution between these redshifts. 
     Within the typical uncertainties (see error bars) the KDS sample is representative of $z\sim3.5$ SFGs.}
@@ -301,13 +302,12 @@ The wealth of ancillary data in both fields allows for a consistent treatment of
 These derived properties are considered in the context of the galaxy main sequence, to verify that the KDS sample contains typical SFGs at $z\sim3.5$.   
 
 \subsubsection{SED fitting and main sequence}\label{subsubsec:sed_fitting}
-We use SED modelling to constrain simultaneously the $M_{\star}$ and SFR of the KDS targets.
-During the SED modelling we assume solar metallicity stellar templates and make use of \cite{Calzetti2000} reddening law with exponentially declining SFRs in both GOODS-S and SSA22.
-A Chabrier IMF is used with a reduced set of BC03 \citep{Bruzual2003} templates in the fitting procedure.
-We have also computed the quantities using 0.2Z$\odot$ templates, finding stellar masses for the galaxies which are on average 0.1 dex lower, but this change does not affect the conclusions of this work.
-The median stellar mass for the full observed samples in both GOODS-S and SSA22 is $log(M_{\star}/M_{\odot}) = 10.0$.
-In SSA22 29 targets (36\% of the full KDS sample) do not have SFR measurements due to having J and {\it K}-band detections lower than 2-$\sigma$ significance.
-For these objects we are able to estimate robust stellar masses from the available photometry, noting that the median of stellar mass distribution is $\sim 0.3$ dex lower than the median stellar mass in GOODS-S. \\
+In order to constrain their SFRs and stellar masses, the available photometry for the KDS targets was analysed using the SED fitting software described in \cite{McLure2011} and \cite{McLeod2015}.
+The photometry for each target was fit with the same set of solar metallicity BC03 \citep{Bruzual2003} templates recommended for reproducing the properties of star-forming galaxies by \cite{Wuyts2011a}, and derived stellar masses and SFRs were based on a Chabrier IMF.
+During the SED fitting process, dust attenuation was accounted for using the \cite{Calzetti2000} reddening law, with dust attenuation allowed to vary freely within the range $0.0<A_{V}<2.5$.
+Based on the adopted template set, the median stellar mass for the full observed sample is $\log(M_{\star}/{\rm M}_{\odot}) = 10.0$. 
+We note that fitting the photometry of the KDS targets with 0.2Z$\odot$ templates, rather than solar metallicity templates, typically reduces the derived stellar masses by $\simeq 0.1$ dex, but this change does not affect the conclusions of this work.
+In SSA22, 29 targets (36\% of the full KDS sample) do not have robust SFR measurements due to being undetected at $\geq 2\sigma$ significance in the available $J-$ and $K-$band photometry. \\
 
 In the left panel of Figure \ref{fig:main_sequence} we plot the 64\% of KDS galaxies with SFR measurements in the rest-frame {\it U-V} vs. {\it V-J} colour space.
 This is a commonly used diagnostic plane for selecting star-forming and quiescent galaxies \citep[e.g.][]{Williams2009,Brammer2011,Whitaker2012a} with the age gradients of the stars within quiescent galaxies placing them in a different region of the plane to those which are actively forming stars.
@@ -355,7 +355,7 @@ At this redshift, the galaxies are more compact and generally we cannot resolve 
 In the F160W band the adopted PSF is a hybrid between the Tiny Tim {\it H}-band model \citep{Krist2011} in the PSF centre and an empirical stack of stars observed in the {\it H}-band for the wings \citep{VanderWel2012} and in the F814W band we use the pure Tiny Tim ACS high-resolution PSF model.
 During the fitting process all other morphological parameters, including $R_{1/2}$, the central x and y coordinates, $PA_{morph}$ and inclination, are free to vary.
 
-This method has been verified in GOODS-S by comparing the $\chi ^{2}$ recovered from fitting floating \Sers index models, bulge/disk models with both an n = 1 and n = 4 component and from the fixed exponential disk value of n = 1 following the procedure described in \cite{Bruce2012}, with the median ratio of $\chi ^{2}$ $\sim 1$ between the different fitting methods. Additionally, 22 GOODS-S objects are also detected in the \cite{VanderWel2012} catalogue, for which the median \Sers index value is n = 1.2.
+This method has been verified in GOODS-S by comparing the $\chi ^{2}$ recovered from fitting floating \Sers index models and bulge/disk models with both an n = 1 and n = 4 component (following the procedure described in \cite{Bruce2012}) with the fixed exponential disk value of n = 1 , with the median ratio of $\chi ^{2}$ $\sim 1$ between the different fitting methods. Additionally, 22 GOODS-S objects are also detected in the \cite{VanderWel2012} catalogue, for which the median \Sers index value is n = 1.2.
 The use of exponential profiles also facilitates comparison with recent large surveys such as KMOS$^{3D}$ \citep{Wisnioski2015} and KROSS \citep{Harrison2017} in which beam-smearing correction factors are applied to the derived kinematic parameters as a function of exponential disk scale length, $R_{D}$, defined as $R_{1/2} \sim 1.68 R_{D}$ (see \cref{subsec:KROSS}). \\
 
 This analysis provides us with three crucial morphological parameters required to support the kinematic analysis of \cref{subsec:3d_modelling}, namely the axis ratio $b/a$, half-light radius $R_{1/2}$ and the morphological position angle $PA_{morph}$.
@@ -370,46 +370,46 @@ We do not expect that this small number of galaxies without {\em HST} imaging wi
 \begin{table*}
 \centering
 \begin{threeparttable}
-\caption{Physical properties of the resolved and morphologically isolated KDS field galaxies as measured from SED fitting and from applying {\tt GALFIT} \protect\citep{Peng2010_galfit}}
+\caption{Physical properties of the resolved and morphologically isolated KDS field galaxies as measured from SED fitting and from applying {\tt GALFIT} \protect\citep{Peng2010_galfit}.}
 \label{tab:phys-props}
-\begin{tabular}{ccccccccccc}
+\begin{tabular}{lllllllllll}
 
 
  \hline
 ID              & RA       & Dec       & z     & K$_{AB}$     & $log(M_{\star}/M_{\odot})^{a}$ & SFR$_{SED}$[$M_{\odot}yr^{-1}]$$^{b}$ & $b/a$ & i$^{\circ}$$^{c}$ & PA$_{morph}^{\circ}$ & R$_{1/2}$(kpc)$^{d}$ \\
  \hline
-b012141\_012208 & 03:32:23 & $-$27:51:57 & 3.471        & 24.12  & 10.16 & 59 & 0.36        & 72        & 9     & 1.57      \\
-b15573          & 03:32:28 & $-$27:51:00 & 3.583        & 23.6   & 10.37 & 27 & 0.28        & 78        & 146   & 0.52      \\
-bs006516        & 03:32:15 & $-$27:50:46 & 3.215        & 23.94  & 9.85  & 14 & 0.50         & 61        & 146   & 1.91      \\
-bs006541        & 03:32:15 & $-$27:52:05 & 3.475       & 23.44  & 10.19 & 18 & 0.44        & 66        & 168   & 1.83      \\
-bs008543        & 03:32:18 & $-$27:50:50 & 3.474        & 22.73  & 10.67 & 42 & 0.50         & 61        & 67    & 1.59      \\
-bs009818        & 03:32:20 & $-$27:53:01 & 3.706        & 24.18  & 9.79  & 33 & 0.80         & 37        & 148   & 1.24      \\
-bs014828        & 03:32:27 & $-$27:52:26 & 3.562        & 23.58  & 10.15 & 30 & 0.31        & 76        & 63    & 1.61      \\
-bs016759        & 03:32:29 & $-$27:48:53 & 3.602       & 23.85  & 9.99  & 9  & 0.65        & 50        & 49    & 0.87      \\
-lbg\_20         & 03:32:41 & $-$27:52:21 & 3.225        & 24.97  & 9.61  & 5  & 0.64        & 52        & 1     & 1.28      \\
-lbg\_24         & 03:32:40 & $-$27:39:57 & 3.279       & 24.67  & 9.71  & 6  & 0.53        & 60        & 34    & 1.27      \\
-lbg\_25         & 03:32:29 & $-$27:40:22 & 3.322        & 24.95  & 9.44  & 6  & 0.30         & 76        & 78    & 1.18      \\
-lbg\_30         & 03:32:43 & $-$27:42:06 & 3.419        & 23.85  & 10.13  & 29  & 0.79         & 38        & 66    & 0.95      \\
-lbg\_32         & 03:32:34 & $-$27:41:24 & 3.417      & 23.84  & 10.17 & 52 & 0.60         & 54        & 40    & 1.88      \\
-lbg\_38         & 03:32:22 & $-$27:44:38 & 3.488       & 24.58  & 10.03 & 8  & 0.58        & 56        & 137   & 0.92      \\
-lbg\_91         & 03:32:27 & $-$27:41:52 & 3.170       & 24.65  & 9.80   & 6  & 0.58        & 56        & 79    & 0.89 \\
-lbg\_94         & 03:32:29 & $-$27:44:12 & 3.367       & 24.54  & 10.01 & 8  & 0.22        & 84        & 81    & 1.16      \\
-lbg\_105        & 03:32:24 & $-$27:52:16 & 3.092      & 23.79  & 9.79  & 30 & 0.56        & 57        & 128   & 1.72      \\
-lbg\_109        & 03:32:21 & $-$27:43:46 & 3.600       & 24.63  & 9.73  & 9  & 0.60         & 54        & 119   & 1.98      \\
-lbg\_111        & 03:32:42 & $-$27:45:52 & 3.609       & 24.01  & 9.74  & 27 & 0.74        & 42        & 80    & 0.64      \\
-lbg\_112         & 03:32:17 & $-$27:42:18 & 3.617        & 25.16  & 9.67  & 5  & 0.79         & 38        & 43    & 0.46      \\
-lbg\_113        & 03:32:36 & $-$27:41:50 & 3.622      & 24.01  & 9.83  & 41 & 0.52        & 60        & 15    & 0.87      \\
-lbg\_124         & 03:32:33 & $-$27:50:07 & 3.794        & 24.96  & 9.09  & 10  & 0.56         & 57        & 50    & 0.78      \\
-$^{*}$n3\_006       & 22:17:25 & +00:11:18 & 3.069     & 22.98 & 10.64 & 50 & 0.57         & 57        & -    & 2.52      \\
-n3\_009       & 22:17:28 & $+$00:12:12 & 3.069 & -    & 8.72  & -            & 0.75        & 42        & 84    & 1.06      \\
-n\_c3         & 22:17:33 & $+$00:10:57 & 3.096       & 24.96 & 9.94  & -            & 0.71        & 46        & 94    & 0.56      \\
-lab18         & 22:17:29 & $+$00:07:52 & 3.101           & -    & 8.66  & -            & 0.85        & 32        & 27    & 0.46      \\
-$^{*}$lab25         & 22:17:23 & $+$00:15:51 & 3.067      & -    & 8.78  & -            & 0.57         & 57        & -    & 2.18      \\
-s\_sa22a-d3   & 22:17:32 & $+$00:11:33 & 3.069 & 23.46 & 9.88  & -            & 0.39        & 70        & 125   & 1.78      \\
-s\_sa22b-c20  & 22:17:49 & $+$00:10:14 & 3.196     & 23.91 & 9.74  & -            & 0.57        & 57        & 76    & 1.59      \\
-$^{*}$s\_sa22b-d5  & 22:17:36 & $+$00:06:10 & 3.175 & 23.72 & 10.32 & -            & 0.57         & 57        & -    & 3.30      \\
-s\_sa22b-d9   & 22:17:22 & $+$00:08:04 & 3.084    & 24.25 & 10.05 & -            & 0.65        & 50        & 60   & 0.5       \\
-$^{*}$s\_sa22b-md25 & 22:17:42 & $+$00:06:20 & 3.304     & 24.62 & 9.05  & -            & 0.57         & 57        & -    & 1.39      
+b012141\_012208 & 03:32:23.290 & $-$27:51:57.348 & 3.471        & 24.12  & 10.2 & 59 & 0.36        & 72        & 9     & 1.57      \\
+b15573          & 03:32:27.638 & $-$27:50:59.676 & 3.583        & 23.6   & 10.4 & 27 & 0.28        & 78        & 146   & 0.52      \\
+bs006516        & 03:32:14.791 & $-$27:50:46.500 & 3.215        & 23.94  & 9.9  & 14 & 0.50         & 61        & 146   & 1.91      \\
+bs006541        & 03:32:14.820 & $-$27:52:04.620 & 3.475       & 23.44  & 10.2 & 18 & 0.44        & 66        & 168   & 1.83      \\
+bs008543        & 03:32:17.890 & $-$27:50:50.136 & 3.474        & 22.73  & 10.7 & 42 & 0.50         & 61        & 67    & 1.59      \\
+bs009818        & 03:32:19.810 & $-$27:53:00.852 & 3.706        & 24.18  & 9.8  & 33 & 0.80         & 37        & 148   & 1.24      \\
+bs014828        & 03:32:26.760 & $-$27:52:25.896 & 3.562        & 23.58  & 10.2 & 30 & 0.31        & 76        & 63    & 1.61      \\
+bs016759        & 03:32:29.141 & $-$27:48:52.596 & 3.602       & 23.85  & 10.0  & 9  & 0.65        & 50        & 49    & 0.87      \\
+lbg\_20         & 03:32:41.244 & $-$27:52:20.676 & 3.225        & 24.97  & 9.6  & 5  & 0.64        & 52        & 1     & 1.28      \\
+lbg\_24         & 03:32:39.754 & $-$27:39:56.628 & 3.279       & 24.67  & 9.7  & 6  & 0.53        & 60        & 34    & 1.27      \\
+lbg\_25         & 03:32:29.189 & $-$27:40:22.476 & 3.322        & 24.95  & 9.4  & 6  & 0.30         & 76        & 78    & 1.18      \\
+lbg\_30         & 03:32:42.854 & $-$27:42:06.300 & 3.419        & 23.85  & 10.1  & 29  & 0.79         & 38        & 66    & 0.95      \\
+lbg\_32         & 03:32:34.399 & $-$27:41:24.324 & 3.417      & 23.84  & 10.2 & 52 & 0.60         & 54        & 40    & 1.88      \\
+lbg\_38         & 03:32:22.474 & $-$27:44:38.436 & 3.488       & 24.58  & 10.0 & 8  & 0.58        & 56        & 137   & 0.92      \\
+lbg\_91         & 03:32:27.202 & $-$27:41:51.756 & 3.170       & 24.65  & 9.8   & 6  & 0.58        & 56        & 79    & 0.89 \\
+lbg\_94         & 03:32:28.949 & $-$27:44:11.688 & 3.367       & 24.54  & 10.0 & 8  & 0.22        & 84        & 81    & 1.16      \\
+lbg\_105        & 03:32:24.005 & $-$27:52:16.140 & 3.092      & 23.79  & 9.8  & 30 & 0.56        & 57        & 128   & 1.72      \\
+lbg\_109        & 03:32:20.935 & $-$27:43:46.344 & 3.600       & 24.63  & 9.7  & 9  & 0.60         & 54        & 119   & 1.98      \\
+lbg\_111        & 03:32:42.497 & $-$27:45:51.696 & 3.609       & 24.01  & 9.7  & 27 & 0.74        & 42        & 80    & 0.64      \\
+lbg\_112         & 03:32:17.134 & $-$27:42:17.784 & 3.617        & 25.16  & 9.7  & 5  & 0.79         & 38        & 43    & 0.46      \\
+lbg\_113        & 03:32:35.957 & $-$27:41:49.956 & 3.622      & 24.01  & 9.8  & 41 & 0.52        & 60        & 15    & 0.87      \\
+lbg\_124         & 03:32:33.324 & $-$27:50:07.332 & 3.794        & 24.96  & 9.1  & 10  & 0.56         & 57        & 50    & 0.78      \\
+$^{*}$n3\_006       & 22:17:24.859 & +00:11:17.620 & 3.069     & 22.98 & 10.6 & 50 & 0.57         & 57        & -    & 2.52      \\
+n3\_009       & 22:17:28.330 & $+$00:12:11.600 & 3.069 & -    & 8.7  & -            & 0.75        & 42        & 84    & 1.06      \\
+n\_c3         & 22:17:32.585 & $+$00:10:57.180 & 3.096       & 24.96 & 9.9  & -            & 0.71        & 46        & 94    & 0.56      \\
+lab18         & 22:17:28.850 & $+$00:07:51.800 & 3.101           & -    & 8.7  & -            & 0.85        & 32        & 27    & 0.46      \\
+$^{*}$lab25         & 22:17:22.603 & $+$00:15:51.330 & 3.067      & -    & 8.8  & -            & 0.57         & 57        & -    & 2.18      \\
+s\_sa22a-d3   & 22:17:32.453 & $+$00:11:32.920 & 3.069 & 23.46 & 9.9  & -            & 0.39        & 70        & 125   & 1.78      \\
+s\_sa22b-c20  & 22:17:48.845 & $+$00:10:13.840 & 3.196     & 23.91 & 9.7  & -            & 0.57        & 57        & 76    & 1.59      \\
+$^{*}$s\_sa22b-d5  & 22:17:35.808 & $+$00:06:10.340 & 3.175 & 23.72 & 10.3 & -            & 0.57         & 57        & -    & 3.30      \\
+s\_sa22b-d9   & 22:17:22.303 & $+$00:08:04.130 & 3.084    & 24.25 & 10.1 & -            & 0.65        & 50        & 60   & 0.5       \\
+$^{*}$s\_sa22b-md25 & 22:17:41.690 & $+$00:06:20.460 & 3.304     & 24.62 & 9.1  & -            & 0.57         & 57        & -    & 1.39      
 
 \end{tabular}
 \begin{tablenotes}
@@ -695,9 +695,11 @@ We present the observed and model determined kinematic parameters in Table \ref{
 \begin{table*}
 \centering
 \begin{threeparttable}
-\caption{Dynamical Properties for the resolved and morphologically isolated KDS field galaxies}
+\caption{We present here the dynamical properties for the KDS isolated field sample galaxies.
+The observed properties are measured directly from the extracted two-dimensional maps, whereas $V_{C}$ and $\sigma_{int}$ have been corrected for the effects of beam-smearing as described throughout the text.
+Each galaxy is classified as rotation dominated or dispersion dominated if the ratio $V_{C}/\sigma_{int}$ is greater than or less than 1 respectively, as highlighted in the `Class' column.}
 \label{tab:kin_props}
-\begin{tabular}{cccccccc}
+\begin{tabular}{llllllll}
 
  \hline
 ID & $V_{obs}$(kms$^{-1}$) & $V_{C}$(kms$^{-1}$) & $\sigma_{obs}$(kms$^{-1}$) & $\sigma_{int}$(kms$^{-1}$) & $V_{C}/\sigma_{int}$ & PA$_{kin}^{\circ}$ & Class$^{a}$ \\
@@ -858,7 +860,7 @@ At $z\sim 3$ observations are limited and in \cite{Gnerucci2011} an offset of $-
 
 We plot the relationship between $V_{C}$ and $M_{\star}$ for the isolated field sample in the left panel of Figure \ref{fig:tf_relation}.
 In \cite{Harrison2017}, the inverse stellar mass Tully-Fisher relation relation is fit to $\sim400$ $9.5 < log(M_{\star}/M_{\odot}) < 10.5$ star-forming galaxies at $z\sim0.9$, measured to be rotationally dominated with $V_{C}/\sigma_{int} > 1$.
-The data are used to constrain parameters `a' and `b' in the equation $logV_{C}=b+a[logM_{\star} - 10.0]$ (see their section 4.2) finding $a = 0.33 \pm 0.11$ and $b = 2.12 \pm 0.04$.
+The data are used to constrain parameters `a' and `b' in the equation $logV_{C}=b+a[logM_{\star} - 10.10]$ (see their section 4.2) finding $a = 0.33 \pm 0.11$ and $b = 2.12 \pm 0.04$.
 We plot this best fit relation with the solid green line, with the green shaded region giving the typical scatter of 0.2 dex along the velocity axis.
 These $z\sim0.9$ parameters are consistent with the coefficients measured in the local universe, $a_{z=0} = 0.278 \pm 0.010$ and $b_{z=0} = 2.142 \pm 0.004$ , for a sample of $z<0.1$ disks from \cite{Reyes2011}, which are in a similar mass range to the KROSS galaxies in \cite{Harrison2017} and traced with H$\alpha$ emission.
 In \cite{Reyes2011} $V_{C}$ has been extracted at the same radius and we plot this $z\sim 0.1$ local relation as the dashed black line in the left panel of Figure \ref{fig:tf_relation}.
@@ -867,7 +869,7 @@ The agreement between the parameters derived at $z\sim0$ and $z\sim0.9$ suggests
 The rotation dominated KDS isolated field sample galaxies are broadly consistent within the scatter with the $z\sim 0.9$ relation, but with a tendency to lie below the relation.
 When considered alone, the mean velocity of the rotation dominated isolated field sample galaxies ($V_{C} = 96.7^{+7.3}_{-7.2}kms^{-1}$) at their mean mass of $log(M_{\star}/M_{\odot})=10.0$ is $\sim0.1$ dex beneath the KROSS relation at the same mass.
 The dispersion dominated KDS galaxies sit clearly separated and below the $z\sim0.9$ relation, bringing significant scatter to lower $V_{C}$ values at fixed $M_{\star}$ as is also observed in $z\sim0.9$ dispersion dominated galaxies and for early-type galaxies in the local universe \citep[e.g.][]{Romanowsky2012}. 
-We plot also the five $z\sim3$ galaxies from the AMAZE clean sample, which are consistent within the scatter with the relation for typical star-forming galaxies at $z\sim0.9$ .
+We plot also the five $z\sim3$ galaxies from the AMAZE clean sample, which are consistent within the scatter with the relation for typical star-forming galaxies at $z\sim0.9$.
 
 Conclusions on the evolution of the stellar mass Tully-Fisher relation are a strong function of sample selection; in \cite{Tiley2016a} where a stricter $V_{C}/\sigma_{int} > 3$ cut is applied, evolution to lower masses at fixed rotation velocity is observed at $z\sim0.9$, which is not the case when using the $V_{C}/\sigma_{int} > 1$ cut.
 Similarly in \cite{Cresci2009} evolution of the normalisation of the stellar mass Tully-Fisher relation is observed at $z\sim2$ using only robust rotators from the SINS sample with mean $V_{C}/\sigma_{int} = 5$.
@@ -1127,6 +1129,11 @@ The main conclusions of this work are summarised as follows:
 
 \section*{Acknowledgements}
 
+CMH, AMS and RMS acknowledge the Science and Technology Facilities Council through grant code ST/L00075X/1.
+RJM acknowledges the support of the European Research Council via the award of a Consolidator Grant (PI: McLure).
+JSD acknowledges the support of the European Research Council via the award of an Advanced Grant (PI J. Dunlop), and the contribution of the EC FP7 SPACE project ASTRODEEP (Ref.No: 312725).
+AMS acknowledges the Leverhulme Foundation.
+JM acknowledges the support of a Huygens PhD fellowship from Leiden University. DS acknowledges financial support from the Netherlands Organization for Scientific research (NWO) through a Veni fellowship and from FCT through an FCT Investigator Starting Grant and Start-up Grant (IF/01154/2012/CP0189/CT0010).
 This work is based on observations taken by the CANDELS Multi-Cycle Treasury Program with the NASA/ESA {\em HST}, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 This work is based on observations taken by the 3D-{\em HST} Treasury Program (GO 12177 and 12328) with the NASA/ESA {\em HST}, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS5-26555.
 Based on data obtained with the European Southern Observatory Very Large Telescope, Paranal, Chile, under Large Program 185.A-0791, and made available by the VUDS team at the CESAM data center, Laboratoire d'Astrophysique de Marseille, France.
