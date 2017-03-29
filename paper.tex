@@ -461,8 +461,8 @@ Knowledge of $R_{1/2}$ gives a well defined and consistent point across the exte
 Throughout our dynamical modelling and beam-smearing correction (see \cref{subsec:3d_modelling}) we also require the $R_{1/2}$ value for each galaxy.
 The median difference between the derived $R_{1/2}$ values and those presented in \cite{VanderWel2012} for the 22 matched GOODS-S galaxies is $\Delta R_{1/2} = 0.0054^{\prime\prime}$ (corresponding to 0.04kpc at $z\simeq3.5$).
 
-In the right panel of Figure \ref{fig:morpho-distributions} we plot the distribution of the derived $R_{1/2}$ values (for the 28 galaxies with {\em HST} imaging in the refined sample, \cref{subsubsec:kin_sample_summary}) in comparison to the reference samples spanning two redshift ranges.
-In general the KDS galaxies are much more compact than at lower redshift and overlap with the smaller side of the $3 < z < 4$ reference sample, which we attribute to the lack of massive galaxies in the KDS sample (through the mass-size relation \citep[e.g.][]{Trujillo2004}).
+%In the right panel of Figure \ref{fig:morpho-distributions} we plot the distribution of the derived $R_{1/2}$ values (for the 28 galaxies with {\em HST} imaging in the refined sample, \cref{subsubsec:kin_sample_summary}) in comparison to the reference samples spanning two redshift ranges.
+%In general the KDS galaxies are much more compact than at lower redshift and overlap with the smaller side of the $3 < z < 4$ reference sample, which we attribute to the lack of massive galaxies in the KDS sample (through the mass-size relation \citep[e.g.][]{Trujillo2004}).
 
 \cite{Bruce2012} presents a detailed error analysis for recovering the morphological parameters of $1 < z < 3$ galaxies in the CANDELS fields (which includes {\em HST} data covering the GOODS-S field which we exploit during this work), reporting that the magnitude of the error on $R_{1/2}$ is typically at the 10$\%$ level.
 We adopt a nominal error of 10$\%$ for our recovered $R_{1/2}$ values and note that the errors on $V_{C}$ and $\sigma_{int}$ are dominated by measurement errors and uncertainties connected with assumptions about the inclination angle correction and the velocity dispersion distribution in high redshift galaxies (see Appendix \ref{app:kin_error_estimates}).
@@ -470,27 +470,36 @@ We adopt a nominal error of 10$\%$ for our recovered $R_{1/2}$ values and note t
 To measure $R_{1/2}$ in the galaxies without {\em HST} coverage we first fit the [O~{\sc III}]$\lambda$5007 narrow-band images with an exponential profile, and subtract the PSF from the recovered $R_{1/2}$ value.
 We note that the extracted rotation velocities are not sensitive to the precise $R_{1/2}$ values, since we measure these at $2R_{1/2}$ (see \cref{subsubsec:beam_smearing_corrected_velocities}) where the intrinsic model rotation curves have already reached flattening. \\
 
-\begin{figure*}
-    \centering \hspace{-2.0cm}
-    \begin{subfigure}[h!]{0.50\textwidth}
-        \centering
-        \includegraphics[height=3.5in]{axis_ratio_distributions.png}
-        %\caption{axis ratio distributions}
-    \end{subfigure} \hspace{0.4cm}
-    \begin{subfigure}[h!]{0.50\textwidth}
-        \centering
-        \includegraphics[height=3.6in]{size_distributions.png}
-        %\caption{size distributions}
-    \end{subfigure}
-    \caption{{\it Left:} The normalised counts of KDS galaxies in bins of axis ratio is plotted, along with the normalised counts from the morphological catalogue presented in \protect\cite{VanderWel2012} in two redshift ranges.
+\begin{figure}
+\centering \hspace{-1.13cm}
+\includegraphics[width=0.49\textwidth]{axis_ratio_distributions.png}
+\caption{The normalised counts of KDS galaxies in bins of axis ratio is plotted, along with the normalised counts from the morphological catalogue presented in \protect\cite{VanderWel2012} in two redshift ranges.
     The axis ratio distribution appears to be constant with time as traced by the reference samples, and the KDS values are in good agreement with a relatively uniform distribution spanning $0.3 < b/a < 0.9$.
-    This suggests that we are not biased towards deriving a particular value for the axis ratio.
-    {\it Right:} The normalised counts of KDS galaxies in bins of half-light radius is plotted, along with the half-light radii of the same \protect\cite{VanderWel2012} galaxies as the left panel.
-    We find that the KDS galaxies are much more compact than those at low redshift, as traced by $R_{1/2}$ measure, which could partially be explained by the F160W filter tracing a younger stellar population at $z\simeq3.5$.
-    The distribution of KDS $R_{1/2}$ values is consistent with the smaller part of the distribution in the high redshift reference sample, which we attribute to the lack of very massive galaxies in the KDS sample.
-    The extracted velocity values are not sensitive to the exact value of the half-light radius, as the intrinsic rotation curves flatten at small radii (see \protect\ref{fig:main_body_kinematic_grids}).}
-    \label{fig:morpho-distributions}
-\end{figure*}
+    This suggests that we are not biased towards deriving a particular value for the axis ratio.}
+\label{fig:morpho-distributions}
+\end{figure}
+
+%\begin{figure*}
+%    \centering \hspace{-2.0cm}
+%    \begin{subfigure}[h!]{0.50\textwidth}
+%        \centering
+%        \includegraphics[height=3.5in]{axis_ratio_distributions.png}
+%        %\caption{axis ratio distributions}
+%    \end{subfigure} \hspace{0.4cm}
+%    \begin{subfigure}[h!]{0.50\textwidth}
+%        \centering
+%        \includegraphics[height=3.6in]{size_distributions.png}
+%        %\caption{size distributions}
+%    \end{subfigure}
+%    \caption{{\it Left:} The normalised counts of KDS galaxies in bins of axis ratio is plotted, along with the normalised counts from the morphological catalogue presented in \protect\cite{VanderWel2012} in two redshift ranges.
+%    The axis ratio distribution appears to be constant with time as traced by the reference samples, and the KDS values are in good agreement with a relatively uniform distribution spanning $0.3 < b/a < 0.9$.
+%    This suggests that we are not biased towards deriving a particular value for the axis ratio.
+%    {\it Right:} The normalised counts of KDS galaxies in bins of half-light radius is plotted, along with the half-light radii of the same \protect\cite{VanderWel2012} galaxies as the left panel.
+%    We find that the KDS galaxies are much more compact than those at low redshift, as traced by $R_{1/2}$ measure, which could partially be explained by the F160W filter tracing a younger stellar population at $z\simeq3.5$.
+%    The distribution of KDS $R_{1/2}$ values is consistent with the smaller part of the distribution in the high redshift reference sample, which we attribute to the lack of very massive galaxies in the KDS sample.
+%    The extracted velocity values are not sensitive to the exact value of the half-light radius, as the intrinsic rotation curves flatten at small radii (see \protect\ref{fig:main_body_kinematic_grids}).}
+%    \label{fig:morpho-distributions}
+%\end{figure*}
 
 \subsection{Kinematic Measurements}\label{subsection:kinematic_measurements}
 
@@ -677,7 +686,7 @@ To measure the $\sigma_{int}$ value for each galaxy in our sample we use Equatio
 
 \begin{equation}\label{eq:owen_sigma}
 \sigma_{int} = \sqrt{\left(\sigma_{obs} - \sigma_{BS}^{2}\right) - \sigma_{inst}^{2}}
-\end{equation}
+\end{equation} \\
 
 The median value of this map is taken as the $\sigma_{int}$ value for that galaxy and the median value of the observed map is the $\sigma_{obs}$ value.
 The mean and median $\sigma_{int}$ values in the isolated field sample are $70.8^{+3.3}_{-3.1} kms^{-1}$ and $71.0^{+5.0}_{-4.8} kms^{-1}$ respectively, higher than at lower redshift as has been extensively reported \citep[e.g.][]{Genzel2006,Genzel2008,ForsterSchreiber2009,Law2009,Gnerucci2011,Epinat2012,Wisnioski2015}.
@@ -690,6 +699,36 @@ This confirms that the choice of modelling and kinematic parameter extraction de
 We also observe that the shape and width of the observed and intrinsic kinematic parameter distributions are equivalent, suggesting that the corrections do not over-extrapolate from the raw numbers.
 
 We present the observed and model determined kinematic parameters in Table \ref{tab:kin_props} for the isolated field sample.
+
+\subsubsection{Kinematic and photometric axes}\label{subsubsection:kin_and_phot}
+The dynamical model parameter $PA_{Kin}$ can be compared with $PA_{morph}$ computed by {\tt GALFIT} in \cref{subsubsec:galfitting} to indicate the degree of misalignment between the gaseous and stellar components of the galaxies.
+This follows the analysis described in \citep[e.g.][]{Epinat2008,Epinat2012,Barrera-Ballesteros2014,Barrera-Ballesteros2015,Wisnioski2015,Harrison2017,Swinbank2017} where rotating galaxies generally have $\Delta PA \equiv |PA_{kin}-PA_{morph}| < 20^{\circ}$, with the discrepancy increasing as a function of axis ratio due to $PA_{morph}$ becoming more difficult to measure as the galaxy becomes more `face-on'.
+Significant misalignment between the two axes can be a signature of galaxy interaction.
+
+The resolved KDS galaxies at $z\simeq3.5$ have generally larger $\Delta PA$ values than those at lower redshift (median $\Delta PA = 37^{\circ}$) and this observation has several potential explanations.
+For the majority of galaxies we are not in a regime where prominent morphological features are resolved in the {\em HST} imaging so that $PA_{morph}$ is biased by single \Sers fits as described in \cite{Rodrigues2016}.
+Another factor which could be partially driving increased misalignment in the KDS is the use of the full observed 2D velocity field to determine the kinematic position angle.
+This generally does not give the same answer as simply connecting the velocity extrema, as we have verified by rotating $PA_{Kin}$ in 1$^{\circ}$ increments and choosing the value which maximises the velocity gradient, calling this $PA_{rot}$.
+If the direction of the `zero-velocity strip' across the centre of the velocity maps is not perpendicular to the line connecting the velocity extrema, the $PA_{Kin}$ determined from MCMC will be different to the $PA_{Kin}$ determined from rotation (e.g. GOODS-S galaxy bs006541).
+As a test, we have verified that extracting $V_{C}$ values along $PA_{rot}$ makes only a small difference to the final $V_{C}$ values, a difference which does not affect the outcomes of this work.
+
+
+\subsection{Morpho-Kinematic classification}\label{subsec:morpho-kin-class}
+We proceed to further divide the isolated field sample galaxies into two subsamples on the basis of the ratio $V_{C}/\sigma_{int}$.
+This is a simple empirical diagnostic for whether a galaxy is `Rotation-Dominated' with $V_{C}/\sigma_{int} > 1$ or `Dispersion-Dominated' with $V_{C}/\sigma_{int} < 1$  \citep[i.e. a method to measure the prevalence of rotational and random motions;][]{Epinat2012,Wisnioski2015,Stott2016,Harrison2017}.
+Previous studies have used various classification schemes of varying complexity to identify rotation-dominated galaxies which also appear to be `disk-like' and we briefly mention some of these in \cref{subsubsection:isolated_classification}.
+We describe our simple classification criteria for the isolated field sample based on a joint consideration of the high-resolution photometry and derived kinematic parameters in \cref{subsubsection:isolated_classification} and mention the KDS merger candidates in more detail in the following section.
+
+\subsubsection{KDS merger candidates}\label{subsubsection:merger_candidates}
+KDS galaxies are classified as mergers when more than one component is identified in the high-resolution imaging.  
+One benefit of studying the {\em HST} photometry in tandem with the kinematics is to aid the interpretation of peculiarities in the velocity and velocity dispersion fields.
+These peculiarities are usually unexpected discontinuities in the rotation fields, or extreme broadening of the dispersion field above that expected from beam-smearing or in regions spatially offset from the centre of the galaxy.
+A second benefit is to uncover `rotation doppelg{\"a}ngers', which mimic disk rotation from a purely kinematic perspective (i.e. can be fit with the arctangent model (see \cref{subsec:3d_modelling}) with small residuals), but are clearly two or more potentially interacting components at slightly different redshifts in the imaging (e.g. the bottom grid in Figure \ref{fig:main_body_kinematic_grids}).
+
+This has been discussed in \cite{Hung2015}, where redshifted local interacting galaxies are misclassified as single rotating disks on the basis of their kinematics. 
+In short, the galaxies with multiple photometric components do not always have disordered kinematics and so the kinematics alone are not sufficient for classification.
+It is difficult to distinguish in some cases between two {\em HST} components rotating together in a single disk (i.e. clumpy disk galaxies e.g. \citealt{Elmegreen2004,Bournaud2007}) with a receding and approaching side and two [O~{\sc III}]$\lambda$5007 emitting blobs which are offset along the line of sight.
+Perhaps the most telling diagnostic are two flux peaks in the object spectrum at the kinematic centre viewed in combination with a double peak in the high-resolution imaging flux map.
 
 \begin{table*}
 \centering
@@ -744,37 +783,6 @@ $^{*}$s\_sa22b-md25   & 44$\pm15$           & 57$^{+34}_{-24}$                  
     \end{tablenotes}
   \end{threeparttable}
   \end{table*}
-
-\subsubsection{Kinematic and photometric axes}\label{subsubsection:kin_and_phot}
-
-The dynamical model parameter $PA_{Kin}$ can be compared with $PA_{morph}$ computed by {\tt GALFIT} in \cref{subsubsec:galfitting} to indicate the degree of misalignment between the gaseous and stellar components of the galaxies.
-This follows the analysis described in \citep[e.g.][]{Epinat2008,Epinat2012,Barrera-Ballesteros2014,Barrera-Ballesteros2015,Wisnioski2015,Harrison2017,Swinbank2017} where rotating galaxies generally have $\Delta PA \equiv |PA_{kin}-PA_{morph}| < 20^{\circ}$, with the discrepancy increasing as a function of axis ratio due to $PA_{morph}$ becoming more difficult to measure as the galaxy becomes more `face-on'.
-Significant misalignment between the two axes can be a signature of galaxy interaction.
-
-The resolved KDS galaxies at $z\simeq3.5$ have generally larger $\Delta PA$ values than those at lower redshift (median $\Delta PA = 37^{\circ}$) and this observation has several potential explanations.
-For the majority of galaxies we are not in a regime where prominent morphological features are resolved in the {\em HST} imaging so that $PA_{morph}$ is biased by single \Sers fits as described in \cite{Rodrigues2016}.
-Another factor which could be partially driving increased misalignment in the KDS is the use of the full observed 2D velocity field to determine the kinematic position angle.
-This generally does not give the same answer as simply connecting the velocity extrema, as we have verified by rotating $PA_{Kin}$ in 1$^{\circ}$ increments and choosing the value which maximises the velocity gradient, calling this $PA_{rot}$.
-If the direction of the `zero-velocity strip' across the centre of the velocity maps is not perpendicular to the line connecting the velocity extrema, the $PA_{Kin}$ determined from MCMC will be different to the $PA_{Kin}$ determined from rotation (e.g. GOODS-S galaxy bs006541).
-As a test, we have verified that extracting $V_{C}$ values along $PA_{rot}$ makes only a small difference to the final $V_{C}$ values, a difference which does not affect the outcomes of this work.
-
-
-\subsection{Morpho-Kinematic classification}\label{subsec:morpho-kin-class}
-We proceed to further divide the isolated field sample galaxies into two subsamples on the basis of the ratio $V_{C}/\sigma_{int}$.
-This is a simple empirical diagnostic for whether a galaxy is `Rotation-Dominated' with $V_{C}/\sigma_{int} > 1$ or `Dispersion-Dominated' with $V_{C}/\sigma_{int} < 1$  \citep[i.e. a method to measure the prevalence of rotational and random motions;][]{Epinat2012,Wisnioski2015,Stott2016,Harrison2017}.
-Previous studies have used various classification schemes of varying complexity to identify rotation-dominated galaxies which also appear to be `disk-like' and we briefly mention some of these in \cref{subsubsection:isolated_classification}.
-We describe our simple classification criteria for the isolated field sample based on a joint consideration of the high-resolution photometry and derived kinematic parameters in \cref{subsubsection:isolated_classification} and mention the KDS merger candidates in more detail in the following section.
-
-\subsubsection{KDS merger candidates}\label{subsubsection:merger_candidates}
-KDS galaxies are classified as mergers when more than one component is identified in the high-resolution imaging.  
-One benefit of studying the {\em HST} photometry in tandem with the kinematics is to aid the interpretation of peculiarities in the velocity and velocity dispersion fields.
-These peculiarities are usually unexpected discontinuities in the rotation fields, or extreme broadening of the dispersion field above that expected from beam-smearing or in regions spatially offset from the centre of the galaxy.
-A second benefit is to uncover `rotation doppelg{\"a}ngers', which mimic disk rotation from a purely kinematic perspective (i.e. can be fit with the arctangent model (see \cref{subsec:3d_modelling}) with small residuals), but are clearly two or more potentially interacting components at slightly different redshifts in the imaging (e.g. the bottom grid in Figure \ref{fig:main_body_kinematic_grids}).
-
-This has been discussed in \cite{Hung2015}, where redshifted local interacting galaxies are misclassified as single rotating disks on the basis of their kinematics. 
-In short, the galaxies with multiple photometric components do not always have disordered kinematics and so the kinematics alone are not sufficient for classification.
-It is difficult to distinguish in some cases between two {\em HST} components rotating together in a single disk (i.e. clumpy disk galaxies e.g. \citealt{Elmegreen2004,Bournaud2007}) with a receding and approaching side and two [O~{\sc III}]$\lambda$5007 emitting blobs which are offset along the line of sight.
-Perhaps the most telling diagnostic are two flux peaks in the object spectrum at the kinematic centre viewed in combination with a double peak in the high-resolution imaging flux map. \\
 
 In 6/38 of the resolved KDS field galaxies (one count per merger) we clearly identify signs of multiple components or merging in the {\em HST} high-resolution imaging, which translates into a merger rate of 16\%.
 In 8/9 resolved KDS cluster galaxies we identify multiple photometric components, translating into a merger rate of 89\%  (see Table \ref{tab:pointings}).
@@ -1047,6 +1055,7 @@ In this section we discuss possible physical origins for the elevated random mot
 \subsection{The origin and impact of increased velocity dispersions at high redshift}\label{discussion_increase_in_sigma}
 Previous studies have claimed that the elevated velocity dispersions observed at high redshift are a consequence of both internal and external processes.
 \cite{Law2009} observe galaxies with elevated velocity dispersions at $z\simeq2.2$ (see Figure \ref{fig:sigma_and_v_sigma_w_redshift}) and attribute this to gravitational instabilities following efficient accretion, which can occur when the cold gas becomes dynamically dominant.
+
 \cite{Genzel2011} show that for dispersion-dominated galaxies, the scales susceptible to gravitational collapse are of order the galactic half-light radius. 
 Systems such as these form highly unstable and roughly spherical stellar distributions with large internal motions at early times, before more gradual accretion from the galactic halo forms an extended, stable, gaseous disk which instigates kinematic order \citep{Law2009,Genzel2011}.
 The physical mechanisms responsible for the increase in $\sigma_{int}$ may also result in a reduction in the observed rotational velocities by partially compensating the gravitational force throughout the galactic disk \citep[e.g.][]{Burkert2010,Wuyts2016b,Ubler2017,Genzel2017,Lang2017}.
