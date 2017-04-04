@@ -16,6 +16,10 @@
 \usepackage{lscape}
 \usepackage[LGRgreek]{mathastext}
 \usepackage{enumitem}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{enumitem}
+
 
 % Depending on your LaTeX fonts installation, you might get better results with one of these:
 %\usepackage{mathptmx}
@@ -47,6 +51,8 @@
 \newcommand{\Sers}{S\'{e}rsic }
 \newcommand{\Lagr}{\mathcal{L}}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 % Please keep new commands to a minimum, and use \newcommand not \def to avoid
 % overwriting existing commands. Example:
@@ -64,7 +70,7 @@
 
 \author[O.J. Turner et al.]{
 O. J. Turner,$^{1,2,\thanks{E-mail: ojamesturner@icloud.com (OJT)}}$
-M. Cirasuolo,$^{1,2}$
+M. Cirasuolo,$^{2,1}$
 C. M. Harrison,$^{2,3}$
 R. J. McLure,$^{1}$
 J. S. Dunlop,$^{1}$\newauthor
@@ -155,11 +161,14 @@ In order to interpret the evolution of the physical properties of typical star-f
 These samples use integral-field spectroscopy to track the ionised gas emission in star-forming galaxies and follow consistent kinematic parameter extraction methods.  
 By doing this we seek to minimise the impact of systematic differences introduced by differing approaches to defining and extracting kinematic parameters.
 
-There are still many open questions which we can begin to answer by studying the emission from regions of ionised gas within individual galaxies at these redshifts: \begin{enumerate}[label=(\roman*)] \item  What are the radial gradients in metal enrichment within these galaxies and what can this tell us about the physical mechanisms responsible for redistributing metals?
-\item What are the dynamical properties of main-sequence galaxies at this early stage in their lifetimes? 
-\item What is the connection between the gas-phase metallicity and  kinematics, particularly in terms of inflows and outflows of material? \end{enumerate}
+There are still many open questions which we can begin to answer by studying the emission from regions of ionised gas within individual galaxies at these redshifts: 
+\begin{enumerate}[label=(\roman*),align=left]
+\item What are the dynamical properties of main-sequence galaxies at this early stage in their lifetimes?
+\item  What are the radial gradients in metal enrichment within these galaxies and what can this tell us about the physical mechanisms responsible for redistributing metals?
+\item What is the connection between the gas-phase metallicity and  kinematics, particularly in terms of inflows and outflows of material?
+\end{enumerate}
 
-This paper focuses on the third question by deriving and interpreting the spatially-resolved kinematics of the KDS galaxies, particularly the rotation velocities and velocity dispersions, using the [O~{\sc III}]$\lambda$5007 emission line, discussing what we can learn about the nature of galaxy formation at $z\simeq3.5$ and forming evolutionary links with lower redshift work. \\
+This paper focuses on the first question by deriving and interpreting the spatially-resolved kinematics of the KDS galaxies, particularly the rotation velocities and velocity dispersions, using the [O~{\sc III}]$\lambda$5007 emission line, discussing what we can learn about the nature of galaxy formation at $z\simeq3.5$ and forming evolutionary links with lower redshift work. \\
 
 The structure of the paper is as follows.
 In \cref{sec:Survey_and_data} we present the survey description, sample selection, observation strategy and data reduction, leading to stacked datacubes for each of the KDS galaxies.
@@ -181,9 +190,10 @@ Consequently, the KDS is one of the deepest spectroscopic datasets available at 
 Target selection for the KDS sample is designed to pick out SFGs at $z\simeq3.5$, supported by deep, multi-wavelength ancillary data.
 Within this redshift range the [O~{\sc III}]$\lambda$4959,$\lambda$5007 doublet and the $H\beta$ emission lines are visible in the {\it K}-band and the [O~{\sc II}]$\lambda$3727,$\lambda$3729 doublet is visible in the {\it H}-band, both of which are observable with KMOS.
 From these lines, [O~{\sc III}]$\lambda$5007 generally has the highest signal to noise and so is well suited to dynamical studies, whereas [O~{\sc III}]$\lambda$4959, $H\beta$ and the [O~{\sc II}]$\lambda$3727,$\lambda$3729 doublet complement [O~{\sc III}]$\lambda$5007 as tracers of the galaxy metallicities. 
-To ensure a high detection rate of the ionised gas emission lines in the KDS we select galaxies in well-studied fields that have a previous spectroscopic detection (see details below).
-Predominantly, the galaxies were originally selected for spectroscopic follow-up using the Lyman-Break technique \citep{Steidel1996}, which is especially effective at picking out normal starforming galaxies at $z = 3-4$.
-However, a subset of the selected cluster galaxies in the SSA22 field were blindly-detected in Ly$\alpha$ emission during a narrow-band imaging study of a known overdensity of Lyman Break Galaxies (LBGs) at $z\simeq3.09$ \citep{Steidel2000}.
+To ensure a high detection rate of the ionised gas emission lines in the KDS we select galaxies in well-studied fields that have a wealth of imaging and spectroscopic data.
+Most of the galaxies for the KMOS observations had a confirmed spectroscopic redshift (see below).
+A subset of the selected cluster galaxies in the SSA22 field were blindly-detected in Ly$\alpha$ emission during a narrow-band imaging study of a known overdensity of Lyman Break Galaxies (LBGs) at $z\simeq3.09$ \citep{Steidel2000}.
+In each pointing, few sources had no spectroscopic redshift and were selected on the basis of their photometric redshift.
 We make no further cuts to the sample on the basis of mass and SFR, in order to probe a more representative region of the star-forming main-sequence at this redshift (see Figure \ref{fig:main_sequence}).
 
 \subsubsection{GOODS-S}\label{subsubsec:sample_selection_goods}
@@ -233,9 +243,9 @@ In summary we have chosen three FIELD environment pointings and a single CLUSTER
 
 \subsection{Observations and data reduction}\label{subsubsec:observations_and_dr}
 
-Our data for the 77 KDS targets were observed using KMOS \citep{Sharples2013}, which is a second generation IFS mounted at the Nasmyth focal plane on UT1 at the VLT.
+Our data for the 77 KDS targets were observed using KMOS \citep{Sharples2013}, which is a second generation IFS mounted at the Nasmyth focus of UT1 at the VLT.
 The instrument has 24 moveable pickoff arms, each with an integrated IFU, which patrol a region 7.2$^{\prime}$ in diameter on the sky, providing considerable flexibility when selecting sources for a single pointing.
-The light from each set of 8 IFUs is dispersed by a single spectrograph and recorded on a 2k$\times$2k Hawaii-2RG HgCdTe near-IR detector, so that the instrument is comprised of three effectively independent modules.
+The light from a set of 8 IFUs is dispersed by a single spectrograph and recorded on a 2k$\times$2k Hawaii-2RG HgCdTe near-IR detector, so that the instrument is comprised of three effectively independent modules.
 Each IFU has 14$\times$14 spatial pixels which are 0.2$^{\prime\prime}$ in size, and the central wavelength of the {\it K}-band grating has a spectral resolution of $R\simeq4200$ ({\it H}-band $R\simeq4000$, {\it HK}-band $R\simeq2000$).
 \subsubsection{Observations}\label{subsubsec:Obs}
 
@@ -260,7 +270,7 @@ Each IFU has 14$\times$14 spatial pixels which are 0.2$^{\prime\prime}$ in size,
     \label{fig:main_sequence}
 \end{figure*}
 
-To achieve the science goals of the KDS, the target galaxies at $3 < z < 3.8$ were observed in both the {\it K}-band, into which the [O~{\sc III}]$\lambda$5007 and $H\beta$ lines are redshifted, and the {\it H}-band, into which the [O~{\sc II}]$\lambda$3727,$\lambda$3729 doublet is redshifted, facilitating both dynamical and chemical abundance measurements.
+To achieve the science goals of the KDS, the target galaxies at $3 < z < 3.8$ were observed in both the {\it K}-band, into which the [O~{\sc III}]$\lambda$5007 and $H\beta$ lines are redshifted, and the {\it H}-band, into which the [O~{\sc II}]$\lambda$3727,$\lambda$3729 doublet is redshifted, allowing both dynamical and chemical abundance measurements.
 The GOODS-S pointings were observed in the {\it H} and {\it K}-bands separately, however due to loss of observing time the SSA22 galaxies were observed with the KMOS {\it HK} filter, which has the disadvantage of effectively halving the spectral resolution, but allows for coverage of the {\it H}-band and {\it K}-band regions simultaneously. \\
 
 We prepared each pointing using the KARMA tool \citep{Wegner2008}, taking care to allocate at least one IFU to observations of a `control' star closeby on the sky to allow for precise monitoring of the evolution of seeing conditions and the shift of the telescope away from the prescribed dither pattern (see \cref{subsubsec:datareduction}).
@@ -292,7 +302,7 @@ Each 300s exposure was reconstructed into a datacube with interpolated $0.1\time
 Sky subtraction was enhanced using the SKYTWEAK option within SPARK \citep{Davies2007}, which counters the varying amplitude of OH lines between exposures by scaling `families' of OH lines independently to match the data.
 Wavelength miscalibration between exposures due to spectral flexure of the instrument is also accounted for by applying spectral shifts to the OH families during the procedure, and in general the use of the SKYTWEAK option in the {\it K}-band greatly reduces the sky-line residuals. 
 We monitored the evolution of the atmospheric PSF and the position of the control stars over the OBs, to allow us to reject raw frames where the averaged {\it K}-band seeing rose above $0.8^{\prime\prime}$ and to measure the spatial shifts required for the final stack more precisely.
-The PSF was determined from fitting the {\it K}-band collapsed, stacked standard-star cube in each pointing with an elliptical gaussian, with the values reported in Table \ref{tab:pointings}.
+The PSF was determined by fitting the collapsed {\it K}-band image of the stacked control stars in each pointing with an elliptical gaussian, with the values reported in Table \ref{tab:pointings}.
 The telescope tends to drift from its acquired position over the course of an OB and the difference between the dither pattern shifts and the measured position of the control stars provides the value by which each exposure must be shifted to create the stack. \\
 
 We stacked all 300s exposures for each galaxy which pass the seeing criteria using 3-sigma clipping, leaving us with a flux and wavelength-calibrated datacube for every object in the KDS sample.
@@ -475,7 +485,7 @@ The median difference between the derived $R_{1/2}$ values and those presented i
 \cite{Bruce2012} present a detailed error analysis of the morphological parameters of $1 < z < 3$ galaxies in the CANDELS fields (which includes {\em HST} data covering the GOODS-S field which we exploited during this work), reporting that the magnitude of the error on $R_{1/2}$ is typically at the 10$\%$ level.
 We adopted a nominal error of 10$\%$ for our recovered $R_{1/2}$ values and note that the errors on $V_{C}$ and $\sigma_{int}$ are dominated by measurement errors and uncertainties connected with assumptions about the inclination angle correction and the velocity dispersion distribution in high redshift galaxies (see Appendix \ref{app:kin_error_estimates}).
 
-To measure $R_{1/2}$ for the galaxies without {\em HST} coverage we fit the [O~{\sc III}]$\lambda$5007 narrow-band images with an exponential profile, and subtracted the appropriate PSF from the recovered $R_{1/2}$ value.
+To measure $R_{1/2}$ for the 4 galaxies without {\em HST} coverage we fit the [O~{\sc III}]$\lambda$5007 narrow-band images with an exponential profile, and subtracted the appropriate PSF from the recovered $R_{1/2}$ value.
 We note that the extracted rotation velocities are not sensitive to the precise $R_{1/2}$ values, since we measure these at $2R_{1/2}$ (see \cref{subsubsec:beam_smearing_corrected_velocities}) where the intrinsic model rotation curves have already reached flattening. \\
 
 \begin{figure}
@@ -544,7 +554,8 @@ The signal in each spaxel was taken as the sum of the flux values across the ext
 
 The criteria for accepting the fit within a given spaxel are as follows:
 
-\begin{enumerate}[label=(\roman*)] \item The uncertainties on any of the parameters of the gaussian-fit as returned by {\tt LMFIT} must not exceed 30\%
+\begin{enumerate}[label=(\roman*),align=left]
+\item The uncertainties on any of the parameters of the gaussian-fit as returned by {\tt LMFIT} must not exceed 30\%
 \item $\frac{S}{N_{m}} > 3$
 \end{enumerate}
 
@@ -580,7 +591,7 @@ The 15/77 galaxies which were not spatially-resolved were dropped at this stage 
 The physical properties of all spatially-resolved galaxies in both GOODS-S and SSA22 are listed in Table \ref{tab:phys-props}. \\ 
 
 The morphological information of \cref{subsec:morphological_measurements} was combined with this spatially-resolved condition to define two galaxy subsamples.
-6/38 (16\%) of the resolved galaxies across the 3 field environment pointings and almost all of the cluster environment galaxies in SSA22-P1 have multiple photometric components, which complicate the interpretation of the observed dynamics for these targets.
+6/38 (16\%) of the resolved galaxies across the 3 field environment pointings and almost all (8/9) of the cluster environment galaxies in SSA22-P1 have multiple photometric components, which complicate the interpretation of the observed dynamics for these targets.
 We dropped the cluster environment pointing from the full dynamical analysis, although we show examples of the {\em HST} imaging, flux, dispersion and velocity maps of the cluster target galaxies in \cref{fig:merger_galaxies}.
 The remaining 6/38 merging candidates in the field environment are referred to as the `merger field sample' throughout the remainder of the paper.
 The 32/38 morphologically isolated field galaxies which are spatially resolved are referred to as the `isolated field sample' throughout the remainder of the paper.
@@ -832,7 +843,8 @@ For these galaxies we measured morphological properties as listed in Table \ref{
 The morphological and kinematic grids for these 32/38 isolated field sample galaxies and the 6/38 merger candidates are plotted in Appendix \ref{app:kinematics_plots}.
 
 Throughout the following sections we analyse the derived kinematic parameters of the isolated field sample, placing the galaxies in the context of galaxy evolution using the comparison samples spanning a wide redshift baseline described in Appendix \ref{app:comparison_samples}.
-In Appendix \ref{app:comparison_samples} we also describe the variety of methodologies used by the different comparison samples to compute $V_{C}$ and $\sigma_{int}$ as an attempt to help disentangle true evolution in these quantities from offsets originating in disparate measurement techniques.
+In Appendix \ref{app:comparison_samples} we describe our careful assessment of lower redshift samples from the literature, using tabulated data where possible to re-compute mean and median $V_{C}$ and $\sigma_{int}$ values.
+These fair comparisons help to disentangle true evolution in the kinematic properties of typical star-forming galaxies from systematic effects originating in disparate measurement techniques or galaxy selection criteria.
 During the following sections we will make statements about dynamical evolution by connecting the dots of these different surveys, assuming that they trace the average properties of typical star-forming galaxies at their respective mean redshifts.
 
 We proceed first to investigate the relationship between rotation velocity and stellar mass for both the rotation and dispersion-dominated isolated field galaxies.
@@ -855,8 +867,8 @@ We proceed first to investigate the relationship between rotation velocity and s
     The rotation-dominated KDS galaxies, and galaxies classed as reliable from the AMAZE survey \protect\citep{Gnerucci2011}, also show no evolution from this relation within the scatter, with the dispersion-dominated galaxies scattering below the relation.
     This highlights the need for careful sample selection when constructing this relation.
     {\it Right:} The mean, median and distributions of the comparison sample $V_{C}$ measurements are plotted against redshift.
-    The symbol positions with black errorbars (some not visible) show the mean values and the horizontal filled and grey bars show the median values and associated errors.
-    The mean mass of each survey is listed beside the survey name.
+    The symbol positions with black errorbars (some not visible) show the mean values and the horizontal filled and grey bars show the median values and associated errors, and the mean mass of each survey (in units of log($M_{\star}/M_{\odot}$)) is listed beside the survey name.
+    Note that the median errors for the AMAZE Clean sample are shaded orange to avoid confusion with the full sample.
     The $V_{C}$ distributions in each of the individual studies are wide, reflecting the galaxy diversity within each sample.
     The low mean value of $V_{C}$ in the KDS isolated field sample is driven mainly by averaging over a sample which contains a higher fraction of dispersion-dominated galaxies with lower rotation velocities.}
     \label{fig:tf_relation}
@@ -870,6 +882,19 @@ In principle, studying whether the stellar mass Tully-Fisher relation evolves wi
 Any offset from the local relation towards lower $M_{\star}$ values at fixed rotation velocity suggests that the dynamical mass is in place, but the stellar mass is yet to be formed \citep[e.g.][]{Puech2008,Cresci2009,Puech2010,Gnerucci2011,Swinbank2012,Straatman2017,Ubler2017}.
 As has been discussed recently, information about the redshift evolution of gas fractions, $f_{g} = M_{gas}/M_{bar}$ where $M_{bar}$ is the baryonic mass, disk mass fractions, $m_{d} = M_{bar}/M_{H}$  where $M_{H}$ is the halo mass, dark matter fractions, $f_{DM}(R_{1/2}) = V^{2}_{DM}(R_{1/2})/V^{2}_{C}(R_{1/2})$ where $V_{DM}$ is the dark matter circular velocity, may also be encoded in measured offsets from the local stellar mass Tully-Fisher relation \citep{Wuyts2016b,Ubler2017,Genzel2017}.  \\
 
+We plot the relationship between rotation velocity and stellar mass for the isolated field sample in the left panel of Figure \ref{fig:tf_relation}.
+In \cite{Harrison2017}, the inverse stellar mass Tully-Fisher relation relation is fit to $\simeq400$ star-forming galaxies with $9.5 < log(M_{\star}/M_{\odot}) < 10.5$ at $z\simeq0.9$, measured to be rotation-dominated with $V_{C}/\sigma_{int} > 1$.
+The data are used to constrain parameters `a' and `b' in the equation $logV_{C}=b+a[logM_{\star} - 10.10]$ (see their section 4.2) finding $a_{z=0.9} = 0.33 \pm 0.11$ and $b_{z=0.9} = 2.12 \pm 0.04$.
+We plot this best fit relation with the solid green line, with the green shaded region giving the typical scatter of 0.2 dex along the velocity axis.
+These $z\simeq0.9$ parameters are consistent with the coefficients measured in the local universe, $a_{z=0} = 0.278 \pm 0.010$ and $b_{z=0} = 2.142 \pm 0.004$ , for a sample of $z<0.1$ disks from \cite{Reyes2011}, which are in a similar mass range to the KROSS galaxies in \cite{Harrison2017} and traced with H$\alpha$ emission.
+In \cite{Reyes2011}, $V_{C}$ has been extracted at the same radius and we plot this $z\simeq0.1$ local relation as the dashed black line in the left panel of Figure \ref{fig:tf_relation}.
+The agreement between the parameters derived at $z\simeq0$ and $z\simeq0.9$ suggests that there is no evolution of the slope/normalisation of the stellar mass Tully-Fisher relation for rotation-dominated star-forming galaxies between these redshifts. 
+
+The rotation-dominated KDS isolated field sample galaxies are broadly consistent within the scatter with the $z\simeq0.9$ relation, but with a tendency to lie below the relation.
+When considered alone, the mean velocity of the rotation-dominated isolated field sample galaxies ($V_{C} = 96.7^{+7.3}_{-7.2}kms^{-1}$) at their mean mass of $log(M_{\star}/M_{\odot})=9.8$ is $\simeq0.05$ dex beneath the KROSS relation at the same mass.
+The dispersion-dominated KDS galaxies sit clearly separated and below the $z\simeq0.9$ relation, bringing significant scatter to lower $V_{C}$ values at fixed $M_{\star}$ as is also observed in $z\simeq0.9$ dispersion-dominated galaxies and for early-type galaxies in the local universe \citep[e.g.][]{Romanowsky2012}. 
+We plot also the five galaxies from the AMAZE Clean ($z\simeq3$) sample, which are consistent within the scatter with the relation for typical star-forming galaxies at $z\simeq0.9$. \\
+
 Studies of the redshift evolution of the stellar mass Tully-Fisher relation do not explain how individual, unperturbed galaxies move around the rotation velocity stellar mass plane with redshift. 
 High redshift galaxy surveys typically do not trace the progenitors of those at lower redshift, as evidenced by the larger observed stellar and baryonic masses \citep[e.g.][]{Cresci2009,Reyes2011,Wisnioski2015,Ubler2017}.
 Rather, these studies trace the evolution of the relation itself, the position of which is dictated by the mean properties of typical star-forming galaxies at each redshift slice.
@@ -877,26 +902,14 @@ Some authors have reported that as redshift increases, the relation shifts towar
 However most find that when selecting rotation-dominated galaxies between $0.5 < z < 2$ \citep[e.g.][]{Flores2006,Miller2011,Kassin2012,Miller2012,Vergani2012,Miller2014,Contini2015a,DiTeodoro2016,Simons2016,Pelliccia2017,Molina2017,Harrison2017} the results are consistent with zero evolution of the slope and zero-point of the relation.
 At $z\simeq3$ observations are limited and in \cite{Gnerucci2011} an offset of $-$1.29 dex towards lower mass at fixed rotation velocity is claimed, although there is large degree of scatter between the individual galaxies, and the AMAZE Clean sample from \cite{Gnerucci2011} defined in \cref{subsec:AMAZE} is consistent with the $z\simeq0$ relation. \\
 
-We plot the relationship between rotation velocity and stellar mass for the isolated field sample in the left panel of Figure \ref{fig:tf_relation}.
-In \cite{Harrison2017}, the inverse stellar mass Tully-Fisher relation relation is fit to $\simeq400$ star-forming galaxies with $9.5 < log(M_{\star}/M_{\odot}) < 10.5$ at $z\simeq0.9$, measured to be rotation-dominated with $V_{C}/\sigma_{int} > 1$.
-The data are used to constrain parameters `a' and `b' in the equation $logV_{C}=b+a[logM_{\star} - 10.10]$ (see their section 4.2) finding $a_{z=0.9} = 0.33 \pm 0.11$ and $b_{z=0.9} = 2.12 \pm 0.04$.
-We plot this best fit relation with the solid green line, with the green shaded region giving the typical scatter of 0.2 dex along the velocity axis.
-These $z\simeq0.9$ parameters are consistent with the coefficients measured in the local universe, $a_{z=0} = 0.278 \pm 0.010$ and $b_{z=0} = 2.142 \pm 0.004$ , for a sample of $z<0.1$ disks from \cite{Reyes2011}, which are in a similar mass range to the KROSS galaxies in \cite{Harrison2017} and traced with H$\alpha$ emission.
-In \cite{Reyes2011}, $V_{C}$ has been extracted at the same radius and we plot this $z\simeq0.1$ local relation as the dashed black line in the left panel of Figure \ref{fig:tf_relation}.
-The agreement between the parameters derived at $z\simeq0$ and $z\simeq0.9$ suggests that there is no evolution of the slope/normalisation of the stellar mass Tully-Fisher relation for rotation-dominated star-forming galaxies between these redshifts. \\
-
-The rotation-dominated KDS isolated field sample galaxies are broadly consistent within the scatter with the $z\simeq0.9$ relation, but with a tendency to lie below the relation.
-When considered alone, the mean velocity of the rotation-dominated isolated field sample galaxies ($V_{C} = 96.7^{+7.3}_{-7.2}kms^{-1}$) at their mean mass of $log(M_{\star}/M_{\odot})=9.8$ is $\simeq0.05$ dex beneath the KROSS relation at the same mass.
-The dispersion-dominated KDS galaxies sit clearly separated and below the $z\simeq0.9$ relation, bringing significant scatter to lower $V_{C}$ values at fixed $M_{\star}$ as is also observed in $z\simeq0.9$ dispersion-dominated galaxies and for early-type galaxies in the local universe \citep[e.g.][]{Romanowsky2012}. 
-We plot also the five galaxies from the AMAZE Clean ($z\simeq3$) sample, which are consistent within the scatter with the relation for typical star-forming galaxies at $z\simeq0.9$.
-
 Conclusions on the evolution of the stellar mass Tully-Fisher relation are a strong function of sample selection; in \cite{Tiley2016} where a stricter $V_{C}/\sigma_{int} > 3$ cut is applied, evolution to lower masses at fixed rotation velocity is observed at $z\simeq0.9$, which is not the case when using the $V_{C}/\sigma_{int} > 1$ cut.
 Similarly in \cite{Cresci2009} evolution of the normalisation of the stellar mass Tully-Fisher relation is observed at $z\simeq2$ using only robust rotators from the SINS sample with mean $V_{C}/\sigma_{int} = 5$.
 In both cases the observed evolution is mainly the result of omitting rotation-dominated galaxies with lower $V_{C}$ values.
 Conversely, fitting the stellar mass Tully-Fisher relation through a full sample including dispersion-dominated galaxies would shift the zero-point in the opposite sense.
 
-After including data from the KDS isolated field sample, the stellar mass Tully-Fisher relation defined for $V_{C}/\sigma_{int} > 1$ star-forming galaxies appears to show no evolution between $z\simeq0.1$ and $z\simeq3.5$.
-However as we will show in \cref{subsec:rdf_v_over_sigma} the $V_{C}/\sigma_{int} > 1$ subsamples become increasingly less representative of typical star-forming galaxies with increasing redshift.  
+With the KDS, we have added the largest sample of galaxies observed with integral-field spectroscopy at $z>3$, and with our simple $V_{C}/\sigma_{int} > 1$ cut we conclude that the stellar mass Tully-Fisher relation defined for rotation-dominated star-forming galaxies appears to show no evolution between $z\simeq0.1$ and $z\simeq3.5$.
+However, as we will show in \cref{subsec:rdf_v_over_sigma}, the $V_{C}/\sigma_{int} > 1$ subsamples become increasingly less representative of typical star-forming galaxies with increasing redshift.
+We also explore this in the context of the mean rotation velocities of the comparison samples throughout the following subsection. 
 
 \subsubsection{The evolution of maximum circular velocity}\label{subsubsec:v_evolution}
 
@@ -929,19 +942,22 @@ In the right panel of Figure \ref{fig:tf_relation} we plot the fractional error 
     This is a result of averaging over a sample containing a higher fraction of dispersion-dominated galaxies.
 \end{itemize}
 
-In the right panel of Figure \ref{fig:tf_relation} we plot the mean and median values and percentiles of the $V_{C}$ distribution for the comparison and KDS isolated field samples, finding wide $V_{C}$ distributions which reflect the mass range and the mixture of rotation/dispersion-dominated galaxies which constitute the samples.
+The right panel of Figure \ref{fig:tf_relation} indicates that the $V_{C}$ distributions for the comparison and KDS isolated field samples are wide, reflecting the mass range and the mixture of rotation/dispersion-dominated galaxies which constitute the samples.
+The isolated field sample mean and median $V_{C}$ values are $76.7^{+4.9}_{-4.5}kms^{-1}$ and $57.0^{+6.6}_{-6.3}kms^{-1}$.
+However, the mean and median rotation velocity of the rotation dominated galaxies are $V_{C} = 96.7^{+7.3}_{-7.2}kms^{-1}$ and $V_{C} = 93.0^{+8.1}_{-7.7}kms^{-1}$ respectively, suggesting that averaging over a sample containing a large number of dispersion dominated galaxies is bringing the averages down.
+
 It is difficult to assess whether the $V_{C}$ values reported in the comparison samples (the modelling and extraction techniques differ as described in Appendix \ref{app:comparison_samples}) are directly comparable.
-The MASSIV, KROSS, KMOS$^{3D}$ and KDS samples should in principle yield comparable $V_{C}$ values which rely on extracting from the data at a fiducial radius or using a velocity shear value, but the comparison to the dynamical models of SINS and AMAZE is not so clear. \\
+The MASSIV, KROSS, KMOS$^{3D}$ and KDS samples should in principle yield comparable $V_{C}$ values which rely on extracting from the data at a fiducial radius or using a velocity shear value, but the comparison to the dynamical models of SINS and AMAZE is not so clear.
+Despite the wide distributions, the comparison samples generally have higher mean rotation velocities. \\
 
 In a rotationally supported system, the circular velocity is set by the requirement to support the total mass in the system, i.e. the combination of gas mass, stellar mass and dark matter mass, against gravitational collapse.
 $V_{C}$ increases with increasing total mass and so we would expect the systems with larger average stellar mass, assuming that these are indicative of systems with greater total mass, to have larger $V_{C}$, which appears generally to be the case in the right panel of Figure \ref{fig:tf_relation} where the KMOS$^{3D}$, GHASP and SINS galaxies have the largest inferred $V_{C}$ values.
-Using the average $M_{\star}$ values and velocity extraction radii in the isolated field sample, $log(M_{\star}/M_{\odot})=9.8$ and $2R_{1/2} = 3.2kpc$ respectively, and assuming simple, circular Keplerian orbits where the rotational motions alone support the mass of the system, we can calculate a rough lower limit of $\left<V_{C}\right>$ $>$ $95kms^{-1}$ for the baryonic material in the galaxies (since the inclusion of the gas mass and dark matter mass would raise this estimate). 
+Using the average $M_{\star}$ values and velocity extraction radii in the isolated field sample, $log(M_{\star}/M_{\odot})=9.8$ and $2R_{1/2} = 3.2kpc$ respectively, and assuming simple, circular Keplerian orbits where the rotational motions alone support the mass of the system, we can calculate a rough lower limit of $\left<V_{C}\right>$ $>$ $95kms^{-1}$ for the baryonic material in the galaxies (since the inclusion of the gas mass and dark matter mass would raise this estimate).
+This value is above the mean and median values of the isolated field sample, but comparable to the mean and median of the rotation dominated galaxies, suggesting that rotation in these systems could support at most the stellar mass of the galaxy.  
 
-The isolated field sample mean and median $V_{C}$ values are $76.7^{+4.9}_{-4.5}kms^{-1}$ and $57.0^{+6.6}_{-6.3}kms^{-1}$, both of which are below the $\left<V_{C}\right> = 95kms^{-1}$ lower limit.
-However, the mean and median rotation velocity of the rotation dominated galaxies are $V_{C} = 96.7^{+7.3}_{-7.2}kms^{-1}$ and $V_{C} = 93.0^{+8.1}_{-7.7}kms^{-1}$ respectively, much closer to the $\left<V_{C}\right> = 95kms^{-1}$ lower limit.
-This implies that the observation of a low mean $V_{C}$ value in the full isolated field sample is primarily explainable through averaging over a sample with a higher fraction of dispersion-dominated galaxies with lower rotation velocities.
+As mentioned above, the observation of a low mean $V_{C}$ value in the full isolated field sample is primarily explainable through averaging over a sample with a higher fraction of dispersion-dominated galaxies with lower rotation velocities.
 This is seen in the left panel of Figure \ref{fig:tf_relation} where the dispersion-dominated galaxies sit clearly below and separated from the stellar mass Tully-Fisher relation.
-However it has also been discussed that pressure support, provided by turbulence and measured through the galaxy velocity dispersions, may partially compensate the gravitational force within galaxy disks and contribute to lowering the rotation velocities through an `asymmetric drift' correction \citep[e.g.][]{Burkert2010,Newman2013,Genzel2017}.
+However, it has also been discussed that pressure support, provided by turbulence and measured through the galaxy velocity dispersions, may partially compensate the gravitational force within galaxy disks and contribute to lowering the rotation velocities through an `asymmetric drift' correction \citep[e.g.][]{Burkert2010,Newman2013,Genzel2017}.
 This topic is discussed further throughout \cref{sec:discussion}. \\
 
 We proceed to consider the cause of the high number of dispersion-dominated galaxies in our sample and the obvious candidate is the increase of velocity dispersion with redshift \citep[e.g.][]{Genzel2006,Genzel2008,ForsterSchreiber2009,Law2009,Gnerucci2011,Epinat2012,Wisnioski2015}.
@@ -963,19 +979,19 @@ Generally the dispersion-dominated galaxies have higher $\sigma_{int}$ values, h
 \subsubsection{The evolution of velocity dispersion}\label{subsubsec:sigma_evolution}
 
 In the right panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift} we plot the fractional error weighted mean, median and distributions of $\sigma_{int}$ from the comparison and KDS isolated field samples.
-The values increase sharply from $\sigma_{int}\simeq10-20kms^{-1}$ as traced by $z\simeq0$ measurements of typical SFGs to $\sigma_{int}\simeq30-60kms^{-1}$ at $z\simeq1$ to $\sigma_{int}\simeq40-90kms^{-1}$ at $z\simeq3$.
+The values increase sharply from $\sigma_{int}\simeq10-20kms^{-1}$ as traced by $z\simeq0$ measurements of typical SFGs to $\sigma_{int}\simeq30-60kms^{-1}$ at $z\simeq1$ to $\sigma_{int}\simeq40-90kms^{-1}$ at $z\simeq3$, but with a wide range of values observed at each redshift.
+There appears to be a trend for the surveys with lower average stellar mass (MASSIV, DYNAMO, LAW 2009, KROSS, AMAZE) to have higher velocity dispersions than the surveys with larger average stellar mass (GHASP, KMOS$^{3D}$, SINS).
 
-In \cite{Wisnioski2015} the authors present a scaling relation describing the increase of $\sigma_{int}$ with redshift in terms of the key observable properties $f_{gas}$, $t_{depl}$ and sSFR.
-Using observed constraints for these properties from \cite{Tacconi2013} leads to $\sigma_{int}$ predictions that match the data remarkably well (see \cite{Wisnioski2015} Figures 10 and 11).
-The relation is an expression of the belief that high redshift galaxies experience more intense and efficient gas inflow, with the accumulation of a more massive stellar population providing stability against perturbations.
-In this equilibrium model framework \citep[e.g.][]{Dave2012,Lilly2013,Saintonge2013}, populations of disk galaxies with higher average stellar mass have lower average velocity dispersions due to this stability condition.  \\
+The increase of velocity dispersion within typical typical star-forming galaxies with redshift appears to follow the same scaling relation as the increase of gas fractions, as inspired by the model described in \cite{Wisnioski2015} and discussed in \cref{discussion_increase_in_sigma}. 
+The gas fraction is a function of both stellar mass and redshift and so we plot tracks in the right panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift} for three different mass values which roughly encompass the average masses of the comparison samples, $log(M_{\star}/M_{\odot})=9.8,10.3,10.6$.
+The tracks are each scaled with the same coefficient, which is chosen so that the lowest mass track, equivalent to the isolated field sample mean mass, coincides with the KDS datapoint at $z=3.5$.
+As the data suggest, the lower mass tracks suggest a flatter evolution of velocity dispersion with redshift, with convergence at high redshift.  
+The redshift and mass dependence of these tracks is discussed in \cite{Wisnioski2015} and in more detail throughout \cref{discussion_increase_in_sigma}, where we also discuss possible physical explanations for the increase in velocity dispersions with redshift. \\
 
-The mean KDS datapoint is in agreement with the scaling relation, plotted with the grey lines for $V_{C} = 125kms^{-1}$ and $log(M_{\star}/M_{\odot})=9.8,10.3,10.6$ (note we have not shifted the datapoints to conform with a single $M_{\star}$ value as per \citealt{Wisnioski2015}).
-The lower stellar mass tracks suggest a flatter evolution of velocity dispersion with redshift, and indeed the surveys with lower average stellar mass (MASSIV, DYNAMO, LAW 2009, KROSS, AMAZE) have higher velocity dispersion than the surveys with larger average stellar mass (GHASP, KMOS$^{3D}$, SINS), although the exact values are sensitive to the choice of $Q_{crit}$ (shown to be $\simeq1$ for the gas-rich disks observed at high-z e.g. \citealt{ForsterSchreiber2006,Genzel2011,Newman2013}) and $V_{C}$ in the equation shown in the top right of the left panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift} (see \cref{sec:discussion}).
-The tracks plotted in Figure \ref{fig:sigma_and_v_sigma_w_redshift} suggest the shape of the $\sigma_{int}$ evolution in galaxies of a particular stellar mass in the context of the equilibrium model, with these new results from the KDS providing strong observational constraints on the internal dynamics of main-sequence galaxies between $z=3-3.8$.
+These new data from the KDS sustain the observation that velocity dispersion is increasing with redshift and provide strong constraints on the internal dynamics of typical star-forming galaxies between $z=3-3.8$.
+When these results are presented in combination with data from the literature in the right panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift}, it appears that the stellar mass of galaxies may play a role in mediating the velocity dispersion values (see \cref{discussion_increase_in_sigma}).
 
 We proceed now to consider both the rotation velocities and velocity dispersions in tandem by considering $V_{C}/\sigma_{int}$ and the rotation-dominated fraction of galaxies in the isolated field sample.
-
 
 \subsection{$\boldsymbol{V_{C}/\sigma_{int}}$ and the rotation-dominated fraction}\label{subsec:rdf_v_over_sigma}
 
@@ -1022,6 +1038,7 @@ We interpret these results in the context of the cosmic evolution of the rotatio
 \subsubsection{The evolution of the rotation-dominated fraction}\label{subsubsec:RDF_evolution}
 
 In the left and right panels of Figure \ref{fig:rdf_and_v_sigma_w_redshift} we plot $V_{C}/\sigma_{int}$ and the closely connected rotation-dominated fraction respectively as a function of redshift for the KDS isolated field sample and the comparison samples described in Appendix \ref{app:comparison_samples}.
+In each sample, the rotation dominated fraction is computed as the fraction of galaxies with $V_{C}/\sigma_{int} > 1$, which, given the varying data quality across the comparison samples, is a simple and fair way to study the redshift evolution of this quantity. 
 The filled symbols and black errorbars in the left panel represent the mean and error on the mean, and the horizontal lines show the median and error on the median.
 The shaded regions give the 16th and 84th percentiles of the distribution on individual $V_{C}/\sigma_{int}$ measurements, plotted here to indicate the range of measurements at each redshift slice.
 In the right panel we have also computed the maximum and minimum RDF for these surveys by adding and subtracting the $V_{C}/\sigma_{int}$ error values respectively and recomputing the rotation-dominated fraction.
@@ -1055,9 +1072,8 @@ In this section we discuss possible physical origins for the elevated random mot
         \centering
         \includegraphics[height=3.5in]{sigma_shifted_high_mass.png}
     \end{subfigure}
-    \caption{{\it Left:} We plot the directly comparable $\sigma_{int}$ values (see filled symbols) for the surveys spanning $z=0-3$ as well as the isolated field sample, shifted as described in the text to a reference mass of $log(M_{\star}/M_{\odot}) = 9.8$ (the median mass of the isolated field sample).
-    The dark grey shaded region encompasses the model predictions using a fixed $Q_{crit} = 1.0$ and with lower and upper bounds using $V_{C} = 100-150kms^{-1}$ respectively.
-    The light grey region encompasses model predictions between `minimum' values with $Q_{crit} = 0.68$,$V_{C}=100kms^{-1}$ and `maximum' values with $Q_{crit} = 0.68$,$V_{C}=150kms^{-1}$.
+    \caption{{\it Left:} We plot the $\sigma_{int}$ values for the comparison samples as well as the isolated field sample, shifted as described in the text to a reference mass of $log(M_{\star}/M_{\odot}) = 9.8$ (the median mass of the isolated field sample).
+    The grey shaded region encompasses the model predictions using a fixed $Q_{crit} = 1.0$ and with lower and upper bounds using $V_{C} = 70-200kms^{-1}$ respectively (corresponding roughly to the velocity range spanned by galaxies in the comparison samples).
     The shifted points are in line with the scenario whereby the sample averaged velocity dispersions increase with redshift as a result of increasing average gas fractions. 
     {\it Right:} The same as in the left panel for a reference mass of $log(M_{\star}/M_{\odot}) = 10.6$.
     The steeper slope beyond $z\simeq2$ highlights the model decrease in gas fraction, and hence velocity dispersion, for galaxies which have accumulated a larger stellar population.}
@@ -1067,7 +1083,7 @@ In this section we discuss possible physical origins for the elevated random mot
 Previous studies have claimed that the elevated velocity dispersions observed at high redshift are a consequence of both internal and external processes.
 \cite{Law2009} observe galaxies with elevated velocity dispersions at $z\simeq2.2$ (see Figure \ref{fig:sigma_and_v_sigma_w_redshift}) and attribute this to gravitational instabilities following efficient accretion, which can occur when the cold gas becomes dynamically dominant.
 
-\cite{Genzel2011} show that for dispersion-dominated galaxies, the scales susceptible to gravitational collapse are of order the galactic half-light radius. 
+\cite{Genzel2011} show that for dispersion-dominated galaxies, the scales susceptible to gravitational collapse are of the order of the galactic half-light radius. 
 Systems such as these form highly unstable and roughly spherical stellar distributions with large internal motions at early times, before more gradual accretion from the galactic halo forms an extended, stable, gaseous disk which instigates kinematic order \citep{Law2009,Genzel2011}.
 The physical mechanisms responsible for the increase in $\sigma_{int}$ may also result in a reduction in the observed rotational velocities by partially compensating the gravitational force throughout the galactic disk \citep[e.g.][]{Burkert2010,Wuyts2016b,Ubler2017,Genzel2017,Lang2017}.
 Following this, $\sigma_{int}$ decreases over time as ordered rotations begin to dominate and pressure support becomes increasingly insignificant \citep[e.g.][]{Burkert2010,Ubler2017,Genzel2017,Lang2017}.
@@ -1080,25 +1096,35 @@ We have not encorporated such a term when deriving the rotational velocities of 
 The contribution of pressure to rotation velocity for the KDS sample will be explored in more detail in a future work. 
 \\
 
-In the right panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift} we plot the equilibrium model prescription for the evolution of velocity dispersion with redshift described in section 5.2 of \cite{Wisnioski2015}, using the updated depletion time scaling relation from \cite{Tacconi2017} (i.e. $t_{depl} \propto (1 + z)^{-0.57}$).
-The function describing the evolution of the velocity dispersion is shown below in Equation \ref{eq:sigma_increase}, where the gas fraction is a function of redshift and stellar mass, $Q_{crit}$ is the critical Toomre parameter for stability against gravitational collapse \citep{Toomre1964} ($Q_{crit} = 1.0$ for a quasi-stable thin disk e.g. \citealt{ForsterSchreiber2006,Burkert2010,Genzel2011,Wisnioski2015}) and a = $\sqrt{2}$ for a disk with constant rotational velocity \citep{Wisnioski2015}. 
+In \cite{Wisnioski2015} the authors present a scaling relation describing the increase of $\sigma_{int}$ with redshift in terms of the key observable properties gas fraction, $f_{gas}$, gas depletion timescale, $t_{depl}$, and specific star-formation rate, sSFR.
+The function describing the evolution of the velocity dispersion is shown below in Equation \ref{eq:sigma_increase}, where $Q_{crit}$ is the critical Toomre parameter for stability against gravitational collapse \citep{Toomre1964}, and a is a dimensionless parameter depending on the assumed distribution of gas and gravitational potential \cite{ForsterSchreiber2006}. 
 
 \begin{equation}\label{eq:sigma_increase}
-    \sigma(z) = V_{C}f_{gas}(z,M_{\star})Q_{crit}/a
+    \sigma(z,M_{\star}) = V_{C}f_{gas}(z,M_{\star})Q_{crit}/a
 \end{equation}
 
-In this model the velocity dispersions increase as a result of increasing gas fractions within galaxies, with a steeper increase from $z\simeq0$ for galaxies at higher stellar mass, as shown by the solid and dashed lines in Figure \ref{fig:sigma_and_v_sigma_w_redshift}.
+The gas fraction is a function of gas depletion timescale, with an assumed redshift dependence, and specific star-formation rate, with an assumed mass and redshift dependence (see \citealt{Wisnioski2015} Equations 3-6).
+Using observed constraints for these properties from \cite{Tacconi2013} and \cite{Whitaker2014} leads to $\sigma_{int}$ predictions that match the data remarkably well (see \citealt{Wisnioski2015} Figures 10 and 11).
+
+This relation is an expression of the belief that high redshift galaxies experience more intense and efficient gas inflow, with the accumulation of a more massive stellar population providing stability against perturbations.
+In this equilibrium model framework \citep[e.g.][]{Dave2012,Lilly2013,Saintonge2013}, populations of disk galaxies with higher average stellar mass have lower average velocity dispersions due to this stability condition.
+
+In the right panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift} we plot Equation \ref{eq:sigma_increase} for different input mass values (roughly spanning the mass range of the comparison samples), using the updated depletion time scaling relation from \cite{Tacconi2017} (i.e. $t_{depl} \propto (1 + z)^{-0.57}$).
+The Equation $\sigma(z,M_{\star})\propto f_{gas}(z,M_{\star})$ is scaled so that the lowest mass track conincides with the KDS datapoint, finding a proportionality constant $V_{C}Q_{crit}/a = 90.5kms^{-1}$.
+$Q_{crit} = 1.0$ for a quasi-stable thin disk e.g. \citealt{ForsterSchreiber2006,Burkert2010}) and a = $\sqrt{2}$ for a disk with constant rotational velocity \citep{Wisnioski2015}, and assuming these values gives $V_{C} = 128kms^{-1}$ as a best match to our data.
+This is larger than the intrinsic rotation velocities in the isolated field sample, although this could be a result of the assumptions for both $Q_{crit}$ and a. \\
+
+In this model the velocity dispersions increase more steeply with increasing stellar mass, as shown by the solid and dashed lines in Figure \ref{fig:sigma_and_v_sigma_w_redshift}.
 At higher redshift, these lines converge, suggesting that the predictions for the gas fraction become independent of stellar mass in this regime.
-The value $V_{C}=125kms^{-1}$ is chosen as a suitable average of the rotational velocity values reported in the surveys as shown in the right panel of Figure \ref{fig:tf_relation}.
-In general, the surveys with higher stellar mass have lower velocity dispersions, in support of the model hypothesis. \\
+In general, the surveys with higher stellar mass have lower velocity dispersions, in support of the model hypothesis.
 
-Since stellar mass appears to be a crucial factor in regulating the velocity dispersions within galaxies, and the comparison samples have disparate stellar mass ranges, we use the model to shift the $\sigma_{int}$ values according to their stellar mass to a reference mass value.
+Since stellar mass appears to be a crucial factor in regulating the velocity dispersions within galaxies, and the comparison samples have disparate stellar mass ranges, we use the model to shift the $\sigma_{int}$ values according to their stellar mass to a reference mass value as per \cite{Wisnioski2015}.
 This is done by computing the difference between the model predicted $\sigma_{int}$ value at the stellar mass of each comparison survey and at the reference mass for the appropriate redshift and shifting the reported $\sigma_{int}$ by this value.
-We do this for two reference mass values; $log(M_{\star}/M_{\odot}) = 9.8$ (the median mass of the isolated field sample, left panel of Figure \ref{fig:sigma_shifted}) and $log(M_{\star}/M_{\odot}) = 10.6$ (right panel of Figure \ref{fig:sigma_shifted}) and only consider the surveys deemed directly comparable (denoted by the filled symbols throughout \cref{sec:results}).
-In both panels the dark grey shaded regions encompass the model predictions using a fixed $Q_{crit} = 1.0$ and with lower and upper bounds using $V_{C} = 100-150kms^{-1}$ respectively.
-The light grey shaded regions encompass model predictions between `minimum' values with $Q_{crit} = 0.68$,$V_{C}=100kms^{-1}$ and `maximum' values with $Q_{crit} = 0.68$,$V_{C}=150kms^{-1}$. \\
+We do this for two reference mass values; $log(M_{\star}/M_{\odot}) = 9.8$ (the median mass of the isolated field sample, left panel of Figure \ref{fig:sigma_shifted}) and $log(M_{\star}/M_{\odot}) = 10.6$ (right panel of Figure \ref{fig:sigma_shifted}).
+In both panels, the grey line denotes the model prediction using $Q_{crit} = 1.0$, a = $\sqrt{2}$ and $V_{C} = 128kms^{-1}$ and the light grey shaded region encompasses the model predictions with lower and upper bounds defined with $V_{C} = 70-200kms^{-1}$ respectively (spanning the velocity values of galaxies in the comparison samples). \\
 
-The $\sigma_{int}$ shifted galaxies in Figure \ref{fig:sigma_shifted} are consistent with a single relation for the increase in velocity dispersion with redshift as a result of increasing gas fractions, with the difference between the slopes in the left and right panels highlighting the role of stellar mass in the kinematic settling of galaxies between $z\simeq2$ and the local universe. 
+Although the details of the coefficients of Equation \ref{eq:sigma_increase} are unclear (i.e. $V_{C}$ is not fixed at one value for the comparison samples and is itself linked to stellar mass and both $Q_{crit}$ and a could vary with redshift), the shape of the velocity dispersion evolution appears to follow that of the gas fraction.
+The difference between the slopes in the left and right panels highlights the role of stellar mass in the kinematic settling of galaxies between $z\simeq2$ and the local universe. 
 The isolated field sample data, in combination with comparison sample results spanning $z=0-3$, thus suggest that the time evolution of the velocity dispersion measured from ionised gas emission lines is intimately linked to the consumption of gas and the accumulation of stars in a stable disk \citep[e.g.][]{Law2009,Law2012b,Law2012c,Wisnioski2015}.
 Rotation-dominated galaxies become less representative of the typical star-forming population at these redshifts as a result of the increased velocity dispersions (shown in Figure \ref{fig:rdf_and_v_sigma_w_redshift}), constituting only $\simeq1/3$ of the isolated field sample at $z\simeq3.5$.
 This suggests we are probing more chaotic and unstable systems subject to gravitational instabilities and collapse on the disk scale length \citep{Burkert2010,Genzel2011}, residing in a much more active period of the universe in terms of both accretion and star-formation.
@@ -1139,15 +1165,18 @@ The main conclusions of this work are summarised as follows:
     The dispersion-dominated galaxies scatter below the trend, with the same slope as the rotation-dominated galaxies.
     \item When considering the rotation-dominated galaxies alone the mean and median rotation velocities are $V_{C} = 96.7^{+7.3}_{-7.2}kms^{-1}$ and $V_{C} = 93.0^{+12.0}_{-12.5}kms^{-1}$ respectively, which are roughly equivalent to a simple lower limit virial theorem calculation using the mean mass and half-light radius of the sample.
     This suggests that pressure forces, which are more significant at high redshift, may play a role in supporting the total mass in the system \citep[e.g.][]{Burkert2010}.  
-    \item We plot mean $\sigma_{int}$ values computed in a consistent way for SFG samples spanning a wide redshift baseline (the comparison samples described in Appendix \ref{app:comparison_samples}), finding a sharp increase in $\sigma_{int}$ values between $z=0-1$ and a fairly shallow increase thereafter, mediated by the mean $M_{\star}$ of the galaxy samples (right panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift}).
-    This is in line with a simple equilibrium model prescription in which the gas fractions and the impact of several physical mechanisms such as accretion of gas from the IGM, stellar feedback and turbulence increase with redshift and combine to increase random motions within high redshift galaxies.
     \item 13/32 isolated field sample galaxies are rotation-dominated and 19/32 are dispersion-dominated, with a tendency for galaxies with higher $M_{\star}$ to have larger values of $V_{C}/\sigma_{int}$ (Figure \ref{fig:v_sig_and_v}).
     This gives a rotation-dominated fraction of $34 \pm 8 \%$ in the isolated field sample, substantially less than surveys at lower redshift, although there is significant diversity amongst the individual $V_{C}/\sigma_{int}$ measurements at each redshift slice (left and right panels of Figure \ref{fig:rdf_and_v_sigma_w_redshift}).
+    When viewed as a function of redshift, the rotation dominated fraction appears to follow the scaling relation RDF$\propto z^{-0.2}$.
+    \item We plot mean $\sigma_{int}$ values computed in a consistent way for SFG samples spanning a wide redshift baseline (the comparison samples described in Appendix \ref{app:comparison_samples}), finding a sharp increase in $\sigma_{int}$ values between $z=0-1$ and a fairly shallow increase thereafter, mediated by the mean $M_{\star}$ of the galaxy samples (right panel of Figure \ref{fig:sigma_and_v_sigma_w_redshift}).
+    This is in line with a simple equilibrium model prescription in which the gas fractions and the impact of several physical mechanisms such as accretion of gas from the IGM, stellar feedback and turbulence increase with redshift and combine to increase random motions within high redshift galaxies.
+
 
 \end{itemize}
 
 \section*{Acknowledgements}
 
+MC and OJT acknowledge the KMOS team and all the personnel of the European Southern Observatory Very Large Telescope for outstanding support during the KMOS GTO observations.
 CMH, AMS and RMS acknowledge the Science and Technology Facilities Council through grant code ST/L00075X/1.
 RJM acknowledges the support of the European Research Council via the award of a Consolidator Grant (PI: McLure).
 JSD acknowledges the support of the European Research Council via the award of an Advanced Grant (PI J. Dunlop), and the contribution of the EC FP7 SPACE project ASTRODEEP (Ref.No: 312725).
@@ -1188,28 +1217,34 @@ Based on data obtained with the European Southern Observatory Very Large Telesco
 \centering
 \begin{threeparttable}
 \caption{The mean and median kinematic properties used throughout Figures \protect\ref{fig:tf_relation}, \protect\ref{fig:sigma_and_v_sigma_w_redshift} and \protect\ref{fig:rdf_and_v_sigma_w_redshift} for the different surveys.
-The errors on the mean represent the statistical errors from bootstrap resampling and the lower and upper errors on the medians are the 16th and 84th percentiles of the distribution respectively.}
+The errors on the mean and median represent the statistical errors from bootstrap resampling.
+For each of the comparison samples the cross or tick after each of the mean kinematic properties indicates whether we have defined this as a fair value to compare against, with further details provided throughout Appendices \protect\ref{subsec:GHASP} - \protect\ref{subsec:AMAZE}.}
 \label{tab:evolution_numbers}
 \begin{tabular}{llllllllll}
 
  \hline
-Survey & $\left< z \right> $ & $\left< log\left(\frac{M_{\star}}{M_{\odot}}\right)\right>$ & $\left< \frac{V_{C}}{\sigma_{int}} \right>$ & med$\left(\frac{V_{C}}{\sigma_{int}}\right)$ & RDF & $ \left< \sigma_{int} \right>$ & med$\left(\sigma_{int}\right)$ & $\left<V_{C}\right>$ & med$\left(V_{C}\right)$  \\[1ex]
+Survey & $\left< z \right> $ & $\left< log\left(\frac{M_{\star}}{M_{\odot}}\right)\right>$ & $\left<V_{C}\right>$ & med$\left(V_{C}\right)$ & $ \left< \sigma_{int} \right>$ & med$\left(\sigma_{int}\right)$ & $\left< \frac{V_{C}}{\sigma_{int}} \right>$ & med$\left(\frac{V_{C}}{\sigma_{int}}\right)$ & RDF  \\[1ex]
  \hline
- GHASP & 0.001 & 10.6 & $12.9^{+0.5}_{-0.4}$ & $12.5^{+0.6}_{-0.6}$ & $1.00^{+0.00}_{-0.02}$ & $13.0^{+0.5}_{-0.5}$ & $13.0^{+0.5}_{-0.5}$ & $189.0^{+3.5}_{-3.0}$ & $159.4^{+12.0}_{-15.0}$ \\[1ex]
- DYNAMO & 0.1 & 10.3 & $5.1^{+0.2}_{-0.2}$ & $4.6^{+0.2}_{-0.2}$ & $0.96^{+0.02}_{-0.02}$ & $45.9^{+0.3}_{-0.3}$ & $39.0^{+0.9}_{-1.0}$ & $183.0^{+1.0}_{-1.0}$ & $164.0^{+3.0}_{-5.0}$ \\[1ex]
- MUSE+KMOS & 0.65 & 9.4 & $2.9^{+0.1}_{-0.1}$ & $2.21^{+0.1}_{-0.1}$ & $0.83^{+0.02}_{-0.02}$ & $40.0^{+0.3}_{-0.3}$ & $32.0^{+0.6}_{-0.5}$ & $103.8^{+1.5}_{-1.6}$ & $73.0^{+2.5}_{-2.5}$ \\[1ex]
- KROSS & 0.9 & 9.9 & $3.1^{+0.2}_{-0.2}$ & $2.4^{+0.1}_{-0.1}$ & $0.81^{+0.05}_{-0.05}$ & - & - & $117.0^{+4.0}_{-4.0}$ & $109.0^{+5.0}_{-5.0}$ \\[1ex]
- KMOS$^{3D}$ & 1.0 & 10.7 & 5.5 & - & 0.93 & 25.0 & - & 170.0 & - \\[1ex]
- MASSIV & 1.2 & 10.2 & $2.4^{+1.4}_{-0.9}$ & $2.0^{+0.3}_{-0.2}$ & $0.67^{+0.06}_{-0.06}$ & $61.8^{+3.8}_{-4.2}$ & $52.0^{+5.2}_{-4.7}$ & $132.1^{+10.4}_{-8.2}$ & $103.0^{+13.4}_{-11.0}$ \\[1ex]
- MUSE+KMOS & 1.25 & 9.8 & $2.2^{+1.0}_{-1.0}$ & $1.59^{+0.1}_{-0.1}$ & $0.78^{+0.04}_{-0.04}$ & $42.0^{+0.5}_{-0.5}$ & $29.5^{+1.0}_{-1.0}$ & $75.5^{+3.0}_{-3.3}$ & $54.0^{+3.0}_{-2.8}$ \\[1ex]
- SINS(C09) & 2.0 & 10.6 & $5.0^{+0.9}_{-1.0}$ & $4.7^{+1.0}_{-1.0}$ & 1.0 & $51.2^{+8.0}_{-7.9}$ & $42.5^{+9.1}_{-8.5}$ & $232.0^{+12.8}_{-12.7}$ & $240.0^{+18.0}_{-17.2}$ \\[1ex]
- SINS(F09) & 2.0 & 10.6 & 2.6 & - & 0.60 & - & - & $201.3^{+4.3}_{-4.0}$ & $174.0^{+12.1}_{-10.3}$ \\[1ex]
- KMOS$^{3D}$ & 2.2 & 10.9 & 2.6 & - & 0.73 & 55.0 & - & 170.0 & - \\[1ex]
- AMAZE (Full) & 3.0 & 10.0 & $3.6^{+1.5}_{-1.1}$ & $2.1^{+0.6}_{-0.5}$ & 0.33 & $85.9^{+1.5}_{-1.4}$ & $78.0^{+4.5}_{-4.8}$ & $217.0^{+59.1}_{-40.2}$ & $129.0^{+47.5}_{-42.8}$ \\[1ex]
- AMAZE (Clean) & 3.0 & 10.0 & $1.4^{+0.3}_{-0.3}$ & $1.1^{+0.3}_{-0.3}$ & - & $95.7^{+2.0}_{-2.0}$ & $95.0^{+2.6}_{-2.6}$ & $140.8^{+40.1}_{-30.2}$ & $129.0^{+45.0}_{-33.4}$ \\[1ex]
- \textbf{KDS} & 3.5 & 9.8 & $1.1^{+0.2}_{-0.1}$ & $0.84^{+0.1}_{-0.1}$ & $0.37^{+0.08}_{-0.08}$ & $70.3^{+3.3}_{-3.1}$ & $71.0^{+5.0}_{-4.8}$ & $75.7^{+4.4}_{-4.4}$ & $57.5^{+5.5}_{-5.5}$ \\[1ex]
+ GHASP & 0.001 & 10.6   &       $189.0^{+3.5}_{-3.0}$ \cmark  & $159.4^{+12.0}_{-15.0}$ &  $13.0^{+0.5}_{-0.5}$ \cmark & $13.0^{+0.5}_{-0.5}$ & $12.9^{+0.5}_{-0.4}$ \cmark &           $12.5^{+0.6}_{-0.6}$&               $1.00^{+0.00}_{-0.02}$  \cmark   \\[1ex]
+ DYNAMO & 0.1 & 10.3    &       $183.0^{+1.0}_{-1.0}$ \xmark  & $164.0^{+3.0}_{-5.0}$   &  $45.9^{+0.3}_{-0.3}$ \xmark & $39.0^{+0.9}_{-1.0}$ & $5.1^{+0.2}_{-0.2}$  \xmark &           $4.6^{+0.2}_{-0.2}$ &               $0.96^{+0.02}_{-0.02}$  \xmark   \\[1ex]
+ MUSE+KMOS & 0.65 & 9.4 &       $103.8^{+1.5}_{-1.6}$ \cmark  & $73.0^{+2.5}_{-2.5}$    &  $40.0^{+0.3}_{-0.3}$ \cmark & $32.0^{+0.6}_{-0.5}$ & $2.9^{+0.1}_{-0.1}$  \cmark &           $2.21^{+0.1}_{-0.1}$&               $0.83^{+0.02}_{-0.02}$  \cmark   \\[1ex]
+ $^{*}$KROSS & 0.9 & 9.9 &      $117.0^{+4.0}_{-4.0}$ \cmark  & $109.0^{+5.0}_{-5.0}$   &  -                    \cmark & -                    & $3.1^{+0.2}_{-0.2}$  \cmark &           $2.4^{+0.1}_{-0.1}$ &               $0.81^{+0.05}_{-0.05}$  \cmark   \\[1ex]
+ KMOS$^{3D}$ & 1.0 & 10.7  &     170.0                        &  -                      &  25.0                 \xmark &  -                   & 5.5                  \xmark &            -                  &               0.93                    \xmark   \\[1ex]
+ MASSIV & 1.2 & 10.2 &          $132.1^{+10.4}_{-8.2}$ \cmark & $103.0^{+13.4}_{-11.0}$ &  $61.8^{+3.8}_{-4.2}$ \cmark & $52.0^{+5.2}_{-4.7}$ & $2.4^{+1.4}_{-0.9}$  \cmark &           $2.0^{+0.3}_{-0.2}$ &               $0.67^{+0.06}_{-0.06}$  \cmark   \\[1ex]
+ MUSE+KMOS & 1.25 & 9.8 &       $75.5^{+3.0}_{-3.3}$   \cmark & $54.0^{+3.0}_{-2.8}$    &  $42.0^{+0.5}_{-0.5}$ \cmark & $29.5^{+1.0}_{-1.0}$ & $2.2^{+1.0}_{-1.0}$  \cmark &           $1.59^{+0.1}_{-0.1}$&               $0.78^{+0.04}_{-0.04}$  \cmark   \\[1ex]
+ SINS(C09) & 2.0 & 10.6 &       $232.0^{+12.8}_{-12.7}$\cmark & $240.0^{+18.0}_{-17.2}$ &  $51.2^{+8.0}_{-7.9}$ \cmark & $42.5^{+9.1}_{-8.5}$ & $5.0^{+0.9}_{-1.0}$  \xmark &           $4.7^{+1.0}_{-1.0}$ &               1.0                     \cmark   \\[1ex]
+ SINS(F09) & 2.0 & 10.6 &       $201.3^{+4.3}_{-4.0}$  \cmark & $174.0^{+12.1}_{-10.3}$ &  -                    \xmark & -                    & 2.6                  \xmark &           -                   &               0.60                    \xmark   \\[1ex]
+ KMOS$^{3D}$ & 2.2 & 10.9 &     170.0                  \xmark & -                       &  55.0                 \xmark & -                    & 2.6                  \xmark &           -                   &               0.73                    \xmark   \\[1ex]
+ LAW 09 & 2.3 & 10.0 &          -                      \xmark & -                       &  $78.0^{+6.5}_{-6.5}$ \xmark & $69.0^{+8.3}_{-7.5}$ & -                    \xmark &           -                   &               0.73                    \xmark   \\[1ex]
+ AMAZE (Full) & 3.0 & 10.0 &    $217.0^{+59.1}_{-40.2}$\xmark & $129.0^{+47.5}_{-42.8}$ &  $85.9^{+1.5}_{-1.4}$ \xmark & $78.0^{+4.5}_{-4.8}$ & $3.6^{+1.5}_{-1.1}$  \xmark &           $2.1^{+0.6}_{-0.5}$ &               0.33                    \xmark   \\[1ex]
+ AMAZE (Clean) & 3.0 & 10.0 &   $140.8^{+40.1}_{-30.2}$\cmark & $129.0^{+45.0}_{-33.4}$ &  $95.7^{+2.0}_{-2.0}$ \cmark & $95.0^{+2.6}_{-2.6}$ & $1.4^{+0.3}_{-0.3}$  \cmark &           $1.1^{+0.3}_{-0.3}$ &               -                       \xmark   \\[1ex]
+ \textbf{KDS} & 3.5 & 9.8 &     $75.7^{+4.4}_{-4.4}$   \cmark & $57.5^{+5.5}_{-5.5}$    &  $70.3^{+3.3}_{-3.1}$ \cmark & $71.0^{+5.0}_{-4.8}$ & $1.1^{+0.2}_{-0.1}$  \cmark &            $0.84^{+0.1}_{-0.1}$&               $0.37^{+0.08}_{-0.08}$ \cmark    \\[1ex]
  \hline
 \end{tabular}
+\begin{tablenotes}
+      \small
+      \item $^{*}$ The intrinsic velocity dispersion values for the KROSS sample will be presented in Johnson et al. {\it in prep.} 
+    \end{tablenotes}
   \end{threeparttable}
   \end{table*}
 
@@ -1228,36 +1263,37 @@ These results are listed in Table \ref{tab:evolution_numbers} and discussed in d
 \subsection{GHASP ($\bmath{z\simeq0}$)}\label{subsec:GHASP}
 The GHASP survey \citep[E08]{Epinat2008,Epinat2008a} makes use of Fabry-Perot observations of 203 spiral and irregular galaxies with median $log(M_{\star}/M_{\odot})=10.6$ in the local universe ($z\simeq0$) to produce 3D H$\alpha$ datacubes.
 The data extend out to several half-light radii and in each case tilted ring models are fit to determine $V_{C}$ at large radii where the rotation curves have flattened, with $\sigma_{int}$ given as the dispersion in the rotation velocity across the whole field.
-We use the tabulated values from this survey as a local comparison sample.
+In this survey, the mean and median kinematic properties computed from the tabulated literature values are directly comparable to the KDS and we used filled symbols in the plots throughout \cref{sec:results} to highlight this.
 
 \subsection{DYNAMO ($\bmath{z\simeq0.1}$, but selected with physical properties resembling $\bmath{z\simeq2}$)}\label{subsec:DYNAMO}
 In the DYNAMO survey \citep[G14]{Green2014}, H$\alpha$ IFU data of 67 galaxies with median $log(M_{\star}/M_{\odot})=10.3$ at $z\simeq0.1$ are presented.
 The selection criteria is such that half of the sample have high sSFR representative of SFGs at $z\simeq2$, and are also found to have higher $f_{gas}$ values than locally, mimicking the physical conditions of $z\simeq2$ SFGs.
 $V_{C}$ values are extracted at a fixed radius from an arctangent model fit to the velocity fields ($1.6R_{1/2}$ as measured in the r-band) and $\sigma_{int}$ is taken as the luminosity weighted average of the beam-smearing corrected dispersion field.
-We make use of tabulated data from this survey, but use clear symbols throughout the plots in \cref{sec:results} to highlight the difference in selection critera.
+We make use of tabulated data from this survey, but use hollow symbols throughout the plots in \cref{sec:results} to highlight the difference in selection critera.
 
 \subsection{MUSE and KMOS ($\bmath{z\simeq0.65}$ and $\bmath{z\simeq1.25}$)}\label{subsec:MUSE_and_KMOS}
 In \cite{Swinbank2017} a collection of $\simeq400$ star-forming galaxies observed in [O~{\sc II}]$\lambda$3727,3729 with MUSE and H$\alpha$ emission with KMOS is described.
 Of this parent sample, inclination corrected velocities and intrinsic velocity dispersions are derived for 179 galaxies, to which we make comparisons.
 The observations span the redshift range $0.2 < z < 1.6$ and we split the data into two subsets with $z < 1.0$ (129 galaxies with mean redshift of $z = 0.65$, mean stellar mass of $log(M_{\star}/M_{\odot})=9.80$) and $z > 1.0$ (50 galaxies with mean redshift of $z = 1.25$, mean stellar mass $log(M_{\star}/M_{\odot})=9.80$).
 The reported velocities are extracted at $3R_{D}$, comparable to the extraction radius for the KDS sample and the intrinsic velocity dispersions have been corrected for beam-smearing effects.
-We make use of the tabulated data from this survey and use the results at the two redshift ranges as reliable comparison samples.
+The kinematic properties computed from the tabulated data in this survey are directly comparable to the KDS, reflected by the filled symbols throughout the plots in \cref{sec:results}.
 
 \subsection{KROSS ($\bmath{z\simeq0.9}$)}\label{subsec:KROSS}
 We make comparisons to the most recent KROSS results \citep[H17]{Harrison2017}, which presents KMOS H$\alpha$ observations of $\simeq600$ SFGs with median $log(M_{\star}/M_{\odot})=9.9$ and $z\simeq0.9$.
 $V_{C}$ values are extracted from exponential disk fits to the data at $2R_{1/2}$ (differing from arctangent fits by a median of 0.5\%) with the $\sigma_{int}$ values also extracted at $2R_{1/2}$ when the data extend to this radius and when they do not $\sigma_{int}$ is taken to be the median of the $\sigma_{obs}$ map.
 These quantities are then beam-smearing corrected as described in H17 section 3.3.3. 
-Due to the consistency of modelling and measurement techniques these form a robust $z\simeq0.9$ comparison sample.
+Due to the consistency of modelling and measurement techniques, the $z\simeq0.9$ galaxies in this sample are directly comparable to the KDS and are plotted throughout \cref{sec:results} with filled symbols.
 
 \subsection{KMOS$^{3D}$ ($\bmath{z\simeq1.0}$ and $\bmath{z\simeq2.3}$)}\label{subsec:kmos_3d}
 The KMOS$^{3D}$ results described in \cite[W15]{Wisnioski2015} describe KMOS H$\alpha$ observations of $\simeq191$ massive SFGs across two redshift slices. 
 At $z\simeq1.0$ the galaxies have $log(M_{\star}/M_{\odot})=10.7$ and at $z\simeq2.3$ the median is $log(M_{\star}/M_{\odot})=10.9$, over an order-of-magnitude above the KDS median of $log(M_{\star}/M_{\odot})=9.8$. The rotation velocity are taken as $V_{C} = \frac{1}{2sin(i)}(v_{obs_{max}} - v_{obs_{min}})$ and $\sigma_{int}$ is extracted from the $\sigma_{obs}$ map far from the kinematic centre, where the effects of beam-smearing are negligible.
-No tabulated values are provided, and so we make use of values quoted in W15 at both redshift intervals throughout the \cref{sec:results} plots.
+No tabulated values are provided for this survey, and so we cannot re-compute the mean and median values.
+We make use of values quoted in W15 at both redshift intervals throughout \cref{sec:results}, plotting these with hollow symbols due to the inconsistency of measurement method.
 
 \subsection{MASSIV ($\bmath{z\simeq1.2}$)}\label{subsec:MASSIV}
 The MASSIV sample \citep[E12]{Epinat2012} uses SINFONI H$\alpha$ observations of 50 SFGs with median $log(M_{\star}/M_{\odot})=10.2$ at $z\simeq1.2$.
 An arctangent function is fit to the data and $V_{C}$ is extracted at $\simeq1.7R_{1/2}$ and $\sigma_{int}$ value is derived from the $\sigma_{obs}$ map, by subtracting in quadrature the beam-smearing correction value as per \cref{subsubsec:beam_smearing_corrected_dispersions}.
-We make use of tabulated values presented in E12.
+We make use of tabulated values presented in this survey to compute the mean and median kinematic properties, plotted with filled symbols throughout \cref{sec:results}.
 
 \subsection{SINS ($\bmath{z\simeq2.0}$)}\label{subsec:SINS}
 The SINS survey \citep[FS09]{ForsterSchreiber2009} presents SINFONI $H\alpha$ observations of 80 massive galaxies with median $log(M_{\star}/M_{\odot})=10.6$ at $z\simeq2.0$.
@@ -1275,28 +1311,32 @@ In this approach the $V_{C}$ value comes from the best-fitting model parameter a
 \end{split}
 \end{equation}
 
-It is unclear whether the $V_{C}$ values for the full sample are directly comparable, but we make use of the tabulated values for completeness and note that the $V_{C}$ values in C09 are likely biased towards rotation-dominated galaxies with a well-settled disk.
-We make use of $\sigma_{int}$ values from C09 for comparisons and quote $V_{C}/\sigma_{int}$ and rotation-dominated fraction results listed in W15 without distributions in the plots throughout \cref{sec:results}.
+It is unclear whether the $V_{C}$ values for the full sample from FS09 are directly comparable, but we make use of the tabulated values for completeness and plot these with filled symbols throughout \cref{sec:results}.
+The velocity dispersion values, $V_{C}/\sigma_{int}$ and the rotation dominated fraction from FS09 are plotted with hollow symbols throughout \cref{sec:results} (using the results listed in W15 for the point locations) due to the difference in measurement method for the velocity dispersion values.
+
+The $V_{C}$ and $\sigma_{int}$ values in C09 are likely biased towards rotation-dominated galaxies with a well-settled disk.
+Nonetheless we plot these values with filled symbols in \cref{sec:results} as a directly comparable dataset, omitting the $V_{C}/\sigma_{int}$ values and the rotation dominated fraction, which are listed for the full FS09 sample.
 
 \subsection{LAW 09 ($\bmath{z\simeq2.3}$)}\label{subsec:law_09}
 In \cite[L09]{Law2009} OSIRIS [O~{\sc III}]$\lambda$5007 and H$\alpha$ observations are collected for 13 galaxies with median $log(M_{\star}/M_{\odot})=10.0$ at $z\simeq2.3$.
 The `velocity shear' is computed as $v_{shear} = \frac{1}{2}(v_{max} - v_{min})$ without inclination correction and $\sigma_{int}$ is the flux-weighted mean of $\sigma_{obs}$.
-We note that the $\sigma_{mean}$ values and errors tabulated in \cite{Law2009} paper are the flux-weighted mean and standard deviation of the measurements in individual spaxels in each galaxy, not corrected for beam-smearing in any way.
+We note that the $\sigma_{mean}$ values and errors tabulated in the \cite{Law2009} paper are the flux-weighted mean and standard deviation of the measurements in individual spaxels in each galaxy, not corrected for beam-smearing in any way.
 These measurements are expected to be larger than the $\sigma_{int}$ measurements at similar redshift which have been beam-smearing corrected, or extracted at the galaxy outskirts where the effects of beam-smearing are much smaller.
-We use tabulated data $\sigma_{int}$ data in L09 to compare this distribution with other results, but make no comparisons with the observed velocity-shear values.
+We use tabulated data $\sigma_{int}$ data in L09 to compare this distribution with other results, but plot with a hollow symbol due to the lack of a beam-smearing correction.
 
 \subsection{AMAZE ($\bmath{z\simeq3.0}$)}\label{subsec:AMAZE}
 The AMAZE sample \cite[G11]{Gnerucci2011} presents SINFONI [O~{\sc III}]$\lambda$5007 measurements for 33 galaxies with median $log(M_{\star}/M_{\odot})=9.9$ at $z\simeq3$, closest in redshift to the KDS galaxies.
 In this study, rotation curves and intrinsic velocity dispersions are derived from a modelled exponential mass distribution, with the extracted $V_{C}$ value taken as the large radius limit of the rotation curve and the $\sigma_{int}$ as the maximum of the difference in quadrature between the $\sigma_{obs}$ map and the $\sigma_{model}$ map (which also takes into account instrumental resolution and beam-smearing; see their Equation 8).
-A caveat when comparing with the G11 values is that dynamical properties are computed for 11 rotation-dominated galaxies in their sample, with the remaining 22 galaxies not analysed.
-We use tabulated values from G11, but note that the mean $V_{C}/\sigma_{int}$ values are likely to be biased high when compared with the mean values computed from other surveys (which contain a mix of rotation and dispersion-dominated galaxies). \\
+A caveat when comparing with the G11 values is that dynamical properties are computed for 11 rotation-dominated galaxies in their sample, with the remaining 22 galaxies not analysed. \\
 
 Also, for 5 galaxies in G11, $V_{C}$ is not well constrained and no errorbar is given; for these objects we take the fractional error on $V_{C}$ equal to 1 when computing the sample averages.
 The $\sigma_{int}$ errors for individual galaxies are generally very small, and for 3 galaxies the $\sigma_{int}$ value is consistent with 0 kms$^{-1}$.
 For the mean value computations we set these equal to the SINFONI resolution limit of 30 kms$^{-1}$.
-A total of 6 galaxies either have no errors on $V_{C}$ or have $\sigma_{int}$ values consistent with 0 kms$^{-1}$, which we refer to as the AMAZE Unconstrained sample and represent these with clear symbols throughout the plots in \cref{sec:results}.
+A total of 6/11 galaxies either have no errors on $V_{C}$ or have $\sigma_{int}$ values consistent with 0 kms$^{-1}$, which we refer to as the AMAZE `Unconstrained' sample and represent these with hollow symbols throughout the plots in \cref{sec:results}.
 This Unconstrained sample also contains the galaxy s\_sa22a-M38, common between the KDS and G11, classified here as a merger due to double {\em HST} components and twin peaks in the object spectrum, but classified in G11 as a rotating galaxy with $V_{C} = 346 kms^{-1}$ (although the authors discuss the possibility that the galaxy could be either a close pair or two clumps embedded within a rotating disk).
-The remaining 5 galaxies we refer to as the AMAZE Clean sample and plot with grey symbols.
+We use tabulated values from the full analysed sample of 11 galaxies, plotting these with hollow symbols throughout \cref{sec:results} as a consequence of the caveats listed above.
+The 5/11 galaxies which are not in the Unconstrained sample are referred to as the AMAZE `Clean sample' and are directly comparable to the KDS.
+These are plotted with filled symbols throughout \cref{sec:results}.
 We plot the quoted rotation-dominated fraction of 33$\%$, noting that this could be higher if any of the 22/33 galaxies not analysed are rotation-dominated. \\
  
 This comparison sample summary shows that there are many different approaches for computing the same intrinsic kinematic parameters, dictated by data quality and model preference, however, despite this diversity, over the past decade the studies appear to be converging on `modelling out' the effects of beam-smearing using similar approaches (e.g. as described in \citealt{Davies2011}, where removing the effects of beam-smearing with spectrally and spatially convolved models is also the least biased approach).
@@ -1309,7 +1349,7 @@ We stress that, keeping in mind sample selection, mass ranges and kinematic para
 \centering \hspace{-1.13cm}
 \includegraphics[width=0.49\textwidth]{sigma_versus_v.png}
 \caption{The distribution of the isolated field sample in the $\sigma_{int}$ vs. $V_{C}$ plane is plotted with the red symbols.
-The AMAZE Clean ($z\simeq3$) sample galaxies (see \protect\cref{subsec:AMAZE}) are plotted with grey symbols and the AMAZE Unconstrained sample with clear symbols.    There is no strong correlation between the two parameters in either of these surveys and we note that the KDS and AMAZE Clean galaxies are generally in agreement.
+The AMAZE Clean ($z\simeq3$) sample galaxies (see \protect\cref{subsec:AMAZE}) are plotted with grey symbols and the AMAZE Unconstrained sample with hollow symbols.    There is no strong correlation between the two parameters in either of these surveys and we note that the KDS and AMAZE Clean galaxies are generally in agreement.
 The $V_{C}/\sigma_{int} = 1$ line divides the galaxies classified as rotation-dominated and dispersion-dominated.
 The galaxy s\_sa22a-M38, classified here as a merger but classified in \protect\cite{Gnerucci2011} as a rotating galaxy with $V_{C} = 346 kms^{-1}$ is marked on the plot.}
 \label{fig:intrinsic_parameters}
@@ -1387,8 +1427,9 @@ The figure captions provide more information on each of the panels of these grid
     \includegraphics[width=0.95\textwidth]{GOODS_ROTATION/combine_sci_reconstructed_bs008543_grid_paper.png}
     \includegraphics[width=0.95\textwidth]{GOODS_ROTATION/combine_sci_reconstructed_bs016759_grid_paper.png}
 
-    \caption{We plot the kinematic grids for the 13 isolated field sample galaxies classified as rotation-dominated.
+    \caption{We plot the kinematic grids for the 13/32 isolated field sample galaxies classified as rotation-dominated.
     For each galaxy we plot the {\em HST} image, {\tt GALFIT} model and {\tt GALFIT} residuals, along with the observed [O~{\sc III}]$\lambda$5007 intensity map, dispersion map and velocity map extracted from the datacubes with gaussian-fits to the individual spaxels as described in \protect\cref{subsubsection:spaxel_fitting}.
+    The solid black line and dashed orange line plotted in various panels show $PA_{kin}$ and $PA_{morph}$ respectively.
     On the bottom row we plot the beam-smeared model velocity and data-model velocity residuals with colour bar limits tuned to the velocity model.
     Also on the bottom row, we plot extractions along $PA_{kin}$ for both the velocity and velocity dispersion.
     The grey points with errorbars on the velocity extraction plot are from the observed velocity map, the blue line and blue shaded regions represent the beam-smeared model fit to the data and errors respectively, whereas the red line and shaded regions are the intrinsic model from which $V_{C}$ is extracted.
