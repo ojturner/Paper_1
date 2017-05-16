@@ -316,7 +316,7 @@ The telescope tends to drift from its acquired position over the course of an OB
 \noindent
 We stacked all 300s exposures for each galaxy which pass the seeing criteria using 3-sigma clipping, leaving us with a flux and wavelength-calibrated datacube for every object in the KDS sample.
 We have found that the thermal background is often under-subtracted across the spatial extent of the cube following a first pass through the pipeline, leading to excess flux towards the long wavelength end of the {\it K}-band.
-To account for this, a polynomial function is fit, using the python package {\tt LMFIT} \citep{Newville2014}, which makes use of the Levenberg-Marquardt algorithm for non-linear curve fitting, to the median stacked spectrum from spaxels in the datacube which contain no object flux and then subtracted from each spaxel in turn. \\
+To account for this, a polynomial function is fit, using the python package {\scriptsize LMFIT} \citep{Newville2014}, which makes use of the Levenberg-Marquardt algorithm for non-linear curve fitting, to the median stacked spectrum from spaxels in the datacube which contain no object flux and then subtracted from each spaxel in turn. \\
 
 \noindent
 The central coordinates of each pointing, the number of target galaxies observed, N$_{obs}$, the number of galaxies with [O~{\sc III}]$\lambda$5007 detected as measured by attempting to fit the redshifted line in the integrated galaxy spectrum using the known redshift value, N$_{Det} = 62/77$ $(81\%)$, the number with spatially-resolved [O~{\sc III}]$\lambda$5007 emission, N$_{Res}$ (see \cref{subsubsection:spaxel_fitting}), the on source exposure time and the averaged seeing conditions are listed in Table \ref{tab:pointings}.
@@ -554,7 +554,7 @@ The redshift value determined from fitting the [O~{\sc III}]$\lambda$5007 line i
 We searched a narrow region around $\lambda_{obs_{5007}}$ for the peak flux, assumed to correspond to the ionised gas emission, and extracted a 5$\AA$ region (corresponding to 20 spectral elements) centred on this peak.
 This truncated spectrum was then used in the fitting procedure for each spaxel.
 The width of the extraction region was large enough to encompass unphysically large velocity shifts, but not so large as to compromise the fitting by potentially encompassing regions of the spectrum plagued by strong sky-line residuals.
-A single gaussian model was fit to the extraction region, again using {\tt LMFIT} \citep{Newville2014}, returning the values of the best-fitting flux, $F_{g}$, central wavelength, $\lambda_{g}$, and dispersion, $\sigma_{g}$.
+A single gaussian model was fit to the extraction region, again using {\scriptsize LMFIT} \citep{Newville2014}, returning the values of the best-fitting flux, $F_{g}$, central wavelength, $\lambda_{g}$, and dispersion, $\sigma_{g}$.
 These parameters, along with the estimate of the noise in the datacube, were used to assess whether the fitting of the [O~{\sc III}]$\lambda$5007 line is acceptable or not. 
 
 The noise was estimated by masking all datacube spaxels containing object flux and computing the standard deviation of the flux values in the spectral extraction region for all remaining spaxels inwards of 0.3$^{\prime\prime}$ from the cube boundary (over the same spectral region as considered to find the peak object flux).
@@ -576,7 +576,7 @@ The signal in each spaxel was taken as the sum of the flux values across the spe
 The criteria for accepting the fit within a given spaxel are as follows:
 
 \begin{enumerate}[label=(\roman*),align=left]
-\item The uncertainties on any of the parameters of the gaussian-fit as returned by {\tt LMFIT} must not exceed 30\%
+\item The uncertainties on any of the parameters of the gaussian-fit as returned by {\scriptsize LMFIT} must not exceed 30\%
 \item $\frac{S}{N_{m}} > 3$
 \end{enumerate}
 
@@ -940,7 +940,7 @@ Studies of the redshift evolution of the stellar mass Tully-Fisher relation do n
 High-redshift galaxy surveys typically do not trace the progenitors of those at lower redshift, as evidenced by the larger observed stellar and baryonic masses \citep[e.g.][]{Cresci2009,Reyes2011,Wisnioski2015,Ubler2017}.
 Rather, these studies trace the evolution of the relation itself, the position of which is dictated by the mean properties of typical star-forming galaxies at each redshift slice.
 Some authors have reported that as redshift increases, the relation shifts towards lower masses at fixed rotation velocity \citep[e.g.][]{Puech2008,Cresci2009,Puech2010,Straatman2017,Ubler2017}.
-However most find that when selecting rotation-dominated galaxies between $0.5 < z < 2$ \citep[e.g.][]{Flores2006,Miller2011,Kassin2012,Miller2012,Vergani2012,Miller2014,Contini2015a,DiTeodoro2016,Simons2016,Pelliccia2017,Molina2017,Harrison2017} the results are consistent with zero evolution of the slope and zero-point of the relation.
+However most find that when selecting rotation-dominated galaxies between $0.5 < z < 2$ \citep[e.g.][]{Flores2006,Miller2011,Kassin2012,Miller2012,Vergani2012,Miller2014,Contini2015a,DiTeodoro2016,Pelliccia2017,Molina2017,Harrison2017} the results are consistent with zero evolution of the slope and zero-point of the relation.
 At $z\simeq3$ observations are limited and in \cite{Gnerucci2011} an offset of $-$1.29 dex towards lower mass at fixed rotation velocity is claimed, although there is large degree of scatter between the individual galaxies, and the AMAZE Clean sample from \cite{Gnerucci2011} defined in \cref{subsec:AMAZE} is consistent with the $z\simeq0$ relation. \\
 
 \noindent
@@ -1249,6 +1249,7 @@ The main conclusions of this work are summarised as follows:
 
 \section*{Acknowledgements}
 
+OJT acknowledges the financial support of the Science and Technology Facilities Council through a studentship award. 
 MC and OJT acknowledge the KMOS team and all the personnel of the European Southern Observatory Very Large Telescope for outstanding support during the KMOS GTO observations.
 CMH, AMS and RMS acknowledge the Science and Technology Facilities Council through grant code ST/L00075X/1.
 RJM acknowledges the support of the European Research Council via the award of a Consolidator Grant (PI: McLure).
